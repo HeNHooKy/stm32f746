@@ -10,13 +10,13 @@
 #include "DryEvent.h"
 
 //итераторы массивов событий
-uint8_t sundayID = 0; //id воскресений
-uint8_t mondayID = 0; //id понедельников
-uint8_t tuesdayID = 0; //id вторников
-uint8_t wednesdayID = 0; //id сред
-uint8_t thursdayID = 0;//id четвергов
-uint8_t fridayID = 0;//id пятниц
-uint8_t saturdayID = 0;//id суббот
+int sundayID = 0; //id воскресений
+int mondayID = 0; //id понедельников
+int tuesdayID = 0; //id вторников
+int wednesdayID = 0; //id сред
+int thursdayID = 0;//id четвергов
+int fridayID = 0;//id пятниц
+int saturdayID = 0;//id суббот
 
 //массивы событий
 struct dryEvent sundayEvents[MAX_EVENTS];
@@ -29,7 +29,7 @@ struct dryEvent saturdayEvents[MAX_EVENTS];
 
 
 //добавляет событие сушки на указанный день, в указанное время, с указанной длительностью и температурой
-int AddDryEvent(uint8_t day, uint8_t hour, uint8_t minut, uint8_t duration, uint8_t temp)
+int AddDryEvent(int day, int hour, int minut, int duration_F, int temp_F, int duration_S, int temp_S)
 {
 	if (day < 0 || day > 6)
 	{
@@ -39,62 +39,69 @@ int AddDryEvent(uint8_t day, uint8_t hour, uint8_t minut, uint8_t duration, uint
 	switch (day)
 	{
 	case Sunday:
-		if (IsMayAdded(sundayEvents, sundayID, day, hour, minut, duration))
+		if (IsMayAdded(sundayEvents, sundayID, day, hour, minut, duration_F, duration_S))
 		{
-			SetUpEvent(sundayEvents, sundayID, day, hour, minut, duration, temp);
+			SetUpEvent(sundayEvents, sundayID, day, hour, minut, duration_F, temp_F, duration_S, temp_S);
 			sundayID = sundayID + 1;
+			return EVENT_OK;
 		}
 		break;
 	case Monday:
-		if (IsMayAdded(mondayEvents, mondayID, day, hour, minut, duration))
+		if (IsMayAdded(mondayEvents, mondayID, day, hour, minut, duration_F, duration_S))
 		{
-			SetUpEvent(mondayEvents, mondayID, day, hour, minut, duration, temp);
+			SetUpEvent(mondayEvents, mondayID, day, hour, minut, duration_F, temp_F, duration_S, temp_S);
 			mondayID = mondayID + 1;
+			return EVENT_OK;
 		}
 		break;
 	case Tuesday:
-		if (IsMayAdded(tuesdayEvents, tuesdayID, day, hour, minut, duration))
+		if (IsMayAdded(tuesdayEvents, tuesdayID, day, hour, minut, duration_F, duration_S))
 		{
-			SetUpEvent(tuesdayEvents, tuesdayID, day, hour, minut, duration, temp);
+			SetUpEvent(tuesdayEvents, tuesdayID, day, hour, minut, duration_F, temp_F, duration_S, temp_S);
 			tuesdayID = tuesdayID + 1;
+			return EVENT_OK;
 		}
 		break;
 	case Wednesday:
-		if (IsMayAdded(wednesdayEvents, wednesdayID, day, hour, minut, duration))
+		if (IsMayAdded(wednesdayEvents, wednesdayID, day, hour, minut, duration_F, duration_S))
 		{
-			SetUpEvent(wednesdayEvents, wednesdayID, day, hour, minut, duration, temp);
+			SetUpEvent(wednesdayEvents, wednesdayID, day, hour, minut, duration_F, temp_F, duration_S, temp_S);
 			wednesdayID = wednesdayID + 1;
+			return EVENT_OK;
 		}
 		break;
 	case Thursday:
-		if (IsMayAdded(thursdayEvents, thursdayID, day, hour, minut, duration))
+		if (IsMayAdded(thursdayEvents, thursdayID, day, hour, minut, duration_F, duration_S))
 		{
-			SetUpEvent(thursdayEvents, thursdayID, day, hour, minut, duration, temp);
+			SetUpEvent(thursdayEvents, thursdayID, day, hour, minut, duration_F, temp_F, duration_S, temp_S);
 			thursdayID = thursdayID + 1;
+			return EVENT_OK;
 		}
 		break;
 	case Friday:
-		if (IsMayAdded(fridayEvents, fridayID, day, hour, minut, duration))
+		if (IsMayAdded(fridayEvents, fridayID, day, hour, minut, duration_F, duration_S))
 		{
-			SetUpEvent(fridayEvents, fridayID, day, hour, minut, duration, temp);
+			SetUpEvent(fridayEvents, fridayID, day, hour, minut, duration_F, temp_F, duration_S, temp_S);
 			fridayID = fridayID + 1;
+			return EVENT_OK;
 		}
 		break;
 	case Saturday:
-		if (IsMayAdded(saturdayEvents, saturdayID, day, hour, minut, duration))
+		if (IsMayAdded(saturdayEvents, saturdayID, day, hour, minut, duration_F, duration_S))
 		{
-			SetUpEvent(saturdayEvents, saturdayID, day, hour, minut, duration, temp);
+			SetUpEvent(saturdayEvents, saturdayID, day, hour, minut, duration_F, temp_F, duration_S, temp_S);
 			saturdayID = saturdayID + 1;
+			return EVENT_OK;
 		}
 		break;
 	default:
 		return EVENT_ERR_DAY_NOT_EXISTS;
 	}
-	return EVENT_OK;
+	return EVENT_NO;
 }
 
 //удаляет указанное событие из массива определенного дня
-int DelDryEvent(uint8_t day, uint8_t id)
+int DelDryEvent(int day, int id)
 {
 	if (id < 0 && id > 9)
 	{
@@ -133,7 +140,7 @@ int DelDryEvent(uint8_t day, uint8_t id)
 //проверяет необходимость вызова события какого либо события
 //возвращает EVENT_AWAY - действий не требуется
 //возвращает 0-9 - необходимо вызвать соответствующее событие
-int IsNeedExecuteEventID(uint8_t day, uint8_t hour, uint8_t minut)
+int IsNeedExecuteEventID(int day, int hour, int minut)
 {
 	switch (day)
 	{
@@ -167,65 +174,75 @@ int IsNeedExecuteEventID(uint8_t day, uint8_t hour, uint8_t minut)
 
 //возращает 0 - если событие невозможно добавить в указанный массив
 //и единицу в противном случае
-int IsMayAdded(struct dryEvent* dayArray, uint8_t max, uint8_t day, uint8_t hour, uint8_t minut, uint8_t duration)
+int IsMayAdded(struct dryEvent* dayArray, int max, int day, int hour, int minut, int duration_F, int duration_S)
 {
 	if (max + 1 >= MAX_EVENTS)
 	{
 		return 0;
 	}
 
-	uint8_t thisTimeStart = minut + (hour * 60) - DIFFERENCE;
-	uint8_t thisTimeEnd = thisTimeStart + duration + DIFFERENCE;
+	int thisTimeStart = minut + (hour * 60) - DIFFERENCE;
+	int thisTimeEnd = thisTimeStart + GetMax(duration_F, duration_S) + DIFFERENCE;
 
-	uint8_t anyTimeStart = 0;
-	uint8_t anyTimeEnd = 0;
+	int anyTimeStart = 0;
+	int anyTimeEnd = 0;
 
-	for (uint8_t i = 0; i <= max; i = i + 1)
-	{
-		anyTimeStart = (dayArray[i].startHour * 60) + (dayArray[i].startMinut);
-		anyTimeEnd = anyTimeStart + dayArray[i].duration;
 
-		if ((anyTimeStart > thisTimeStart && anyTimeStart < thisTimeEnd) ||
-			(anyTimeEnd > thisTimeStart && anyTimeEnd < thisTimeEnd) ||
-			(thisTimeStart > anyTimeStart && thisTimeStart < anyTimeEnd) ||
-			(thisTimeEnd > anyTimeStart && thisTimeEnd < anyTimeEnd))
+		for (int i = 0; i <= max; i = i + 1)
 		{
-			return 0;
+			anyTimeStart = (dayArray[i].startHour * 60) + (dayArray[i].startMinut);
+			anyTimeEnd = anyTimeStart + GetMax(dayArray[i].duration_F, dayArray[i].duration_S);
+
+			if ((anyTimeStart > thisTimeStart && anyTimeStart < thisTimeEnd) ||
+				(anyTimeEnd > thisTimeStart && anyTimeEnd < thisTimeEnd) ||
+				(thisTimeStart > anyTimeStart && thisTimeStart < anyTimeEnd) ||
+				(thisTimeEnd > anyTimeStart && thisTimeEnd < anyTimeEnd))
+			{
+				return 0;
+			}
 		}
-	}
 	return 1;
 }
 
 //заносит все данные в массив
-void SetUpEvent(struct dryEvent* dayArray, uint8_t id, uint8_t day, uint8_t hour, uint8_t minut, uint8_t duration, uint8_t temp)
+void SetUpEvent(struct dryEvent* dayArray, int id, int day, int hour, int minut, int duration_F, int temp_F, int duration_S, int temp_S)
 {
 	dayArray[id].id = id;
 	dayArray[id].startDay = day;
 	dayArray[id].startHour = hour;
 	dayArray[id].startMinut = minut;
-	dayArray[id].duration = duration;
-	dayArray[id].temp = temp;
+	dayArray[id].duration_F = duration_F;
+	dayArray[id].temp_F = temp_F;
+	dayArray[id].duration_S = duration_S;
+	dayArray[id].temp_S = temp_S;
 }
 
 //делает сдвиг массива данных "влево" направленный на id
-void SetDownEvent(struct dryEvent* dayArray, uint8_t dayID, uint8_t id)
+void SetDownEvent(struct dryEvent* dayArray, int dayID, int id)
 {
-	for (uint8_t i = id; i < dayID; i = i + 1)
+	dayArray[id].id = 0;
+	dayArray[id].startDay = 0;
+	dayArray[id].startHour = 0;
+	dayArray[id].startMinut = 0;
+
+	for (int i = id; i < dayID; i = i + 1)
 	{
 		dayArray[i].id = dayArray[i + 1].id;
 		dayArray[i].startDay = dayArray[i + 1].startDay;
 		dayArray[i].startHour = dayArray[i + 1].startHour;
 		dayArray[i].startMinut = dayArray[i + 1].startMinut;
-		dayArray[i].duration = dayArray[i + 1].duration;
-		dayArray[i].temp = dayArray[i + 1].temp;
+		dayArray[i].duration_F = dayArray[i + 1].duration_F;
+		dayArray[i].temp_F = dayArray[i + 1].temp_F;
+		dayArray[i].duration_S = dayArray[i + 1].duration_S;
+		dayArray[i].temp_S = dayArray[i + 1].temp_S;
 	}
 }
 
-//проверяет что нужно возвращать IsNeedExecuteEvent: EVENT_AWAY или id
-int ExecuteChecker(struct dryEvent* dayArray, uint8_t dayID, uint8_t day, uint8_t hour, uint8_t minut)
+//возвращает id если событие с такими параметрами существует: EVENT_AWAY или id
+int ExecuteChecker(struct dryEvent* dayArray, int dayID, int day, int hour, int minut)
 {
 
-	for (uint8_t i = 0; i <= dayID; i = i + 1)
+	for (int i = 0; i <= dayID; i = i + 1)
 	{
 		if (dayArray[i].startDay == day && dayArray[i].startHour == hour && dayArray[i].startMinut == minut)
 		{
@@ -235,64 +252,123 @@ int ExecuteChecker(struct dryEvent* dayArray, uint8_t dayID, uint8_t day, uint8_
 	return -1;
 }
 
-//получение длительности соответствующего события
-uint8_t GetDurationEvent(uint8_t day, uint8_t id)
+//возвращает больший элемент из двух принятых
+int GetMax(int a, int b)
 {
-	switch (day)
+	if (a >= b)
 	{
-	case Sunday:
-		return sundayEvents[id].duration;
-		break;
-	case Monday:
-		return mondayEvents[id].duration;
-		break;
-	case Tuesday:
-		return tuesdayEvents[id].duration;
-		break;
-	case Wednesday:
-		return wednesdayEvents[id].duration;
-		break;
-	case Thursday:
-		return thursdayEvents[id].duration;
-		break;
-	case Friday:
-		return fridayEvents[id].duration;
-		break;
-	case Saturday:
-		return saturdayEvents[id].duration;
-		break;
-	default:
+		return a;
+	}
+	else
+	{
+		return b;
+	}
+}
+
+//получение длительности соответствующего события
+int GetDurationEvent_F(int day, int id)
+{
+	if (id < 0 || id > MAX_EVENTS)
+	{
+		return EVENT_ERR_ID_NOT_EXISTS;
+	}
+
+	struct dryEvent* dayArray = GetPointerArray(day);
+	if (dayArray != NULL)
+	{
+		return dayArray[id].duration_F;
+	}
+	else
+	{
 		return EVENT_ERR_DAY_NOT_EXISTS;
 	}
 }
 
 //получение температуры соответствующего события
-uint8_t GetTempEvent(uint8_t day, uint8_t id)
+int GetTempEvent_F(int day, int id)
+{
+	if (id < 0 || id > MAX_EVENTS)
+	{
+		return EVENT_ERR_ID_NOT_EXISTS;
+	}
+
+	struct dryEvent* dayArray = GetPointerArray(day);
+	if (dayArray != NULL)
+	{
+		return dayArray[id].temp_F;
+	}
+	else
+	{
+		return EVENT_ERR_DAY_NOT_EXISTS;
+	}
+}
+
+//получение длительности соответствующего события
+int GetDurationEvent_S(int day, int id)
+{
+	if (id < 0 || id > MAX_EVENTS)
+	{
+		return EVENT_ERR_ID_NOT_EXISTS;
+	}
+
+	struct dryEvent* dayArray = GetPointerArray(day);
+	if (dayArray != NULL)
+	{
+		return dayArray[id].duration_S;
+	}
+	else
+	{
+		return EVENT_ERR_DAY_NOT_EXISTS;
+	}
+}
+
+//получение температуры соответствующего события
+int GetTempEvent_S(int day, int id)
+{
+	if (id < 0 || id > MAX_EVENTS)
+	{
+		return EVENT_ERR_ID_NOT_EXISTS;
+	}
+
+	struct dryEvent* dayArray = GetPointerArray(day);
+	if (dayArray != NULL)
+	{
+		return dayArray[id].temp_S;
+	}
+	else
+	{
+		return EVENT_ERR_DAY_NOT_EXISTS;
+	}
+}
+
+
+//возващает указатель на выбранный массив
+struct dryEvent* GetPointerArray(int day)
 {
 	switch (day)
 	{
 	case Sunday:
-		return sundayEvents[id].temp;
+		return sundayEvents;
 		break;
 	case Monday:
-		return mondayEvents[id].temp;
+		return mondayEvents;
 		break;
 	case Tuesday:
-		return tuesdayEvents[id].temp;
+		return tuesdayEvents;
 		break;
 	case Wednesday:
-		return wednesdayEvents[id].temp;
+		return wednesdayEvents;
 		break;
 	case Thursday:
-		return thursdayEvents[id].temp;
+		return thursdayEvents;
 		break;
 	case Friday:
-		return fridayEvents[id].temp;
+		return fridayEvents;
 		break;
 	case Saturday:
-		return saturdayEvents[id].temp;
+		return saturdayEvents;
 		break;
 	default:
-		return EVENT_ERR_DAY_NOT_EXISTS;
+		return NULL;
 	}
 }

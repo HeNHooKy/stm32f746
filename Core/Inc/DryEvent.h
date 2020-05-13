@@ -11,7 +11,7 @@
 extern "C" {
 #endif
 
-#define MAX_EVENTS 10 //максимум событий за день
+#define MAX_EVENTS 10
 
 #define DIFFERENCE 5 //минимальная разница между событиями
 
@@ -27,32 +27,41 @@ extern "C" {
 #define EVENT_ERR_ID_NOT_EXISTS -3
 
 #define EVENT_AWAY -1
+#define EVENT_NO 0
 #define EVENT_OK 1 //отчет
+
 
 struct dryEvent
 {
-	uint8_t id; //порядковый номер события
-	uint8_t startDay; //Целое число - день недели [0-6]
-	uint8_t startHour; //Целое число - час начала сушки
-	uint8_t startMinut; //Целое число - минута начала сушки
-	uint8_t duration; //Целое число - минуты
-	uint8_t temp; //Целое число - температура
+	int id; //порядковый номер события
+	int startDay; //Целое число - день недели [0-6]
+	int startHour; //Целое число - час начала сушки
+	int startMinut; //Целое число - минута начала сушки
+	int duration_F; //Целое число - минуты
+	int temp_F; //Целое число - температура
+	int duration_S; //Целое число - минуты
+	int temp_S; //Целое число - температура
 };
 
 //внешние функции
-int AddDryEvent(uint8_t day, uint8_t hour, uint8_t minut, uint8_t duration, uint8_t temp);
-int DelDryEvent(uint8_t day, uint8_t id);
-int IsNeedExecuteEventID(uint8_t day, uint8_t hour, uint8_t minut);
+int AddDryEvent(int day, int hour, int minut, int duration_F, int temp_F, int duration_S, int temp_S);
+int DelDryEvent(int day, int id);
+int IsNeedExecuteEventID(int day, int hour, int minut);
 
 //внутренние вспомогательные процедуры
-int IsMayAdded(struct dryEvent* dayArray, uint8_t max, uint8_t day, uint8_t hour, uint8_t minut, uint8_t duration);
-int ExecuteChecker(struct dryEvent* dayArray, uint8_t dayID, uint8_t day, uint8_t hour, uint8_t minut);
-void SetUpEvent(struct dryEvent* dayArray, uint8_t id, uint8_t day, uint8_t hour, uint8_t minut, uint8_t duration, uint8_t temp);
-void SetDownEvent(struct dryEvent* dayArray, uint8_t dayID, uint8_t id);
+int IsMayAdded(struct dryEvent* dayArray, int max, int day, int hour, int minut, int duration_F, int duration_S);
+int ExecuteChecker(struct dryEvent* dayArray, int dayID, int day, int hour, int minut);
+void SetUpEvent(struct dryEvent* dayArray, int id, int day, int hour, int minut, int duration_F, int temp_F, int duration_S, int temp_S);
+void SetDownEvent(struct dryEvent* dayArray, int dayID, int id);
+int GetMax(int a, int b);
+struct dryEvent* GetPointerArray(int day);
 
 //функции-свойства
-uint8_t GetDurationEvent(uint8_t day, uint8_t id);
-uint8_t GetTempEvent(uint8_t day, uint8_t id);
+int GetDurationEvent_F(int day, int id);
+int GetTempEvent_F(int day, int id);
+int GetDurationEvent_S(int day, int id);
+int GetTempEvent_S(int day, int id);
+
 
 #ifdef __cplusplus
 }
