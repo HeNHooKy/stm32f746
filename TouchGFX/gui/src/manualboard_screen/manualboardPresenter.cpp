@@ -17,6 +17,11 @@ void manualboardPresenter::deactivate()
 
 }
 
+void manualboardPresenter::uartMsgRdy(int value)
+{
+	view.uartMsgRdy(value);
+}
+
 void manualboardPresenter::StartDryLeft(int time, int temp)
 {
 	model->SendLeftTemp(temp);

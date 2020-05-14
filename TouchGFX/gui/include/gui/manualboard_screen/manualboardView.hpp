@@ -27,6 +27,7 @@ public:
 	virtual void ChangeTempLeft(int value);
 	virtual void ChangeTempRight(int value);
 
+	virtual void uartMsgRdy(int value);
 
 	virtual void StartDryLeft();
 

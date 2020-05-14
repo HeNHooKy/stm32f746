@@ -24,6 +24,9 @@ public:
      * (ie. made inactive). Teardown functionality can be placed here.
      */
     virtual void deactivate();
+
+    virtual void uartMsgRdy(int value);
+
     virtual void StartDryLeft(int time, int temp);
 
     virtual ~manualboardPresenter() {};

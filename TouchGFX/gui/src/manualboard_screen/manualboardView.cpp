@@ -100,3 +100,9 @@ void manualboardView::StartDryLeft()
 	int temp = getTempLeft();
 	presenter->StartDryLeft(time, temp);
 }
+
+void manualboardView::uartMsgRdy(int value)
+{
+	setHoursLeft(value);
+	UpdateLeft();
+}

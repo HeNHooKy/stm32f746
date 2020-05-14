@@ -19,7 +19,7 @@ uint8_t CONSTANT[SIZE_CONSTANT];
 
 //массивы принимаемых значений
 uint8_t Receive_2[6]; //Массив для приема сообщений на 3 байта
-uint8_t Receive_4[8] = { 0x02, 0x38, 0x38, 0x31, 0x33, 0x03, 0x44, 0x37 }; //Массив для приема сообщений на 4 байта
+uint8_t Receive_4[8]; //Массив для приема сообщений на 4 байта
 
 //МАССИВЫ СООБЩЕНИЙ ГОТОВЫХ К ОТПРАВКЕ
 
@@ -106,9 +106,6 @@ void GX_SET_ControlSum(uint8_t* message, int size)
 //STX, Header, address, constant, controlSum
 uint8_t* GX_DECIMICAL_Parse(unsigned int address, unsigned int constant)
 {
-	unsigned int isSetAddress = 0; //проверка установлен ли адрес
-	unsigned int isSetConstant = 0; //проверка установлена ли коснтанта
-	unsigned int isSetControlSum = 0; //проверка установлена ли контрольная сумма
 
 	GX_PARSE_Address(address);
 	GX_PARSE_Constant(constant);
@@ -156,7 +153,7 @@ uint8_t* GX_MEM_Parse(unsigned int address, uint8_t status)
 
 //Проверка контрольной суммы
 //Необходимо вызывать с передачей аргументов по ссылке
-void GX_GET_ControlSum(uint8_t* message, int size, uint8_t *b, uint8_t *s)
+void GX_GET_ControlSum(uint8_t* message, int size, uint8_t* b, uint8_t* s)
 {
 	int i = 1; //пропускаем первый элемент, т.к. там хранится начало сообщения
 
@@ -186,28 +183,23 @@ void GX_GET_ControlSum(uint8_t* message, int size, uint8_t *b, uint8_t *s)
 //возвращает 1 : 0 - состояние М
 int GX_MEM_Unparse(unsigned int address)
 {
-	uint8_t big = 0x01;
-	uint8_t small = 0x01;
-
-	GX_GET_ControlSum(Receive_2, 6, &big, &small);
-	if (Receive_2[4] == small && Receive_2[5] == big)
-	{
-		//используются старые переменные,
-		//чтобы не выделять память под новые
-		small = Receive_2[1] - 0x30;
-		big = Receive_2[2] - 0x30;
-
-		small = small > 0x09 ? small - 0x07 : small;
-		big = big > 0x09 ? big - 0x07 : big;
-
-		uint8_t data = (small << 4) | (big);
-
-		return GX_MEM_Check(data, address);
-	}
-	else
-	{
+	if (!GX_CHECK_ControlSum(Receive_2, 6))
+	{	//контрольная сумма не сходится
 		return GX_ERR_CONTROL_SUM;
 	}
+
+	//используются старые переменные,
+	//чтобы не выделять память под новые
+	uint8_t small = Receive_2[1] - 0x30;
+	uint8_t big = Receive_2[2] - 0x30;
+
+	small = small > 0x09 ? small - 0x07 : small;
+	big = big > 0x09 ? big - 0x07 : big;
+
+	uint8_t data = (small << 4) | (big);
+
+	return GX_MEM_Check(data, address);
+
 }
 
 //Проверка состояния M по address
@@ -288,22 +280,19 @@ uint8_t* GX_DECIMICAL_Request(unsigned int address)
 
 //Разбирает принятое сообщение
 //Используя массив Receive_4[8]
+//возращает GX_ERR_CONTROL_SUM - контрольная сумма не сходится
 //возвращает состояние D
 int GX_DECIMICAL_Unparse()
 {
-	uint8_t small = 0x01;
-	uint8_t big = 0x01;
-
-	GX_GET_ControlSum(Receive_4, 8, &big, &small);
-	if (Receive_4[6] != small || Receive_4[7] != big)
+	if (!GX_CHECK_ControlSum(Receive_4, 8))
 	{	//контрольная сумма не сходится
 		return GX_ERR_CONTROL_SUM;
 	}
 
 	//Считываем данные и приводим их к понятному виду
 	uint8_t smaller = Receive_4[1] - GX_NULL; //от меньшего
-	small = Receive_4[2] - GX_NULL;
-	big = Receive_4[3] - GX_NULL;
+	uint8_t small = Receive_4[2] - GX_NULL;
+	uint8_t big = Receive_4[3] - GX_NULL;
 	uint8_t bigger = Receive_4[4] - GX_NULL; //к большему
 
 	smaller = smaller > 0x09 ? smaller - 0x07 : smaller;
@@ -316,4 +305,22 @@ int GX_DECIMICAL_Unparse()
 
 	uint16_t result = (big << 8) | small;
 	return result;
+}
+
+
+//Проверяет контрольную сумму
+//возращает 0 - контрольная сумма не сходится
+//возращает 1 - контрольная сумма сходится
+int GX_CHECK_ControlSum(uint8_t* message, int size)
+{
+	uint8_t small = 0x01;
+	uint8_t big = 0x01;
+
+	GX_GET_ControlSum(message, size, &big, &small);
+
+	if (message[size-2] != small || message[size-1] != big)
+	{	//контрольная сумма не сходится
+		return 0;
+	}
+	return 1;
 }

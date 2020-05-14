@@ -45,9 +45,9 @@ extern "C" {
 #define GX_D 0x34 //команда D
 
 //константы ошибок
-#define GX_ERR_CONTROL_SUM -1; //ошибка: контрольная сумма не сходится
+#define GX_ERR_CONTROL_SUM -1 //ошибка: контрольная сумма не сходится
 
-	//Парсинг
+//Парсинг
 
 uint8_t* GX_DECIMICAL_Parse(unsigned int address, unsigned int constant);
 uint8_t* GX_MEM_Parse(unsigned int address, uint8_t status);
@@ -69,8 +69,9 @@ int GX_MEM_Check(uint8_t data, unsigned int address);
 
 //работа с контрольными суммами
 
-void GX_GET_ControlSum(uint8_t* message, int size, uint8_t& big, uint8_t& small);
+void GX_GET_ControlSum(uint8_t* message, int size, uint8_t* b, uint8_t* s);
 void GX_SET_ControlSum(uint8_t* message, int size);
+int GX_CHECK_ControlSum(uint8_t* message, int size);
 
 
 

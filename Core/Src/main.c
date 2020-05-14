@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "UartController.h"
 #include <stm32746g_discovery_qspi.h>
 /* USER CODE END Includes */
 
@@ -1094,29 +1095,11 @@ void StartDefaultTask(void const * argument)
 void StartUCTask(void const * argument)
 {
   /* USER CODE BEGIN StartUCTask */
-	int isPressedButton = 0;
-	RTC_TimeTypeDef sTime = {0};
-	RTC_DateTypeDef DateToUpdate = {0};
 
 	for(;;)
 	{
-
-		if(HAL_GPIO_ReadPin(GPIOI, GPIO_PIN_11) == 1)
-		{
-			isPressedButton = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(GPIOI, GPIO_PIN_11) == 0 && isPressedButton)
-		{
-			HAL_GPIO_TogglePin(GPIOI, GPIO_PIN_1);
-
-			HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
-			HAL_RTC_GetDate(&hrtc, &DateToUpdate, RTC_FORMAT_BIN);
-
-
-			isPressedButton = 0;
-		}
-
+		UC_Routine();
+		osDelay(10);
 	}
 
   /* USER CODE END StartUCTask */

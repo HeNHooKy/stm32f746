@@ -10,7 +10,7 @@ public:
     
     virtual ~ModelListener() {}
 
-    virtual void uartMsgRdy() {}
+    virtual void uartMsgRdy(int value) {}
 
     void bind(Model* m)
     {
