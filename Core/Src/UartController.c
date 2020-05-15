@@ -43,14 +43,24 @@ uint8_t R[1] = {0x00}; //служит для проверка доставки �
 //добавляет новый запрос в очередь
 void QueueAdd(unsigned int message, unsigned int group, unsigned int address, unsigned int command, unsigned int* answer, int* status)
 {
+	//ИСКЛЮЧИТЕЛЬНАЯ СИТУАЦИЯ. РАЗМЕР ОЧЕРЕДИ СТАЛ СЛИШКОМ БОЛЬШОЙ
+	if (&queue[q_i] == Head)
+	{
+		return;
+	}
+
 	taskENTER_CRITICAL();
 	{	//зарпещаем планировщику переключать процесс
 		PNode elem = &queue[q_i];
-		q_i = q_i + 1;
+		q_i++;  //реализуем кольцевой массив
+		q_i = q_i < UC_QUEUE_SIZE ? q_i : 0;
+
 		if (elem == NULL)
 		{
 			return;
 		}
+
+		elem->Next = NULL;
 		//заполняем новый элемент
 		elem->message = message;
 		elem->group = group;
@@ -59,21 +69,23 @@ void QueueAdd(unsigned int message, unsigned int group, unsigned int address, un
 		elem->status = status;
 		elem->command = command;
 
-		*elem->status = UC_AWAIT; //устанавливаем состояния "ожидает"
+		elem->sost = UC_AWAIT; //устанавливаем состояния "ожидает"
 
-		if (Head == NULL)
+		//обновляем состояние пользователя
+		*elem->status = elem->sost;
+
+
+		//КОНЕЦ ИСКЛЮЧИТЕЛЬНОЙ СИТУАЦИИ
+		if (Tail == NULL)
 		{
 			Head = elem;
-			Tail = elem;
-			elem->Next = NULL;
+			Tail = Head;
 		}
 		else
 		{
 			Tail->Next = elem;
 			Tail = elem;
-			Tail->Next = NULL;
 		}
-		data = *Head->status;
 	}//завершение. Можно разрешить планировщику работать в привычном режиме
 	taskEXIT_CRITICAL();
 }
@@ -82,18 +94,22 @@ void QueueAdd(unsigned int message, unsigned int group, unsigned int address, un
 //перемещает указатель Head на следующий за ним элемент
 void QueueDel()
 {
+    if (Head == NULL)
+    {
+        return;
+    }
+
     if (Head == Tail)
     {
-        Head = NULL;
         Tail = NULL;
+        Head = NULL;
+        q_i = 0;
     }
     else
     {
         Head = Head->Next;
     }
-    q_i--;
 }
-
 //функции управления UART
 
 //Отправляет сообщение message на указанный адрес address группы group
@@ -102,15 +118,47 @@ void QueueDel()
 void UC_SEND_Message()
 {
 	uint8_t* message;
+	uint8_t size;
+
+	//т.к. иных груп вызвано быть не может, исключения не обрабатываются
 	if(Head->group == GROUP_M)
-	{	//парсит сообщение и передает его в
+	{	//парсит сообщение
 		message = GX_MEM_Parse(Head->address, Head->message);
-		HAL_UART_Transmit_IT(&huart6, message, SIZE_M);
+		size = SIZE_M;
 	}
 	else if(Head->group == GROUP_D)
 	{
 		message = GX_DECIMICAL_Parse(Head->address, Head->message);
-		HAL_UART_Transmit_IT(&huart6, message, SIZE_D2);
+		size = SIZE_D2;
+	}
+
+	while((attempt < 3 && Head->sost == UC_SENDING) || (Head->sost == UC_CON_SUM_ERR && attempt < 5))
+	{
+		if(Head->sost == UC_CON_SUM_ERR)
+		{	//если не сходится контрольная сумма, ставим режим отправки
+			Head->sost = UC_SENDING;
+
+			//обновляем состояние пользователя
+			*Head->status = Head->sost;
+		}
+
+		//передача сообщения
+		attempt = attempt + 1;
+		HAL_UART_Transmit_IT(&huart6, message, size);
+
+		if(Head->sost == UC_SENDING)
+		{	//если ответ вдруг уже пришел, ждать не нужно
+			osDelay(UC_DELAY);
+		}
+
+	}
+
+	if(Head->sost == UC_SENDING)
+	{	//если ответ так и не был получен, ставим
+		Head->sost = UC_SENDING_ERR;
+
+		//обновляем состояние пользователя
+		*Head->status = Head->sost;
 	}
 }
 
@@ -119,16 +167,47 @@ void UC_SEND_Message()
 void UC_SEND_Request()
 {
 	uint8_t* message;
+	uint8_t size = SIZE_REQUEST;
+
+	//т.к. иных груп вызвано быть не может, исключения не обрабатываются
 	if(Head->group == GROUP_M)
-	{
+	{	//парсит сообщение
 		message = GX_MEM_Request(Head->address);
-		HAL_UART_Transmit_IT(&huart6, message, SIZE_M);
+
 	}
 	else if(Head->group == GROUP_D)
 	{
 		message = GX_DECIMICAL_Request(Head->address);
-		HAL_UART_Transmit_IT(&huart6, message, SIZE_D2);
 	}
+
+	while((attempt < 3 && Head->sost == UC_SENDING) || (Head->sost == UC_CON_SUM_ERR && attempt < 5))
+	{
+		if(Head->sost == UC_CON_SUM_ERR)
+		{	//если не сходится контрольная сумма, ставим режим отправки
+			Head->sost = UC_SENDING;
+
+			//обновляем состояние пользователя
+			*Head->status = Head->sost;
+		}
+
+		//передача сообщения
+		attempt = attempt + 1;
+		HAL_UART_Transmit_IT(&huart6, message, size);
+
+		if(Head->sost == UC_SENDING)
+		{	//если ответ вдруг уже пришел, ждать не нужно
+			osDelay(UC_DELAY);
+		}
+	}
+
+	if(Head->sost == UC_SENDING)
+	{	//если ответ так и не был получен, ставим
+		Head->sost = UC_SENDING_ERR;
+
+		//обновляем состояние пользователя
+		*Head->status = Head->sost;
+	}
+
 }
 
 //добавляет указанный запрос в очередь, если это возможно
@@ -152,92 +231,100 @@ void UC_Routine()
         return;
     }
 
-    if (*Head->status == UC_SENDED_OK || *Head->status == UC_SENDING_ERR)
+    //если запрос выполнился - удалить
+    if (Head->sost == UC_SENDED_OK || Head->sost == UC_SENDING_ERR)
     {
+    	HAL_UART_Abort_IT(&huart6);
     	attempt = 0;
         QueueDel();
         return;
     }
 
-    if (*Head->status == UC_SENDING)
+    //если запрос выполняется - подождать
+    if (Head->sost == UC_SENDING)
     {
         return;
     }
 
-    if (*Head->status == UC_AWAIT)
+    //если запрос ожидает выполнения - выполнить
+    if (Head->sost == UC_AWAIT)
     {
+    	//сообщение отправлено на передачу
+    	Head->sost = UC_SENDING;
+
+    	//обновляем состояние пользователя
+    	*Head->status = Head->sost;
+
         if (Head->command == UC_REQUEST)
         {
+        	if(Head->group == GROUP_D)
+			{	//запуск прослушки канала
+				HAL_UART_Receive_IT(&huart6, Receive_4, 8);
+			}
+			else if(Head->group == GROUP_M)
+			{	//запуск прослушки канала
+				HAL_UART_Receive_IT(&huart6, Receive_2, 6);
+			}
+        	//отправка запроса
             UC_SEND_Request();
         }
         else if (Head->command == UC_SET)
-        {
+        {	//запуск прослушки канала
+        	HAL_UART_Receive_IT(&huart6, R, 1);
+        	//отправка сообщения
             UC_SEND_Message();
         }
     }
 }
 
-
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-{
-	attempt = attempt + 1;
-
-	if(Head->command == UC_REQUEST)
-	{
-		if(Head->group == GROUP_D)
-		{
-			if((HAL_UART_Receive_IT(huart, Receive_4, 8) != HAL_OK) && attempt < 3)
-			{
-				UC_SEND_Request();
-			}
-		}
-		else if(Head->group == GROUP_M)
-		{
-			if((HAL_UART_Receive_IT(huart, Receive_2, 6) != HAL_OK) && attempt < 3)
-			{
-				UC_SEND_Request();
-			}
-		}
-	}
-	else
-	{
-		if((HAL_UART_Receive_IT(huart, R, 1) != HAL_OK) && attempt < 3)
-		{
-			UC_SEND_Message();
-		}
-	}
-	if(attempt >= 2)
-	{
-		*Head->status = UC_SENDING_ERR;
-	}
-}
-
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+	HAL_GPIO_TogglePin(GPIOI, GPIO_PIN_1);
+
 	if(Head->command == UC_REQUEST)
 	{
-		int data = 0;
-
+		int data;
 		if(Head->group == GROUP_D)
 		{
 			data = GX_DECIMICAL_Unparse();
+			if(data == GX_ERR_CONTROL_SUM)
+			{	//контрольная сумма не сошлась
+				Head->sost = UC_CON_SUM_ERR;
+
+				//обновляем состояние пользователя
+				*Head->status = Head->sost;
+
+				HAL_UART_Receive_IT(huart, Receive_4, 8);
+				return;
+			}
+			else
+			{
+				*Head->answer = data;
+			}
 		}
 		else if(Head->group == GROUP_M)
 		{
 			data = GX_MEM_Unparse(Head->address);
-		}
+			if(data == GX_ERR_CONTROL_SUM)
+			{	//контрольная сумма не сошлась
+				Head->sost = UC_CON_SUM_ERR;
 
-		if(data != GX_ERR_CONTROL_SUM)
-		{
-			*Head->answer = data;
-		}
-		else
-		{
-			UC_SEND_Request();
-			return;
+				//обновляем состояние пользователя
+				*Head->status = Head->sost;
+
+				HAL_UART_Receive_IT(huart, Receive_2, 6);
+				return;
+			}
+			else
+			{
+				*Head->answer = data;
+			}
 		}
 	}
-	*Head->status = UC_SENDED_OK;
+	Head->sost = UC_SENDED_OK;
+
+	//обновляем состояние пользователя
+	*Head->status = Head->sost;
 }
 
 #ifdef __cplusplus

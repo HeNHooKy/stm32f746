@@ -3,6 +3,9 @@
 #include "UartController.h"
 #include "configuration.h"
 
+
+
+
 extern int data;
 unsigned int answer = 0;
 int status = 0;
@@ -19,6 +22,6 @@ void Model::tick()
 
 void Model::SendLeftTemp(int value)
 {
-	UC_SEND(value, GROUP_D, ADDRESS_TEMP_LEFT, UC_SET, &answer, &status);
-
+	UC_SEND(SET_M, GROUP_M, ADDRESS_MANUAL_MODE_RIGHT, UC_SET, &answer, &status);
 }
+
