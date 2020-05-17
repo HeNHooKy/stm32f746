@@ -10,39 +10,75 @@ mainboardViewBase::mainboardViewBase() :
     buttonCallback(this, &mainboardViewBase::buttonCallbackHandler)
 {
 
-    image1.setXY(0, 0);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_FON_ID));
+    fon.setXY(0, 0);
+    fon.setBitmap(touchgfx::Bitmap(BITMAP_FON_ID));
 
-    manualbutton.setXY(6, 84);
-    manualbutton.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_MEDIUM_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_MEDIUM_PRESSED_ID));
+    manualbutton.setXY(18, 136);
+    manualbutton.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_PRESSED_ID));
     manualbutton.setLabelText(touchgfx::TypedText(T_SINGLEUSEID26));
     manualbutton.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     manualbutton.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     manualbutton.setAction(buttonCallback);
 
-    heatingboard.setXY(245, 84);
-    heatingboard.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_MEDIUM_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_MEDIUM_PRESSED_ID));
+    heatingboard.setXY(248, 136);
+    heatingboard.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_PRESSED_ID));
     heatingboard.setLabelText(touchgfx::TypedText(T_SINGLEUSEID27));
     heatingboard.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     heatingboard.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     heatingboard.setAction(buttonCallback);
 
-    Standartboard.setXY(125, 166);
-    Standartboard.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_MEDIUM_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_MEDIUM_PRESSED_ID));
+    Standartboard.setXY(18, 196);
+    Standartboard.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_PRESSED_ID));
     Standartboard.setLabelText(touchgfx::TypedText(T_SINGLEUSEID28));
     Standartboard.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     Standartboard.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     Standartboard.setAction(buttonCallback);
 
-    add(image1);
+    Dateboard.setXY(248, 196);
+    Dateboard.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_M_PRESSED_ID));
+    Dateboard.setLabelText(touchgfx::TypedText(T_SINGLEUSEID48));
+    Dateboard.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    Dateboard.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    Dateboard.setAction(buttonCallback);
+
+    logo.setXY(190, 16);
+    logo.setBitmap(touchgfx::Bitmap(BITMAP_UNIKON_S_ID));
+    logo.setAlpha(200);
+
+    Image2.setXY(0, 0);
+    Image2.setVisible(false);
+    Image2.setBitmap(touchgfx::Bitmap(BITMAP_WARNING_ID));
+
+    SetTime.setXY(436, 7);
+    SetTime.setBitmaps(touchgfx::Bitmap(BITMAP_ICONTIME_ID), touchgfx::Bitmap(BITMAP_ICONTIME_ID));
+    SetTime.setAction(buttonCallback);
+
+    warning.setXY(392, 7);
+    warning.setBitmaps(touchgfx::Bitmap(BITMAP_WARNING_S_ID), touchgfx::Bitmap(BITMAP_WARNING_S_ID));
+
+    add(fon);
     add(manualbutton);
     add(heatingboard);
     add(Standartboard);
+    add(Dateboard);
+    add(logo);
+    add(Image2);
+    add(SetTime);
+    add(warning);
 }
 
 void mainboardViewBase::setupScreen()
 {
 
+}
+
+//Called when the screen is done with transition/load
+void mainboardViewBase::afterTransition()
+{
+    //Warning
+    //When screen is entered call virtual function
+    //Call WarningFunction
+    WarningFunction();
 }
 
 void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -67,5 +103,19 @@ void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //When Standartboard clicked change screen to standartboard
         //Go to standartboard with no screen transition
         application().gotostandartboardScreenNoTransition();
+    }
+    else if (&src == &Dateboard)
+    {
+        //dateboard
+        //When Dateboard clicked change screen to dateboard
+        //Go to dateboard with no screen transition
+        application().gotodateboardScreenNoTransition();
+    }
+    else if (&src == &SetTime)
+    {
+        //SetTime
+        //When SetTime clicked change screen to startboard
+        //Go to startboard with no screen transition
+        application().gotostartboardScreenNoTransition();
     }
 }

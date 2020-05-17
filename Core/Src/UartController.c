@@ -13,7 +13,7 @@
 
 
 extern UART_HandleTypeDef huart6;
-extern osSemaphoreId UCBinarySemHandle;
+extern osSemaphoreId InformationUpdateSemHandle;
 extern uint8_t Receive_2[6];
 extern uint8_t Receive_4[8];
 
@@ -234,6 +234,7 @@ void UC_Routine()
     //если запрос выполнился - удалить
     if (Head->sost == UC_SENDED_OK || Head->sost == UC_SENDING_ERR)
     {
+    	xSemaphoreGive(InformationUpdateSemHandle);
     	HAL_UART_Abort_IT(&huart6);
     	attempt = 0;
         QueueDel();
@@ -279,8 +280,6 @@ void UC_Routine()
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	HAL_GPIO_TogglePin(GPIOI, GPIO_PIN_1);
-
 	if(Head->command == UC_REQUEST)
 	{
 		int data;

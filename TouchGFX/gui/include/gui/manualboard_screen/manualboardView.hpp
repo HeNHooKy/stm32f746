@@ -27,13 +27,44 @@ public:
 	virtual void ChangeTempLeft(int value);
 	virtual void ChangeTempRight(int value);
 
-	virtual void uartMsgRdy(int value);
-
+	//контроль запуска сушки
 	virtual void StartDryLeft();
+	virtual void StopDryLeft(dressmodul& element);
+	virtual void StartDryRight();
+	virtual void StopDryRight(shoesmodul& element);
 
 
+	//данные с GX:
+	virtual void DisplayTimeLeft(int minute);
+	virtual void DisplayTimeRight(int minute);
+	virtual void DisplayTempLeft(int value);
+	virtual void DisplayTempRight(int value);
+	virtual void DisplayStatusLeft(int status);
+	virtual void DisplayStatusRight(int status);
+
+	//вывод уведомлений
+	virtual void ShowMessage(char* message);
 
 protected:
+	//контроль "штор"
+	Callback<manualboardView, dressmodul&> dressmodulCallback;
+	Callback<manualboardView, shoesmodul&> shoesmodulCallback;
+
+	//сумма статусов
+	bool getStatuses()
+	{
+		return sL || sR;
+	}
+
+	void setSL(bool status)
+	{
+		sL = status;
+	}
+
+	void setSR(bool status)
+	{
+		sR = status;
+	}
 
 	//temp
 	int getTempLeft()
@@ -165,6 +196,8 @@ private:
     int minutesLeftTimer = 30;
     int hoursRightTimer = 12;
     int minutesRightTimer = 30;
+
+    bool sL = false, sR = false;
 };
 
 #endif // MANUALBOARDVIEW_HPP

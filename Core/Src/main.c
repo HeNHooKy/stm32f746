@@ -26,6 +26,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "UartController.h"
+#include "configuration.h"
+#include "DryEvent.h"
 #include <stm32746g_discovery_qspi.h>
 /* USER CODE END Includes */
 
@@ -80,7 +82,9 @@ SDRAM_HandleTypeDef hsdram1;
 
 osThreadId defaultTaskHandHandle;
 osThreadId UartControllerTHandle;
-osSemaphoreId UCBinarySemHandle;
+osThreadId TTCheckTaskHandle;
+osThreadId EventsTaskHandle;
+osSemaphoreId InformationUpdateSemHandle;
 /* USER CODE BEGIN PV */
 static FMC_SDRAM_CommandTypeDef Command;
 /* USER CODE END PV */
@@ -99,6 +103,8 @@ static void MX_RTC_Init(void);
 static void MX_USART6_UART_Init(void);
 void StartDefaultTask(void const * argument);
 void StartUCTask(void const * argument);
+void TTChecker(void const * argument);
+void EventsStart(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -164,9 +170,9 @@ int main(void)
   /* USER CODE END RTOS_MUTEX */
 
   /* Create the semaphores(s) */
-  /* definition and creation of UCBinarySem */
-  osSemaphoreDef(UCBinarySem);
-  UCBinarySemHandle = osSemaphoreCreate(osSemaphore(UCBinarySem), 1);
+  /* definition and creation of InformationUpdateSem */
+  osSemaphoreDef(InformationUpdateSem);
+  InformationUpdateSemHandle = osSemaphoreCreate(osSemaphore(InformationUpdateSem), 1);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -188,6 +194,14 @@ int main(void)
   /* definition and creation of UartControllerT */
   osThreadDef(UartControllerT, StartUCTask, osPriorityIdle, 0, 128);
   UartControllerTHandle = osThreadCreate(osThread(UartControllerT), NULL);
+
+  /* definition and creation of TTCheckTask */
+  osThreadDef(TTCheckTask, TTChecker, osPriorityIdle, 0, 128);
+  TTCheckTaskHandle = osThreadCreate(osThread(TTCheckTask), NULL);
+
+  /* definition and creation of EventsTask */
+  osThreadDef(EventsTask, EventsStart, osPriorityIdle, 0, 128);
+  EventsTaskHandle = osThreadCreate(osThread(EventsTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -900,13 +914,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(OTG_FS_OverCurrent_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : SDMMC_CMD_Pin */
-  GPIO_InitStruct.Pin = SDMMC_CMD_Pin;
+  /*Configure GPIO pin : PD2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF12_SDMMC1;
-  HAL_GPIO_Init(SDMMC_CMD_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : TP3_Pin NC2_Pin */
   GPIO_InitStruct.Pin = TP3_Pin|NC2_Pin;
@@ -1064,6 +1078,48 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+//проверяет было ли сброшено время
+int CheckTimeDate()
+{
+	RTC_TimeTypeDef cTime = {0};
+	RTC_DateTypeDef cDate = {0};
+
+	HAL_RTC_GetTime(&hrtc, &cTime, RTC_FORMAT_BIN);
+	HAL_RTC_GetDate(&hrtc, &cDate, RTC_FORMAT_BIN);
+
+	//если год меньше 50, нужно задать время
+	return cDate.Year < 50;
+}
+
+//устанавливает пользовательское время
+void SetTimeDate(uint8_t hours, uint8_t minutes, uint8_t weekDay)
+{
+	RTC_TimeTypeDef sTime = {0};
+	RTC_DateTypeDef sDate = {0};
+
+
+	sTime.Hours = hours;
+	sTime.Minutes = minutes;
+	sTime.Seconds = 0;
+	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+
+	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK)
+	{
+		Error_Handler();
+	}
+
+	sDate.WeekDay = weekDay;
+	sDate.Month = RTC_MONTH_JANUARY;
+	sDate.Date = 1;
+	sDate.Year = 50;
+
+	if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
+	{
+		Error_Handler();
+	}
+}
+
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -1103,6 +1159,163 @@ void StartUCTask(void const * argument)
 	}
 
   /* USER CODE END StartUCTask */
+}
+
+/* USER CODE BEGIN Header_TTChecker */
+
+//адреса для отображения данных на экране и проверки статуса
+int statusAddressLeft = NULL_ADDRESS; //адрес работающего режима левого отсека
+
+int statusAddressRight = NULL_ADDRESS; //адрес работающего режима правого отсека
+
+unsigned int tempLeft = NULL_ADDRESS; //состояние температуры в левом отсеке
+int statusTL = NULL_ADDRESS; //состояние ответа о температуре в левом отсеке
+
+unsigned int tempRight = NULL_ADDRESS; //состояние температуры в левом отсеке
+int statusRT = NULL_ADDRESS; //состояние ответа о температуре в правом отсеке
+
+unsigned int timeLeft = NULL_ADDRESS; //состояние времени в левом отсеке
+int statusTiL = NULL_ADDRESS; //состояние ответа о времени в левом отсеке
+
+unsigned int timeRight = NULL_ADDRESS; //состояние времени в правом отсеке
+int statusTiR = NULL_ADDRESS; //состояние ответа о времени в правом отсеке
+
+unsigned int statusLeft = NULL_ADDRESS; //состояние работы левого отсека
+int statusSL = NULL_ADDRESS; //состояние ответа о работе левого отсека
+
+unsigned int statusRight = NULL_ADDRESS; //состояние работы правого отсека
+int statusSR = NULL_ADDRESS; //состояние ответа о работе правого отсека
+
+//выполнение запросов для отображения на экране акутальных данных.
+void UC_REQUESTER()
+{
+	//запрос температуры в ЛЕВОМ отсеке
+	UC_SEND(0, GROUP_D, ADDRESS_TEMP_LEFT_IN, UC_REQUEST, &tempLeft, &statusTL);
+	//запрос температуры в ПРАВОМ отсеке
+	UC_SEND(0, GROUP_D, ADDRESS_TEMP_RIGHT_IN, UC_REQUEST, &tempRight, &statusRT);
+	//запрос оставшегося времени в ЛЕВОМ отсеке
+	UC_SEND(0, GROUP_D, ADDRESS_TIME_LEFT_IN, UC_REQUEST, &timeLeft, &statusTiL);
+	//запрос оставшегося времени в ПРАВОМ отсеке
+	UC_SEND(0, GROUP_D, ADDRESS_TIME_RIGHT_IN, UC_REQUEST, &timeRight, &statusTiR);
+	if(statusAddressLeft != NULL_ADDRESS)
+	{		//только если данные об адресе введены и не были сброшены
+	  //проверка адреса, по которому выполняется сушка  в ЛЕВОМ отсеке
+	  UC_SEND(0, GROUP_M, statusAddressLeft, UC_REQUEST, &statusLeft, &statusSL);
+	}
+	if(statusAddressRight != NULL_ADDRESS)
+	{		//только если данные об адресе введены и не были сброшены
+	  //проверка адреса, по которому выполняется сушка в ПРАВОМ отсеке
+	  UC_SEND(0, GROUP_M, statusAddressRight, UC_REQUEST, &statusRight, &statusSR);
+	}
+}
+
+
+
+
+/**
+* @brief Function implementing the TTCheckTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_TTChecker */
+void TTChecker(void const * argument)
+{
+  /* USER CODE BEGIN TTChecker */
+  /* Infinite loop */
+  for(;;)
+  {
+	  if(statusTiL == UC_SENDED_OK)
+	  {
+		  HAL_GPIO_TogglePin(GPIOI, GPIO_PIN_1);
+	  }
+
+	  UC_REQUESTER(); //выполняем все запросы к GX
+	  //задержка
+	  osDelay(REQUEST_FREQ);
+
+  }
+  /* USER CODE END TTChecker */
+}
+
+/* USER CODE BEGIN Header_EventsStart */
+int isBeingWorking = 0;
+
+int AddNewEvent(int day, int hour, int minute, int duration_f, int duration_s, int temp)
+{
+	return AddDryEvent(day, hour, minute, duration_f, temp, duration_s, temp);
+}
+
+/**
+* @brief Function implementing the EventsTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_EventsStart */
+void EventsStart(void const * argument)
+{
+	/* USER CODE BEGIN EventsStart */
+	/* Infinite loop */
+	unsigned int trash = 0; //"мусорная" переменная. В эту переменную можно записывать любые данные.
+
+	RTC_TimeTypeDef cTime = {0};
+	RTC_DateTypeDef cDate = {0};
+
+	int setLeftTempStatus = 0; //статусы контроля выполнения запросов
+	int setLeftTimeStatus = 0;
+	int setLeftOnStatus = 0;
+
+	int setRightTempStatus = 0;
+	int setRightTimeStatus = 0;
+	int setRightOnStatus = 0;
+
+	for(;;)
+	{
+		if(isBeingWorking)
+		{
+			HAL_RTC_GetTime(&hrtc, &cTime, RTC_FORMAT_BIN);
+			HAL_RTC_GetDate(&hrtc, &cDate, RTC_FORMAT_BIN);
+
+			int weekDay = cDate.WeekDay;
+			int hour = cTime.Hours;
+			int minute = cTime.Minutes;
+
+			int eventId = IsNeedExecuteEventID(weekDay, hour, minute);
+			if(eventId != EVENT_AWAY)
+			{	//НАЧИНАЕМ СУШКУ:
+
+				//получаем данные о сушке:
+				int temp = GetTempEvent_F(weekDay, eventId); //температура
+				int timeLeft = GetDurationEvent_F(weekDay, eventId);
+				int timeRight = GetDurationEvent_S(weekDay, eventId);
+
+				//отправляем время, температуру на левый и на правый отсеки
+				//режим MANUAL
+				//Температура левый:
+				UC_SEND(temp, GROUP_D, ADDRESS_TEMP_LEFT_OUT, UC_SET, &trash, &setLeftTempStatus);
+				//время левый:
+				UC_SEND(timeLeft, GROUP_D, ADDRESS_TIME_LEFT_OUT, UC_SET, &trash, &setLeftTimeStatus);
+				//включение левый
+				statusLeft = 1; //статутс для отображения на экране
+				statusAddressLeft = ADDRESS_MANUAL_MODE_LEFT; //адрес М-ки
+				UC_SEND(SET_M, GROUP_M, ADDRESS_MANUAL_MODE_LEFT, UC_SET, &trash, &setLeftOnStatus); //команда включения
+
+				//Правый отсек:
+				//температура правый
+				UC_SEND(temp, GROUP_D, ADDRESS_TEMP_RIGHT_OUT, UC_SET, &trash, &setRightTempStatus);
+				//время правый
+				UC_SEND(timeRight, GROUP_D, ADDRESS_TIME_RIGHT_OUT, UC_SET, &trash, &setRightTimeStatus);
+				//включение правый
+				statusRight = 1;//статутс для отображения на экране
+				statusAddressRight = ADDRESS_MANUAL_MODE_RIGHT;//адрес М-ки
+				UC_SEND(SET_M, GROUP_M, ADDRESS_MANUAL_MODE_RIGHT, UC_SET, &trash, &setRightOnStatus);
+
+				//обновление всех данных на экране
+				UC_REQUESTER();
+			}
+		}
+		osDelay(EVENT_EXECUTE_FREQ);
+	}
+  /* USER CODE END EventsStart */
 }
 
 /* MPU Configuration */

@@ -17,6 +17,10 @@
 #include <gui/standartboard_screen/standartboardPresenter.hpp>
 #include <gui/heatingboard_screen/heatingboardView.hpp>
 #include <gui/heatingboard_screen/heatingboardPresenter.hpp>
+#include <gui/dateboard_screen/dateboardView.hpp>
+#include <gui/dateboard_screen/dateboardPresenter.hpp>
+#include <gui/startboard_screen/startboardView.hpp>
+#include <gui/startboard_screen/startboardPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -85,4 +89,30 @@ void FrontendApplicationBase::gotoheatingboardScreenNoTransition()
 void FrontendApplicationBase::gotoheatingboardScreenNoTransitionImpl()
 {
     touchgfx::makeTransition<heatingboardView, heatingboardPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// dateboard
+
+void FrontendApplicationBase::gotodateboardScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotodateboardScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotodateboardScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<dateboardView, dateboardPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// startboard
+
+void FrontendApplicationBase::gotostartboardScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotostartboardScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotostartboardScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<startboardView, startboardPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

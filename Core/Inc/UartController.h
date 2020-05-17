@@ -12,13 +12,16 @@
 extern "C" {
 #endif
 
-#define UC_QUEUE_SIZE 3 //максимальное количество заросов единовремено
-#define UC_DELAY 0x32 //промежуток между повторными отправками сообщений
+#define UC_QUEUE_SIZE 100 //максимальное количество заросов единовремено
+#define UC_DELAY 0x38 //промежуток между повторными отправками сообщений
 
 //состояния отправки сообщений
-#define UC_SENDED_OK 0 //сообщений доставлено, ошибок не возникло
-#define UC_SENDING 1 //сообщение отправляется прямо сейчас
-#define UC_AWAIT 2 //сообщений ждет своей очереди
+#define UC_SENDED_OK 1 //сообщений доставлено, ошибок не возникло
+#define UC_SENDING 2 //сообщение отправляется прямо сейчас
+#define UC_AWAIT 3 //сообщений ждет своей очереди
+
+
+#define UC_NO_MESSAGE -10 //нет сообщения на отправку
 
 
 //команды
@@ -68,7 +71,7 @@ void UC_SEND_Request();
 //command - комманда для отправки
 //answer - адрес STM поля ответа
 //status - адрес STM поля состояния
-void UC_SEND(unsigned int message, unsigned int group, unsigned int command, unsigned int address, unsigned int* answer, int* satus);
+void UC_SEND(unsigned int message, unsigned int group, unsigned int address, unsigned int command, unsigned int* answer, int* status);
 
 void UC_Routine();
 

@@ -991,10 +991,10 @@
           <name>$PROJ_DIR$/../../generated/fonts/src/CachedFont.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_15_4bpp_0.cpp</name>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_14_4bpp_0.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../generated/fonts/src/Font_ariblk_15_4bpp_0.cpp</name>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arialbd_14_4bpp_0.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_verdana_20_4bpp_0.cpp</name>
@@ -1009,10 +1009,10 @@
           <name>$PROJ_DIR$/../../generated/fonts/src/GeneratedFont.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arial_15_4bpp.cpp</name>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arial_14_4bpp.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_ariblk_15_4bpp.cpp</name>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arialbd_14_4bpp.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_verdana_10_4bpp.cpp</name>
@@ -1024,10 +1024,10 @@
           <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_verdana_30_4bpp.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../generated/fonts/src/Table_arial_15_4bpp.cpp</name>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Table_arial_14_4bpp.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../generated/fonts/src/Table_ariblk_15_4bpp.cpp</name>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Table_arialbd_14_4bpp.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Table_verdana_10_4bpp.cpp</name>
@@ -1050,10 +1050,34 @@
         <group>
           <name>containers</name>
           <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/dressmodulBase.cpp</name>
+          </file>
+          <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/fonBase.cpp</name>
           </file>
           <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/ListTableBase.cpp</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/MsgBoxBase.cpp</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/PluszdBase.cpp</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/servicesBase.cpp</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/shoesmodulBase.cpp</name>
+          </file>
+          <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/skin1Base.cpp</name>
+          </file>
+        </group>
+        <group>
+          <name>dateboard_screen</name>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/dateboard_screen/dateboardViewBase.cpp</name>
           </file>
         </group>
         <group>
@@ -1080,17 +1104,17 @@
             <name>$PROJ_DIR$/../../generated/gui_generated/src/standartboard_screen/standartboardViewBase.cpp</name>
           </file>
         </group>
+        <group>
+          <name>startboard_screen</name>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/startboard_screen/startboardViewBase.cpp</name>
+          </file>
+        </group>
       </group>
       <group>
         <name>images</name>
         <group>
           <name>__designer</name>
-          <file>
-            <name>$PROJ_DIR$/../../generated/images/src/__designer/Blue_Buttons_Round_medium.cpp</name>
-          </file>
-          <file>
-            <name>$PROJ_DIR$/../../generated/images/src/__designer/Blue_Buttons_Round_medium_pressed.cpp</name>
-          </file>
           <file>
             <name>$PROJ_DIR$/../../generated/images/src/__designer/Blue_Slider_Horizontal_Small_Indicators_slider_horizontal_small_round_knob.cpp</name>
           </file>
@@ -1099,12 +1123,6 @@
           </file>
           <file>
             <name>$PROJ_DIR$/../../generated/images/src/__designer/Blue_Slider_Horizontal_Small_slider_horizontal_small_round_fill.cpp</name>
-          </file>
-          <file>
-            <name>$PROJ_DIR$/../../generated/images/src/__designer/Blue_Togglebars_Toggle_round_small_button_OFF.cpp</name>
-          </file>
-          <file>
-            <name>$PROJ_DIR$/../../generated/images/src/__designer/Blue_Togglebars_Toggle_round_small_button_ON.cpp</name>
           </file>
         </group>
         <file>
@@ -1115,6 +1133,66 @@
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/images/src/Blue_Buttons_Round.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Buttons_Round_m.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Buttons_Round_m_pressed.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Check_buttons.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Check_buttons_Check.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Check_buttons_Check_.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Check_buttons_Check_Round.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars2.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars3.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars4.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars_OFF.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars_OFF2.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars_ON.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars_ON2.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/BulbgraphOff.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/BulbgraphOn.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/calendar.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/clear.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/clic1.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/clic2.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/images/src/Dark_Icons_Back_arrow.cpp</name>
@@ -1132,10 +1210,37 @@
           <name>$PROJ_DIR$/../../generated/images/src/fon.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../generated/images/src/fon4.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/fon6.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/fon7.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/icontime.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/line.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../generated/images/src/ok_button.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/images/src/ok_button_pressed.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/thermometer_icon-icons.com_62485.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/unikon_s.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/warning.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/warning_s.cpp</name>
         </file>
       </group>
       <group>
@@ -1162,10 +1267,37 @@
       <group>
         <name>containers</name>
         <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/dressmodul.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../gui/src/containers/fon.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/ListTable.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/MsgBox.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/Pluszd.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/services.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/shoesmodul.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../gui/src/containers/skin1.cpp</name>
+        </file>
+      </group>
+      <group>
+        <name>dateboard_screen</name>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/dateboard_screen/dateboardPresenter.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/dateboard_screen/dateboardView.cpp</name>
         </file>
       </group>
       <group>
@@ -1208,6 +1340,15 @@
         </file>
         <file>
           <name>$PROJ_DIR$/../../gui/src/standartboard_screen/standartboardView.cpp</name>
+        </file>
+      </group>
+      <group>
+        <name>startboard_screen</name>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/startboard_screen/startboardPresenter.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/startboard_screen/startboardView.cpp</name>
         </file>
       </group>
     </group>

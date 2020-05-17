@@ -11,18 +11,18 @@ fonBase::fonBase() :
 {
     setWidth(480);
     setHeight(272);
-    image1.setXY(0, 0);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_FON_ID));
+    fon1.setXY(0, 0);
+    fon1.setBitmap(touchgfx::Bitmap(BITMAP_FON_ID));
 
-    close.setXY(162, 237);
-    close.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID));
-    close.setLabelText(touchgfx::TypedText(T_SINGLEUSEID38));
-    close.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    close.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    close.setAction(buttonCallback);
+    closebt.setXY(162, 229);
+    closebt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID));
+    closebt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID38));
+    closebt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    closebt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    closebt.setAction(buttonCallback);
 
-    add(image1);
-    add(close);
+    add(fon1);
+    add(closebt);
 }
 
 void fonBase::initialize()
@@ -32,10 +32,10 @@ void fonBase::initialize()
 
 void fonBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
 {
-    if (&src == &close)
+    if (&src == &closebt)
     {
         //close
-        //When close clicked change screen to mainboard
+        //When closebt clicked change screen to mainboard
         //Go to mainboard with no screen transition
         application().gotomainboardScreenNoTransition();
     }

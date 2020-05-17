@@ -3,60 +3,94 @@
 /*********************************************************************************/
 #include <gui_generated/heatingboard_screen/heatingboardViewBase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
-#include <touchgfx/Color.hpp>
 #include "BitmapDatabase.hpp"
+#include <touchgfx/Color.hpp>
 
-heatingboardViewBase::heatingboardViewBase()
+heatingboardViewBase::heatingboardViewBase() :
+    buttonCallback(this, &heatingboardViewBase::buttonCallbackHandler)
 {
-
-    touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
     fon1.setXY(0, 0);
 
     skin11.setXY(0, 0);
 
-    digitalClock1.setPosition(73, 118, 95, 40);
-    digitalClock1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    digitalClock1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID33));
-    digitalClock1.displayLeadingZeroForHourIndicator(true);
-    digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
-    digitalClock1.setTime24Hour(10, 10, 0);
+    digitaltimerrightbt.setPosition(321, 137, 95, 40);
+    digitaltimerrightbt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    digitaltimerrightbt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID36));
+    digitaltimerrightbt.displayLeadingZeroForHourIndicator(true);
+    digitaltimerrightbt.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
+    digitaltimerrightbt.setTime24Hour(0, 15, 0);
 
-    textArea1.setXY(35, 45);
+    digitaltimerleft.setPosition(76, 137, 95, 40);
+    digitaltimerleft.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    digitaltimerleft.setTypedText(touchgfx::TypedText(T_SINGLEUSEID33));
+    digitaltimerleft.displayLeadingZeroForHourIndicator(true);
+    digitaltimerleft.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
+    digitaltimerleft.setTime24Hour(0, 15, 0);
+
+    startleftbt.setXY(75, 185);
+    startleftbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF_ID));
+    startleftbt.setAction(buttonCallback);
+
+    startrightbt.setXY(320, 185);
+    startrightbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF_ID));
+    startrightbt.setAction(buttonCallback);
+
+    textArea1.setXY(12, 46);
     textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID34));
 
-    digitalClock1_1.setPosition(319, 118, 95, 40);
-    digitalClock1_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    digitalClock1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID36));
-    digitalClock1_1.displayLeadingZeroForHourIndicator(true);
-    digitalClock1_1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
-    digitalClock1_1.setTime24Hour(10, 10, 0);
+    textArea1_1.setXY(256, 46);
+    textArea1_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    textArea1_1.setLinespacing(0);
+    textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID39));
 
-    Button1.setXY(72, 181);
-    Button1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_ON_ID));
+    shoesmodul1.setXY(245, 21);
+    shoesmodul1.setVisible(false);
 
-    Button2.setXY(319, 181);
-    Button2.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_ON_ID));
+    dressmodul1.setXY(0, 21);
+    dressmodul1.setVisible(false);
 
-    textArea2.setXY(280, 45);
-    textArea2.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    textArea2.setLinespacing(0);
-    textArea2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID37));
+    msgBox1.setXY(13, 50);
+    msgBox1.setVisible(false);
 
     add(fon1);
     add(skin11);
-    add(digitalClock1);
+    add(digitaltimerrightbt);
+    add(digitaltimerleft);
+    add(startleftbt);
+    add(startrightbt);
     add(textArea1);
-    add(digitalClock1_1);
-    add(Button1);
-    add(Button2);
-    add(textArea2);
+    add(textArea1_1);
+    add(shoesmodul1);
+    add(dressmodul1);
+    add(msgBox1);
 }
 
 void heatingboardViewBase::setupScreen()
 {
     fon1.initialize();
     skin11.initialize();
+    shoesmodul1.initialize();
+    dressmodul1.initialize();
+    msgBox1.initialize();
+}
+
+void heatingboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &startleftbt)
+    {
+        //StartLeftDry
+        //When startleftbt clicked call virtual function
+        //Call StartDryLeft
+        StartDryLeft();
+    }
+    else if (&src == &startrightbt)
+    {
+        //StartRightDry
+        //When startrightbt clicked call virtual function
+        //Call StartDryRight
+        StartDryRight();
+    }
 }

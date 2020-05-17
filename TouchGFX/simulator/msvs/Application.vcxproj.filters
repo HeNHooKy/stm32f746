@@ -220,6 +220,30 @@
     <Filter Include="Header Files\generated\gui_generated\standartboard_screen">
       <UniqueIdentifier>2C2F11D1-63DD-5980-8BAC-0AD0395FC383</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\dateboard_screen">
+      <UniqueIdentifier>65D1A50C-7F94-DC6C-B464-EBE4F40588BE</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\startboard_screen">
+      <UniqueIdentifier>2969D970-7FF3-A7C1-BE0B-969C6D436B9D</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\startboard_screen">
+      <UniqueIdentifier>C3AFEFB6-59A8-DF82-1A55-00F5BCB1AA1F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\dateboard_screen">
+      <UniqueIdentifier>3DF3CA01-36A5-947C-E54B-3A151635C47F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\dateboard_screen">
+      <UniqueIdentifier>FB0C3DFA-7D1D-2204-DF41-0F3A53E364B5</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\dateboard_screen">
+      <UniqueIdentifier>3875ED07-2C39-A55C-7CD2-27325E1A7BE8</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\startboard_screen">
+      <UniqueIdentifier>542AEC8D-BBDE-0561-BC06-6F4CBE3C4643</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\startboard_screen">
+      <UniqueIdentifier>C21587C1-595C-2FEF-DC05-F8A15107724C</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -296,6 +320,60 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\standartboard_screen\standartboardViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\standartboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\dateboard_screen\dateboardPresenter.cpp">
+      <Filter>Source Files\gui\dateboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\dateboard_screen\dateboardView.cpp">
+      <Filter>Source Files\gui\dateboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\dateboard_screen\dateboardViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\dateboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\containers\ListTable.cpp">
+      <Filter>Source Files\gui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\ListTableBase.cpp">
+      <Filter>Source Files\generated\gui_generated\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\containers\services.cpp">
+      <Filter>Source Files\gui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\servicesBase.cpp">
+      <Filter>Source Files\generated\gui_generated\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\startboard_screen\startboardPresenter.cpp">
+      <Filter>Source Files\gui\startboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\startboard_screen\startboardView.cpp">
+      <Filter>Source Files\gui\startboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\startboard_screen\startboardViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\startboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\containers\dressmodul.cpp">
+      <Filter>Source Files\gui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\dressmodulBase.cpp">
+      <Filter>Source Files\generated\gui_generated\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\containers\shoesmodul.cpp">
+      <Filter>Source Files\gui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\shoesmodulBase.cpp">
+      <Filter>Source Files\generated\gui_generated\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\containers\MsgBox.cpp">
+      <Filter>Source Files\gui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\MsgBoxBase.cpp">
+      <Filter>Source Files\generated\gui_generated\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\containers\Pluszd.cpp">
+      <Filter>Source Files\gui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\PluszdBase.cpp">
+      <Filter>Source Files\generated\gui_generated\containers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -777,6 +855,60 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\standartboard_screen\standartboardViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\standartboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\dateboard_screen\dateboardPresenter.hpp">
+      <Filter>Header Files\gui\dateboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\dateboard_screen\dateboardView.hpp">
+      <Filter>Header Files\gui\dateboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\dateboard_screen\dateboardViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\dateboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\containers\ListTable.hpp">
+      <Filter>Header Files\gui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\ListTableBase.hpp">
+      <Filter>Header Files\generated\gui_generated\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\containers\services.hpp">
+      <Filter>Header Files\gui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\servicesBase.hpp">
+      <Filter>Header Files\generated\gui_generated\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\startboard_screen\startboardPresenter.hpp">
+      <Filter>Header Files\gui\startboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\startboard_screen\startboardView.hpp">
+      <Filter>Header Files\gui\startboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startboard_screen\startboardViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\startboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\containers\dressmodul.hpp">
+      <Filter>Header Files\gui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\dressmodulBase.hpp">
+      <Filter>Header Files\generated\gui_generated\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\containers\shoesmodul.hpp">
+      <Filter>Header Files\gui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\shoesmodulBase.hpp">
+      <Filter>Header Files\generated\gui_generated\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\containers\MsgBox.hpp">
+      <Filter>Header Files\gui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\MsgBoxBase.hpp">
+      <Filter>Header Files\generated\gui_generated\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\containers\Pluszd.hpp">
+      <Filter>Header Files\gui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\PluszdBase.hpp">
+      <Filter>Header Files\generated\gui_generated\containers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

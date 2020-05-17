@@ -20,8 +20,8 @@ struct TypographyFontIndex
     static const touchgfx::FontId DEFAULT = 0;     // verdana_20_4bpp
     static const touchgfx::FontId LARGE = 1;       // verdana_30_4bpp
     static const touchgfx::FontId SMALL = 2;       // verdana_10_4bpp
-    static const touchgfx::FontId TYPOGRAPHY = 3;  // arial_15_4bpp
-    static const touchgfx::FontId TYPOGRAPHY1 = 4; // ariblk_15_4bpp
+    static const touchgfx::FontId TYPOGRAPHY = 3;  // arial_14_4bpp
+    static const touchgfx::FontId TYPOGRAPHY1 = 4; // arialbd_14_4bpp
     static const uint16_t NUMBER_OF_FONTS = 5;
 };
 

@@ -24,8 +24,8 @@ protected:
     /*
      * Member Declarations
      */
-    touchgfx::Image image1;
-    touchgfx::ButtonWithLabel close;
+    touchgfx::Image fon1;
+    touchgfx::ButtonWithLabel closebt;
 
 private:
 

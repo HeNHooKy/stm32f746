@@ -10,6 +10,8 @@ public:
     virtual ~fon() {}
 
     virtual void initialize();
+
+    void SetVisibleClosebt(bool visible);
 protected:
 };
 

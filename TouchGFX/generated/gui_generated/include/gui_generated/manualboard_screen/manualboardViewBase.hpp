@@ -12,8 +12,11 @@
 #include <touchgfx/widgets/RepeatButton.hpp>
 #include <touchgfx/containers/Slider.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
-#include <touchgfx/widgets/ToggleButton.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/Button.hpp>
+#include <gui/containers/shoesmodul.hpp>
+#include <gui/containers/dressmodul.hpp>
+#include <gui/containers/MsgBox.hpp>
 
 class manualboardViewBase : public touchgfx::View<manualboardPresenter>
 {
@@ -80,6 +83,11 @@ public:
         // Override and implement this function in manualboard
     }
 
+    virtual void StartDryRight()
+    {
+        // Override and implement this function in manualboard
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -95,7 +103,6 @@ protected:
     touchgfx::Slider TempSliderLeft;
     touchgfx::TextAreaWithOneWildcard timerHoursLeft;
     touchgfx::TextAreaWithOneWildcard tempLeftInd;
-    touchgfx::ToggleButton startLeft;
     touchgfx::TextArea temp2;
     touchgfx::TextArea hour1;
     touchgfx::TextArea minute1;
@@ -104,16 +111,20 @@ protected:
     touchgfx::RepeatButton minutesUpLeft;
     touchgfx::RepeatButton hoursDownRight;
     touchgfx::RepeatButton hoursUpRight;
+    touchgfx::Button StartLeft;
+    touchgfx::Button StartRight;
     touchgfx::Slider TempSliderRight;
     touchgfx::TextAreaWithOneWildcard timerHoursRight;
     touchgfx::TextAreaWithOneWildcard tempRightInd;
-    touchgfx::ToggleButton startRight;
     touchgfx::TextArea temp24;
     touchgfx::TextArea hour;
     touchgfx::TextArea minute;
     touchgfx::RepeatButton minutesDownRight;
     touchgfx::TextAreaWithOneWildcard timerMinutesRight;
     touchgfx::RepeatButton minutesUpRight;
+    shoesmodul shoesmodul1;
+    dressmodul dressmodul1;
+    MsgBox msgBox1;
 
     /*
      * Wildcard Buffers
@@ -145,11 +156,6 @@ private:
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
     void sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value);
 
-    /*
-     * Canvas Buffer Size
-     */
-    static const uint16_t CANVAS_BUFFER_SIZE = 7200;
-    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 };
 
 #endif // MANUALBOARDVIEWBASE_HPP

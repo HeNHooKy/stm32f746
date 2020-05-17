@@ -4,32 +4,30 @@
 #include <gui_generated/containers/skin1Base.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 #include <touchgfx/Color.hpp>
+#include "BitmapDatabase.hpp"
 
 skin1Base::skin1Base()
 {
     setWidth(480);
     setHeight(272);
-    textArea1.setXY(16, 1);
+    textArea1.setXY(26, 4);
     textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID18));
 
-    textArea2.setXY(273, 1);
+    textArea2.setXY(274, 4);
     textArea2.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea2.setLinespacing(0);
     textArea2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID19));
 
-    line1.setPosition(238, 21, 15, 206);
-    line1Painter.setColor(touchgfx::Color::getColorFrom24BitRGB(162, 186, 194));
-    line1.setPainter(line1Painter);
-    line1.setStart(5, 5);
-    line1.setEnd(5, 200);
-    line1.setLineWidth(6);
-    line1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
+    tiledImage1.setBitmap(touchgfx::Bitmap(BITMAP_LINE_ID));
+    tiledImage1.setPosition(240, 66, 3, 140);
+    tiledImage1.setAlpha(94);
+    tiledImage1.setOffset(0, 0);
 
     add(textArea1);
     add(textArea2);
-    add(line1);
+    add(tiledImage1);
 }
 
 void skin1Base::initialize()

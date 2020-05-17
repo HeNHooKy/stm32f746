@@ -27,6 +27,12 @@ public:
     // heatingboard
     void gotoheatingboardScreenNoTransition();
 
+    // dateboard
+    void gotodateboardScreenNoTransition();
+
+    // startboard
+    void gotostartboardScreenNoTransition();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
@@ -43,6 +49,12 @@ protected:
 
     // heatingboard
     void gotoheatingboardScreenNoTransitionImpl();
+
+    // dateboard
+    void gotodateboardScreenNoTransitionImpl();
+
+    // startboard
+    void gotostartboardScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

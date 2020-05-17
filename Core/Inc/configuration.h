@@ -11,11 +11,19 @@
 extern "C" {
 #endif
 
+#define NULL_ADDRESS -1 //Нулевой адрес - заглушка
+
+#define REQUEST_FREQ 20000 //частота обращений к GX в потоке индикации
+#define EVENT_EXECUTE_FREQ 30000 //частота попыток вызвать событие
+
 #define GROUP_M 1 //группа адресов GX M
 #define GROUP_D 2 //группа адресов GX D
 
-#define ADDRESS_TEMP_LEFT 195 //адрес принимающий температуру в левом отсеке
-#define ADDRESS_TEMP_RIGHT 90 //адрес принимающий температуру в правом отсеке
+#define ADDRESS_TEMP_LEFT_OUT 114 //адрес принимающий температуру в левом отсеке
+#define ADDRESS_TEMP_RIGHT_OUT 112 //адрес принимающий температуру в правом отсеке
+
+#define ADDRESS_TEMP_LEFT_IN 195 //адрес состояния температуры в левом отсеке
+#define ADDRESS_TEMP_RIGHT_IN 90 //адрес состояния температуры в левом отсеке
 
 #define ADDRESS_TIME_LEFT_OUT 111 //адрес принимающий время в левом отсеке
 #define ADDRESS_TIME_RIGHT_OUT 110 //адрес принимающий время в правом отсеке
@@ -30,13 +38,15 @@ extern "C" {
 #define ADDRESS_STANDART_MODE_LEFT 340 //адрес состояния режима стандартной сушки в левом отсеке
 #define ADDRESS_STANDART_MODE_RIGHT 300 //адрес состояния режима стандартной сушки в правом отсеке
 
-
 //команды
 #define UC_REQUEST 0 //команда запроса состояния по выделеному адресу
 #define UC_SET 1 //команда установки состояния на выделенный адрес
 
 #define SET_M 0x37 //специальная команда установки M
 #define FOLD_M 0x38 //специальная команда сброса M
+
+//вывод на экран
+#define MSG_SIZE 256
 
 
 #ifdef __cplusplus

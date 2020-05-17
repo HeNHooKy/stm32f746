@@ -13,6 +13,10 @@
 
 
 
+
+
+
+
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
@@ -24,6 +28,10 @@
 #include <gui/standartboard_screen/standartboardPresenter.hpp>
 #include <gui/heatingboard_screen/heatingboardView.hpp>
 #include <gui/heatingboard_screen/heatingboardPresenter.hpp>
+#include <gui/dateboard_screen/dateboardView.hpp>
+#include <gui/dateboard_screen/dateboardPresenter.hpp>
+#include <gui/startboard_screen/startboardView.hpp>
+#include <gui/startboard_screen/startboardPresenter.hpp>
 
 
 /**
@@ -50,7 +58,9 @@ public:
             touchgfx::meta::TypeList< manualboardView,
             touchgfx::meta::TypeList< standartboardView,
             touchgfx::meta::TypeList< heatingboardView,
-            touchgfx::meta::Nil > > >
+            touchgfx::meta::TypeList< dateboardView,
+            touchgfx::meta::TypeList< startboardView,
+            touchgfx::meta::Nil > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -66,7 +76,9 @@ public:
             touchgfx::meta::TypeList< manualboardPresenter,
             touchgfx::meta::TypeList< standartboardPresenter,
             touchgfx::meta::TypeList< heatingboardPresenter,
-            touchgfx::meta::Nil > > >
+            touchgfx::meta::TypeList< dateboardPresenter,
+            touchgfx::meta::TypeList< startboardPresenter,
+            touchgfx::meta::Nil > > > > >
             > GeneratedPresenterTypes;
 
     /**

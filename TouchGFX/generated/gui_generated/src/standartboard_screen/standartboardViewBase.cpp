@@ -3,60 +3,73 @@
 /*********************************************************************************/
 #include <gui_generated/standartboard_screen/standartboardViewBase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
-#include <touchgfx/Color.hpp>
 #include "BitmapDatabase.hpp"
+#include <touchgfx/Color.hpp>
 
 standartboardViewBase::standartboardViewBase()
 {
-
-    touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
     fon1.setXY(0, 0);
 
     skin11.setXY(0, 0);
 
-    digitalClock1.setPosition(73, 118, 95, 40);
-    digitalClock1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    digitalClock1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID29));
-    digitalClock1.displayLeadingZeroForHourIndicator(true);
-    digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
-    digitalClock1.setTime24Hour(10, 10, 0);
+    digitaltimerrightbt.setPosition(321, 137, 95, 40);
+    digitaltimerrightbt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    digitaltimerrightbt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID32));
+    digitaltimerrightbt.displayLeadingZeroForHourIndicator(true);
+    digitaltimerrightbt.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
+    digitaltimerrightbt.setTime24Hour(8, 0, 0);
 
-    textArea1.setXY(35, 45);
+    digitaltimerleftbt.setPosition(76, 137, 95, 40);
+    digitaltimerleftbt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    digitaltimerleftbt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID29));
+    digitaltimerleftbt.displayLeadingZeroForHourIndicator(true);
+    digitaltimerleftbt.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
+    digitaltimerleftbt.setTime24Hour(8, 0, 0);
+
+    startleftbt.setXY(75, 185);
+    startleftbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF_ID));
+
+    startrightbt.setXY(320, 185);
+    startrightbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF_ID));
+
+    textArea1.setXY(31, 46);
     textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID30));
 
-    textArea1_1.setXY(282, 45);
+    textArea1_1.setXY(278, 46);
     textArea1_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1_1.setLinespacing(0);
     textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID31));
 
-    digitalClock2.setPosition(319, 118, 95, 40);
-    digitalClock2.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    digitalClock2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID32));
-    digitalClock2.displayLeadingZeroForHourIndicator(true);
-    digitalClock2.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
-    digitalClock2.setTime24Hour(10, 10, 0);
+    shoesmodul1.setXY(245, 21);
+    shoesmodul1.setVisible(false);
 
-    Button1.setXY(72, 181);
-    Button1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_ON_ID));
+    dressmodul1.setXY(0, 21);
+    dressmodul1.setVisible(false);
 
-    Button2.setXY(319, 181);
-    Button2.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_ON_ID));
+    msgBox1.setXY(13, 50);
+    msgBox1.setVisible(false);
 
     add(fon1);
     add(skin11);
-    add(digitalClock1);
+    add(digitaltimerrightbt);
+    add(digitaltimerleftbt);
+    add(startleftbt);
+    add(startrightbt);
     add(textArea1);
     add(textArea1_1);
-    add(digitalClock2);
-    add(Button1);
-    add(Button2);
+    add(shoesmodul1);
+    add(dressmodul1);
+    add(msgBox1);
 }
 
 void standartboardViewBase::setupScreen()
 {
     fon1.initialize();
     skin11.initialize();
+    shoesmodul1.initialize();
+    dressmodul1.initialize();
+    msgBox1.initialize();
 }

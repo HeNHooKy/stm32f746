@@ -842,6 +842,21 @@
           <GroupName>gui</GroupName>
           <Files>
             <File>
+              <FileName>dateboardPresenter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/dateboard_screen/dateboardpresenter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>dateboardView.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/dateboard_screen/dateboardview.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>dressmodul.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/dressmodul.cpp</FilePath>
+            </File>
+            <File>
               <FileName>fon.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/containers/fon.cpp</FilePath>
@@ -860,6 +875,11 @@
               <FileName>heatingboardView.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/heatingboard_screen/heatingboardview.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ListTable.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/listtable.cpp</FilePath>
             </File>
             <File>
               <FileName>mainboardPresenter.cpp</FileName>
@@ -887,6 +907,26 @@
               <FilePath>../../gui/src/model/model.cpp</FilePath>
             </File>
             <File>
+              <FileName>MsgBox.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/msgbox.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Pluszd.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/pluszd.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>services.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/services.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>shoesmodul.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/shoesmodul.cpp</FilePath>
+            </File>
+            <File>
               <FileName>skin1.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/containers/skin1.cpp</FilePath>
@@ -900,6 +940,16 @@
               <FileName>standartboardView.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/standartboard_screen/standartboardview.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>startboardPresenter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/startboard_screen/startboardpresenter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>startboardView.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/startboard_screen/startboardview.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -927,14 +977,34 @@
               <FilePath>../../generated/images/src/blue_buttons_round.cpp</FilePath>
             </File>
             <File>
-              <FileName>Blue_Buttons_Round_medium.cpp</FileName>
+              <FileName>Blue_Buttons_Round_m.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/images/src/__designer/blue_buttons_round_medium.cpp</FilePath>
+              <FilePath>../../generated/images/src/blue_buttons_round_m.cpp</FilePath>
             </File>
             <File>
-              <FileName>Blue_Buttons_Round_medium_pressed.cpp</FileName>
+              <FileName>Blue_Buttons_Round_m_pressed.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/images/src/__designer/blue_buttons_round_medium_pressed.cpp</FilePath>
+              <FilePath>../../generated/images/src/blue_buttons_round_m_pressed.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Check_buttons.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_check_buttons.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Check_buttons_Check.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_check_buttons_check.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Check_buttons_Check_.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_check_buttons_check_.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Check_buttons_Check_Round.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_check_buttons_check_round.cpp</FilePath>
             </File>
             <File>
               <FileName>Blue_Slider_Horizontal_Small_Indicators_slider_horizontal_small_round_knob.cpp</FileName>
@@ -952,19 +1022,79 @@
               <FilePath>../../generated/images/src/__designer/blue_slider_horizontal_small_slider_horizontal_small_round_fill.cpp</FilePath>
             </File>
             <File>
-              <FileName>Blue_Togglebars_Toggle_round_small_button_OFF.cpp</FileName>
+              <FileName>Blue_Togglebars.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/images/src/__designer/blue_togglebars_toggle_round_small_button_off.cpp</FilePath>
+              <FilePath>../../generated/images/src/blue_togglebars.cpp</FilePath>
             </File>
             <File>
-              <FileName>Blue_Togglebars_Toggle_round_small_button_ON.cpp</FileName>
+              <FileName>Blue_Togglebars2.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/images/src/__designer/blue_togglebars_toggle_round_small_button_on.cpp</FilePath>
+              <FilePath>../../generated/images/src/blue_togglebars2.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars3.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars3.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars4.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars4.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars_OFF.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars_off.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars_OFF2.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars_off2.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars_ON.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars_on.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars_ON2.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars_on2.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BulbgraphOff.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/bulbgraphoff.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BulbgraphOn.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/bulbgraphon.cpp</FilePath>
             </File>
             <File>
               <FileName>CachedFont.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/cachedfont.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>calendar.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/calendar.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>clear.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/clear.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>clic1.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/clic1.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>clic2.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/clic2.cpp</FilePath>
             </File>
             <File>
               <FileName>Dark_Icons_Back_arrow.cpp</FileName>
@@ -987,9 +1117,34 @@
               <FilePath>../../generated/images/src/dark_icons_next_arrow_passed.cpp</FilePath>
             </File>
             <File>
+              <FileName>dateboardViewBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/dateboard_screen/dateboardviewbase.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>dressmodulBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/dressmodulbase.cpp</FilePath>
+            </File>
+            <File>
               <FileName>fon.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/images/src/fon.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>fon4.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/fon4.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>fon6.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/fon6.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>fon7.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/fon7.cpp</FilePath>
             </File>
             <File>
               <FileName>fonBase.cpp</FileName>
@@ -997,14 +1152,14 @@
               <FilePath>../../generated/gui_generated/src/containers/fonbase.cpp</FilePath>
             </File>
             <File>
-              <FileName>Font_arial_15_4bpp_0.cpp</FileName>
+              <FileName>Font_arial_14_4bpp_0.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/fonts/src/font_arial_15_4bpp_0.cpp</FilePath>
+              <FilePath>../../generated/fonts/src/font_arial_14_4bpp_0.cpp</FilePath>
             </File>
             <File>
-              <FileName>Font_ariblk_15_4bpp_0.cpp</FileName>
+              <FileName>Font_arialbd_14_4bpp_0.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/fonts/src/font_ariblk_15_4bpp_0.cpp</FilePath>
+              <FilePath>../../generated/fonts/src/font_arialbd_14_4bpp_0.cpp</FilePath>
             </File>
             <File>
               <FileName>Font_verdana_20_4bpp_0.cpp</FileName>
@@ -1037,14 +1192,19 @@
               <FilePath>../../generated/gui_generated/src/heatingboard_screen/heatingboardviewbase.cpp</FilePath>
             </File>
             <File>
-              <FileName>Kerning_arial_15_4bpp.cpp</FileName>
+              <FileName>icontime.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/fonts/src/kerning_arial_15_4bpp.cpp</FilePath>
+              <FilePath>../../generated/images/src/icontime.cpp</FilePath>
             </File>
             <File>
-              <FileName>Kerning_ariblk_15_4bpp.cpp</FileName>
+              <FileName>Kerning_arial_14_4bpp.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/fonts/src/kerning_ariblk_15_4bpp.cpp</FilePath>
+              <FilePath>../../generated/fonts/src/kerning_arial_14_4bpp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Kerning_arialbd_14_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/kerning_arialbd_14_4bpp.cpp</FilePath>
             </File>
             <File>
               <FileName>Kerning_verdana_10_4bpp.cpp</FileName>
@@ -1067,6 +1227,16 @@
               <FilePath>../../generated/texts/src/languagegb.cpp</FilePath>
             </File>
             <File>
+              <FileName>line.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/line.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ListTableBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/listtablebase.cpp</FilePath>
+            </File>
+            <File>
               <FileName>mainboardViewBase.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/gui_generated/src/mainboard_screen/mainboardviewbase.cpp</FilePath>
@@ -1075,6 +1245,11 @@
               <FileName>manualboardViewBase.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/gui_generated/src/manualboard_screen/manualboardviewbase.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MsgBoxBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/msgboxbase.cpp</FilePath>
             </File>
             <File>
               <FileName>ok_button.cpp</FileName>
@@ -1087,6 +1262,21 @@
               <FilePath>../../generated/images/src/ok_button_pressed.cpp</FilePath>
             </File>
             <File>
+              <FileName>PluszdBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/pluszdbase.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>servicesBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/servicesbase.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>shoesmodulBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/shoesmodulbase.cpp</FilePath>
+            </File>
+            <File>
               <FileName>skin1Base.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/gui_generated/src/containers/skin1base.cpp</FilePath>
@@ -1097,14 +1287,19 @@
               <FilePath>../../generated/gui_generated/src/standartboard_screen/standartboardviewbase.cpp</FilePath>
             </File>
             <File>
-              <FileName>Table_arial_15_4bpp.cpp</FileName>
+              <FileName>startboardViewBase.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/fonts/src/table_arial_15_4bpp.cpp</FilePath>
+              <FilePath>../../generated/gui_generated/src/startboard_screen/startboardviewbase.cpp</FilePath>
             </File>
             <File>
-              <FileName>Table_ariblk_15_4bpp.cpp</FileName>
+              <FileName>Table_arial_14_4bpp.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/fonts/src/table_ariblk_15_4bpp.cpp</FilePath>
+              <FilePath>../../generated/fonts/src/table_arial_14_4bpp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Table_arialbd_14_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/table_arialbd_14_4bpp.cpp</FilePath>
             </File>
             <File>
               <FileName>Table_verdana_10_4bpp.cpp</FileName>
@@ -1127,9 +1322,29 @@
               <FilePath>../../generated/texts/src/texts.cpp</FilePath>
             </File>
             <File>
+              <FileName>thermometer_icon-icons.com_62485.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/thermometer_icon-icons.com_62485.cpp</FilePath>
+            </File>
+            <File>
               <FileName>TypedTextDatabase.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/texts/src/typedtextdatabase.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>unikon_s.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/unikon_s.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>warning.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/warning.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>warning_s.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/warning_s.cpp</FilePath>
             </File>
           </Files>
         </Group>

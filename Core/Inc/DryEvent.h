@@ -10,7 +10,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 #define MAX_EVENTS 10
 
 #define DIFFERENCE 5 //минимальная разница между событиями
@@ -26,9 +25,11 @@ extern "C" {
 #define EVENT_ERR_DAY_NOT_EXISTS -2 //ошибки
 #define EVENT_ERR_ID_NOT_EXISTS -3
 
-#define EVENT_AWAY -1
-#define EVENT_NO 0
-#define EVENT_OK 1 //отчет
+#define EVENT_AWAY -1 // нет событий на вызов
+#define EVENT_NO 0 //нельзя добавить новое событие
+#define EVENT_OK 1 //действие успешно выполнено
+
+#define TIME_ABSOLUTE 10080
 
 
 struct dryEvent
@@ -48,19 +49,23 @@ int AddDryEvent(int day, int hour, int minut, int duration_F, int temp_F, int du
 int DelDryEvent(int day, int id);
 int IsNeedExecuteEventID(int day, int hour, int minut);
 
-//внутренние вспомогательные процедуры
-int IsMayAdded(struct dryEvent* dayArray, int max, int day, int hour, int minut, int duration_F, int duration_S);
-int ExecuteChecker(struct dryEvent* dayArray, int dayID, int day, int hour, int minut);
-void SetUpEvent(struct dryEvent* dayArray, int id, int day, int hour, int minut, int duration_F, int temp_F, int duration_S, int temp_S);
-void SetDownEvent(struct dryEvent* dayArray, int dayID, int id);
-int GetMax(int a, int b);
-struct dryEvent* GetPointerArray(int day);
-
 //функции-свойства
 int GetDurationEvent_F(int day, int id);
 int GetTempEvent_F(int day, int id);
 int GetDurationEvent_S(int day, int id);
 int GetTempEvent_S(int day, int id);
+
+
+//внутренние вспомогательные процедуры
+int IsMayAdded(int day, int hour, int minut, int duration_F, int duration_S);
+int ExecuteChecker(struct dryEvent* dayArray, int dayID, int day, int hour, int minut);
+void SetUpEvent(struct dryEvent* dayArray, int id, int day, int hour, int minut, int duration_F, int temp_F, int duration_S, int temp_S);
+void SetDownEvent(struct dryEvent* dayArray, int dayID, int id);
+int GetMax(int a, int b);
+int AbsoluteTime(int time);
+int ProcesCycle(struct dryEvent* dayArray, int dayID, int timeStart, int timeEnd);
+struct dryEvent* GetPointerArray(int day);
+
 
 
 #ifdef __cplusplus

@@ -9,3 +9,8 @@ void fon::initialize()
 {
     fonBase::initialize();
 }
+
+void fon::SetVisibleClosebt(bool visible)
+{
+	closebt.setVisible(visible);
+}

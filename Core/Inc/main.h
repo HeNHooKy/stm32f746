@@ -54,7 +54,10 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void SetTimeDate(uint8_t hours, uint8_t minutes, uint8_t weekDay);
+int AddNewEvent(int day, int hour, int minute, int duration_f, int durtation_s, int temp);
+int CheckTimeDate();
+void UC_REQUESTER();
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -166,8 +169,6 @@ void Error_Handler(void);
 #define LCD_B3_GPIO_Port GPIOJ
 #define OTG_FS_OverCurrent_Pin GPIO_PIN_4
 #define OTG_FS_OverCurrent_GPIO_Port GPIOD
-#define SDMMC_CMD_Pin GPIO_PIN_2
-#define SDMMC_CMD_GPIO_Port GPIOD
 #define TP3_Pin GPIO_PIN_15
 #define TP3_GPIO_Port GPIOH
 #define OTG_FS_ID_Pin GPIO_PIN_10

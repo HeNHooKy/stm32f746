@@ -11,32 +11,30 @@ manualboardViewBase::manualboardViewBase() :
     sliderValueChangedCallback(this, &manualboardViewBase::sliderValueChangedCallbackHandler)
 {
 
-    touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
-
     fon1.setXY(0, 0);
 
     skin11.setXY(0, 0);
 
-    hoursDownLeft.setXY(9, 65);
+    hoursDownLeft.setXY(17, 65);
     hoursDownLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     hoursDownLeft.setDelay(60);
     hoursDownLeft.setInterval(6);
     hoursDownLeft.setAction(buttonCallback);
 
-    hoursUpLeft.setXY(80, 65);
+    hoursUpLeft.setXY(86, 65);
     hoursUpLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     hoursUpLeft.setDelay(60);
     hoursUpLeft.setInterval(6);
     hoursUpLeft.setAction(buttonCallback);
 
-    TempSliderLeft.setXY(47, 141);
+    TempSliderLeft.setXY(47, 143);
     TempSliderLeft.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_INDICATORS_SLIDER_HORIZONTAL_SMALL_ROUND_KNOB_ID));
     TempSliderLeft.setupHorizontalSlider(3, 7, 0, 0, 125);
-    TempSliderLeft.setValueRange(13, 50);
-    TempSliderLeft.setValue(30);
+    TempSliderLeft.setValueRange(13, 90);
+    TempSliderLeft.setValue(90);
     TempSliderLeft.setNewValueCallback(sliderValueChangedCallback);
 
-    timerHoursLeft.setXY(39, 67);
+    timerHoursLeft.setXY(45, 67);
     timerHoursLeft.setColor(touchgfx::Color::getColorFrom24BitRGB(8, 0, 0));
     timerHoursLeft.setLinespacing(0);
     Unicode::snprintf(timerHoursLeftBuffer, TIMERHOURSLEFT_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID12).getText());
@@ -44,7 +42,7 @@ manualboardViewBase::manualboardViewBase() :
     timerHoursLeft.resizeToCurrentText();
     timerHoursLeft.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    tempLeftInd.setXY(9, 138);
+    tempLeftInd.setXY(9, 140);
     tempLeftInd.setColor(touchgfx::Color::getColorFrom24BitRGB(10, 0, 0));
     tempLeftInd.setLinespacing(0);
     Unicode::snprintf(tempLeftIndBuffer, TEMPLEFTIND_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID13).getText());
@@ -52,32 +50,28 @@ manualboardViewBase::manualboardViewBase() :
     tempLeftInd.resizeToCurrentText();
     tempLeftInd.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    startLeft.setXY(76, 191);
-    startLeft.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_ON_ID));
-    startLeft.setAction(buttonCallback);
-
-    temp2.setXY(87, 122);
+    temp2.setXY(73, 124);
     temp2.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     temp2.setLinespacing(0);
     temp2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID14));
 
-    hour1.setXY(42, 39);
+    hour1.setXY(48, 42);
     hour1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     hour1.setLinespacing(0);
     hour1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID15));
 
-    minute1.setXY(162, 39);
+    minute1.setXY(155, 42);
     minute1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     minute1.setLinespacing(0);
     minute1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID16));
 
-    minutesDownLeft.setXY(139, 65);
+    minutesDownLeft.setXY(132, 65);
     minutesDownLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     minutesDownLeft.setDelay(60);
     minutesDownLeft.setInterval(6);
     minutesDownLeft.setAction(buttonCallback);
 
-    timerMinutesLeft.setXY(167, 67);
+    timerMinutesLeft.setXY(160, 67);
     timerMinutesLeft.setColor(touchgfx::Color::getColorFrom24BitRGB(10, 0, 0));
     timerMinutesLeft.setLinespacing(0);
     Unicode::snprintf(timerMinutesLeftBuffer, TIMERMINUTESLEFT_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID17).getText());
@@ -85,32 +79,40 @@ manualboardViewBase::manualboardViewBase() :
     timerMinutesLeft.resizeToCurrentText();
     timerMinutesLeft.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    minutesUpLeft.setXY(207, 65);
+    minutesUpLeft.setXY(201, 65);
     minutesUpLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     minutesUpLeft.setDelay(60);
     minutesUpLeft.setInterval(6);
     minutesUpLeft.setAction(buttonCallback);
 
-    hoursDownRight.setXY(269, 65);
+    hoursDownRight.setXY(256, 65);
     hoursDownRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     hoursDownRight.setDelay(60);
     hoursDownRight.setInterval(6);
     hoursDownRight.setAction(buttonCallback);
 
-    hoursUpRight.setXY(335, 65);
+    hoursUpRight.setXY(325, 65);
     hoursUpRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     hoursUpRight.setDelay(60);
     hoursUpRight.setInterval(6);
     hoursUpRight.setAction(buttonCallback);
 
-    TempSliderRight.setXY(301, 141);
+    StartLeft.setXY(75, 185);
+    StartLeft.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON2_ID));
+    StartLeft.setAction(buttonCallback);
+
+    StartRight.setXY(320, 185);
+    StartRight.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON2_ID));
+    StartRight.setAction(buttonCallback);
+
+    TempSliderRight.setXY(291, 143);
     TempSliderRight.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_INDICATORS_SLIDER_HORIZONTAL_SMALL_ROUND_KNOB_ID));
     TempSliderRight.setupHorizontalSlider(3, 7, 0, 0, 125);
-    TempSliderRight.setValueRange(13, 50);
-    TempSliderRight.setValue(30);
+    TempSliderRight.setValueRange(13, 90);
+    TempSliderRight.setValue(90);
     TempSliderRight.setNewValueCallback(sliderValueChangedCallback);
 
-    timerHoursRight.setXY(296, 67);
+    timerHoursRight.setXY(284, 67);
     timerHoursRight.setColor(touchgfx::Color::getColorFrom24BitRGB(8, 0, 0));
     timerHoursRight.setLinespacing(0);
     Unicode::snprintf(timerHoursRightBuffer, TIMERHOURSRIGHT_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID20).getText());
@@ -118,7 +120,7 @@ manualboardViewBase::manualboardViewBase() :
     timerHoursRight.resizeToCurrentText();
     timerHoursRight.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    tempRightInd.setXY(263, 138);
+    tempRightInd.setXY(250, 140);
     tempRightInd.setColor(touchgfx::Color::getColorFrom24BitRGB(8, 0, 0));
     tempRightInd.setLinespacing(0);
     Unicode::snprintf(tempRightIndBuffer, TEMPRIGHTIND_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID21).getText());
@@ -126,31 +128,28 @@ manualboardViewBase::manualboardViewBase() :
     tempRightInd.resizeToCurrentText();
     tempRightInd.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    startRight.setXY(331, 191);
-    startRight.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_TOGGLE_ROUND_SMALL_BUTTON_ON_ID));
-
-    temp24.setXY(340, 122);
+    temp24.setXY(318, 124);
     temp24.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     temp24.setLinespacing(0);
     temp24.setTypedText(touchgfx::TypedText(T_SINGLEUSEID22));
 
-    hour.setXY(300, 39);
+    hour.setXY(284, 42);
     hour.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     hour.setLinespacing(0);
     hour.setTypedText(touchgfx::TypedText(T_SINGLEUSEID23));
 
-    minute.setXY(403, 39);
+    minute.setXY(394, 42);
     minute.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     minute.setLinespacing(0);
     minute.setTypedText(touchgfx::TypedText(T_SINGLEUSEID24));
 
-    minutesDownRight.setXY(383, 65);
+    minutesDownRight.setXY(371, 65);
     minutesDownRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     minutesDownRight.setDelay(60);
     minutesDownRight.setInterval(6);
     minutesDownRight.setAction(buttonCallback);
 
-    timerMinutesRight.setXY(408, 67);
+    timerMinutesRight.setXY(399, 67);
     timerMinutesRight.setColor(touchgfx::Color::getColorFrom24BitRGB(5, 0, 0));
     timerMinutesRight.setLinespacing(0);
     Unicode::snprintf(timerMinutesRightBuffer, TIMERMINUTESRIGHT_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID25).getText());
@@ -158,11 +157,20 @@ manualboardViewBase::manualboardViewBase() :
     timerMinutesRight.resizeToCurrentText();
     timerMinutesRight.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    minutesUpRight.setXY(446, 65);
+    minutesUpRight.setXY(440, 65);
     minutesUpRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     minutesUpRight.setDelay(60);
     minutesUpRight.setInterval(6);
     minutesUpRight.setAction(buttonCallback);
+
+    shoesmodul1.setXY(244, 21);
+    shoesmodul1.setVisible(false);
+
+    dressmodul1.setXY(0, 21);
+    dressmodul1.setVisible(false);
+
+    msgBox1.setXY(13, 50);
+    msgBox1.setVisible(false);
 
     add(fon1);
     add(skin11);
@@ -171,7 +179,6 @@ manualboardViewBase::manualboardViewBase() :
     add(TempSliderLeft);
     add(timerHoursLeft);
     add(tempLeftInd);
-    add(startLeft);
     add(temp2);
     add(hour1);
     add(minute1);
@@ -180,22 +187,29 @@ manualboardViewBase::manualboardViewBase() :
     add(minutesUpLeft);
     add(hoursDownRight);
     add(hoursUpRight);
+    add(StartLeft);
+    add(StartRight);
     add(TempSliderRight);
     add(timerHoursRight);
     add(tempRightInd);
-    add(startRight);
     add(temp24);
     add(hour);
     add(minute);
     add(minutesDownRight);
     add(timerMinutesRight);
     add(minutesUpRight);
+    add(shoesmodul1);
+    add(dressmodul1);
+    add(msgBox1);
 }
 
 void manualboardViewBase::setupScreen()
 {
     fon1.initialize();
     skin11.initialize();
+    shoesmodul1.initialize();
+    dressmodul1.initialize();
+    msgBox1.initialize();
 }
 
 void manualboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -213,13 +227,6 @@ void manualboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& 
         //When hoursUpLeft clicked call virtual function
         //Call HoursUpLeft
         HoursUpLeft();
-    }
-    else if (&src == &startLeft)
-    {
-        //startDryLeft
-        //When startLeft clicked call virtual function
-        //Call StartDryLeft
-        StartDryLeft();
     }
     else if (&src == &minutesDownLeft)
     {
@@ -248,6 +255,20 @@ void manualboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& 
         //When hoursUpRight clicked call virtual function
         //Call HoursUpRight
         HoursUpRight();
+    }
+    else if (&src == &StartLeft)
+    {
+        //startDryLeft
+        //When StartLeft clicked call virtual function
+        //Call StartDryLeft
+        StartDryLeft();
+    }
+    else if (&src == &StartRight)
+    {
+        //startDryRight
+        //When StartRight clicked call virtual function
+        //Call StartDryRight
+        StartDryRight();
     }
     else if (&src == &minutesDownRight)
     {

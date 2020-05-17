@@ -10,8 +10,11 @@
 #include <gui/containers/fon.hpp>
 #include <gui/containers/skin1.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/ToggleButton.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <gui/containers/shoesmodul.hpp>
+#include <gui/containers/dressmodul.hpp>
+#include <gui/containers/MsgBox.hpp>
 
 class standartboardViewBase : public touchgfx::View<standartboardPresenter>
 {
@@ -30,20 +33,18 @@ protected:
      */
     fon fon1;
     skin1 skin11;
-    touchgfx::DigitalClock digitalClock1;
+    touchgfx::DigitalClock digitaltimerrightbt;
+    touchgfx::DigitalClock digitaltimerleftbt;
+    touchgfx::ToggleButton startleftbt;
+    touchgfx::ToggleButton startrightbt;
     touchgfx::TextArea textArea1;
     touchgfx::TextArea textArea1_1;
-    touchgfx::DigitalClock digitalClock2;
-    touchgfx::ToggleButton Button1;
-    touchgfx::ToggleButton Button2;
+    shoesmodul shoesmodul1;
+    dressmodul dressmodul1;
+    MsgBox msgBox1;
 
 private:
 
-    /*
-     * Canvas Buffer Size
-     */
-    static const uint16_t CANVAS_BUFFER_SIZE = 7200;
-    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 };
 
 #endif // STANDARTBOARDVIEWBASE_HPP

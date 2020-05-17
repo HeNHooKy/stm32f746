@@ -10,7 +10,14 @@ public:
     
     virtual ~ModelListener() {}
 
-    virtual void uartMsgRdy(int value) {}
+    virtual void DisplayTimeLeft(int minute) {}
+    virtual void DisplayTimeRight(int minute) {}
+    virtual void DisplayTempLeft(int value) {}
+    virtual void DisplayTempRight(int value) {}
+    virtual void DisplayStatusLeft(int status) {}
+    virtual void DisplayStatusRight(int status) {}
+
+    virtual void ShowMessage(char* message) {}
 
     void bind(Model* m)
     {

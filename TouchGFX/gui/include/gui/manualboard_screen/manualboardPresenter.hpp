@@ -25,9 +25,19 @@ public:
      */
     virtual void deactivate();
 
-    virtual void uartMsgRdy(int value);
-
     virtual void StartDryLeft(int time, int temp);
+    virtual void StopDryLeft();
+    virtual void StartDryRight(int time, int temp);
+    virtual void StopDryRight();
+
+    void DisplayTimeLeft(int minute);
+    void DisplayTimeRight(int minute);
+    void DisplayTempLeft(int value);
+    void DisplayTempRight(int value);
+    void DisplayStatusLeft(int status);
+    void DisplayStatusRight(int status);
+
+    virtual void ShowMessage(char* message);
 
     virtual ~manualboardPresenter() {};
 

@@ -7,8 +7,7 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/widgets/canvas/Line.hpp>
-#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
+#include <touchgfx/widgets/TiledImage.hpp>
 
 class skin1Base : public touchgfx::Container
 {
@@ -27,8 +26,7 @@ protected:
      */
     touchgfx::TextArea textArea1;
     touchgfx::TextArea textArea2;
-    touchgfx::Line line1;
-    touchgfx::PainterRGB888 line1Painter;
+    touchgfx::TiledImage tiledImage1;
 
 private:
 
