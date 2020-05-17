@@ -9,7 +9,12 @@
 #include <gui/mainboard_screen/mainboardPresenter.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
+#include <touchgfx/containers/clock/DigitalClock.hpp>
 #include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/ModalWindow.hpp>
+#include <touchgfx/Color.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 
 class mainboardViewBase : public touchgfx::View<mainboardPresenter>
 {
@@ -17,15 +22,6 @@ public:
     mainboardViewBase();
     virtual ~mainboardViewBase() {}
     virtual void setupScreen();
-    virtual void afterTransition();
-
-    /*
-     * Virtual Action Handlers
-     */
-    virtual void WarningFunction()
-    {
-        // Override and implement this function in mainboard
-    }
 
 protected:
     FrontendApplication& application() {
@@ -40,10 +36,21 @@ protected:
     touchgfx::ButtonWithLabel heatingboard;
     touchgfx::ButtonWithLabel Standartboard;
     touchgfx::ButtonWithLabel Dateboard;
+    touchgfx::DigitalClock RealClock;
+    touchgfx::Button SetTimeBT;
+    touchgfx::Button WaringBT;
+    touchgfx::TextAreaWithOneWildcard day;
     touchgfx::Image logo;
-    touchgfx::Image Image2;
-    touchgfx::Button SetTime;
-    touchgfx::Button warning;
+    touchgfx::ModalWindow servises;
+    touchgfx::Image Image1;
+    touchgfx::TextArea textArea1;
+    touchgfx::ButtonWithLabel okbt;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t DAY_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar dayBuffer[DAY_SIZE];
 
 private:
 

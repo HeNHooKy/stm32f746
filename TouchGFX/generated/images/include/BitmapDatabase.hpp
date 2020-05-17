@@ -42,12 +42,13 @@ const uint16_t BITMAP_FON6_ID = 31;
 const uint16_t BITMAP_FON7_ID = 32;
 const uint16_t BITMAP_ICONTIME_ID = 33;
 const uint16_t BITMAP_LINE_ID = 34;
-const uint16_t BITMAP_OK_BUTTON_ID = 35;
-const uint16_t BITMAP_OK_BUTTON_PRESSED_ID = 36;
-const uint16_t BITMAP_THERMOMETER_ICON_ICONS_COM_62485_ID = 37;
-const uint16_t BITMAP_UNIKON_S_ID = 38;
-const uint16_t BITMAP_WARNING_ID = 39;
-const uint16_t BITMAP_WARNING_S_ID = 40;
+const uint16_t BITMAP_LOGO_ID = 35;
+const uint16_t BITMAP_OK_BUTTON_ID = 36;
+const uint16_t BITMAP_OK_BUTTON_PRESSED_ID = 37;
+const uint16_t BITMAP_THERMOMETER_ICON_ICONS_COM_62485_ID = 38;
+const uint16_t BITMAP_UNIKON_S_ID = 39;
+const uint16_t BITMAP_WARNING_ID = 40;
+const uint16_t BITMAP_WARNING_S_ID = 41;
 
 namespace BitmapDatabase
 {

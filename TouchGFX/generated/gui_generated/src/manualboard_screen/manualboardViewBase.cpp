@@ -101,7 +101,7 @@ manualboardViewBase::manualboardViewBase() :
     StartLeft.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON2_ID));
     StartLeft.setAction(buttonCallback);
 
-    StartRight.setXY(320, 185);
+    StartRight.setXY(319, 185);
     StartRight.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON2_ID));
     StartRight.setAction(buttonCallback);
 
@@ -169,7 +169,7 @@ manualboardViewBase::manualboardViewBase() :
     dressmodul1.setXY(0, 21);
     dressmodul1.setVisible(false);
 
-    msgBox1.setXY(13, 50);
+    msgBox1.setXY(25, 57);
     msgBox1.setVisible(false);
 
     add(fon1);

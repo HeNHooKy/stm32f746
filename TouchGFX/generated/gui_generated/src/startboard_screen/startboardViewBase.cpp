@@ -53,7 +53,7 @@ startboardViewBase::startboardViewBase() :
     timerMinutes.setXY(302, 158);
     timerMinutes.setColor(touchgfx::Color::getColorFrom24BitRGB(10, 0, 0));
     timerMinutes.setLinespacing(0);
-    Unicode::snprintf(timerMinutesBuffer, TIMERMINUTES_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID234).getText());
+    Unicode::snprintf(timerMinutesBuffer, TIMERMINUTES_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID43).getText());
     timerMinutes.setWildcard(timerMinutesBuffer);
     timerMinutes.resizeToCurrentText();
     timerMinutes.setTypedText(touchgfx::TypedText(T_TEXTID2));
@@ -64,12 +64,12 @@ startboardViewBase::startboardViewBase() :
     minutesUp.setInterval(6);
     minutesUp.setAction(buttonCallback);
 
-    SaveTime.setXY(162, 229);
-    SaveTime.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID));
-    SaveTime.setLabelText(touchgfx::TypedText(T_SINGLEUSEID44));
-    SaveTime.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    SaveTime.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    SaveTime.setAction(buttonCallback);
+    saveTime.setXY(162, 229);
+    saveTime.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID));
+    saveTime.setLabelText(touchgfx::TypedText(T_SINGLEUSEID44));
+    saveTime.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    saveTime.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    saveTime.setAction(buttonCallback);
 
     date.setXY(199, 50);
     date.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
@@ -160,7 +160,7 @@ startboardViewBase::startboardViewBase() :
     add(minutesDown);
     add(timerMinutes);
     add(minutesUp);
-    add(SaveTime);
+    add(saveTime);
     add(date);
     add(textArea1);
     add(pnbt);
@@ -221,15 +221,15 @@ void startboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
         //Call MinutesUp
         MinutesUp();
     }
-    else if (&src == &SaveTime)
+    else if (&src == &saveTime)
     {
         //ok
-        //When SaveTime clicked change screen to mainboard
+        //When saveTime clicked change screen to mainboard
         //Go to mainboard with no screen transition
         application().gotomainboardScreenNoTransition();
 
-        //SaveTime
-        //When SaveTime clicked call virtual function
+        //SeveTime
+        //When saveTime clicked call virtual function
         //Call SetTimeDate
         SetTimeDate();
     }

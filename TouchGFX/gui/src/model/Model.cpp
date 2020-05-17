@@ -188,6 +188,6 @@ int Model::ClockChecker()
 void Model::DisplayTime()
 {	//обновляем данные о времени
 	int day, hour, minute;
-	GetTimeDate(day, hour, minute);
+	GetTimeDate(&day, &hour, &minute);
 	modelListener->DisplayCurrentTime(day, hour, minute);
 }

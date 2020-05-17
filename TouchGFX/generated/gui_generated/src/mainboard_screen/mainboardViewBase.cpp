@@ -41,44 +41,71 @@ mainboardViewBase::mainboardViewBase() :
     Dateboard.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     Dateboard.setAction(buttonCallback);
 
-    logo.setXY(190, 16);
-    logo.setBitmap(touchgfx::Bitmap(BITMAP_UNIKON_S_ID));
-    logo.setAlpha(200);
+    RealClock.setPosition(321, 16, 74, 23);
+    RealClock.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    RealClock.setTypedText(touchgfx::TypedText(T_SINGLEUSEID209));
+    RealClock.displayLeadingZeroForHourIndicator(true);
+    RealClock.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
+    RealClock.setTime24Hour(10, 10, 0);
 
-    Image2.setXY(0, 0);
-    Image2.setVisible(false);
-    Image2.setBitmap(touchgfx::Bitmap(BITMAP_WARNING_ID));
+    SetTimeBT.setXY(436, 13);
+    SetTimeBT.setBitmaps(touchgfx::Bitmap(BITMAP_ICONTIME_ID), touchgfx::Bitmap(BITMAP_ICONTIME_ID));
+    SetTimeBT.setAction(buttonCallback);
 
-    SetTime.setXY(436, 7);
-    SetTime.setBitmaps(touchgfx::Bitmap(BITMAP_ICONTIME_ID), touchgfx::Bitmap(BITMAP_ICONTIME_ID));
-    SetTime.setAction(buttonCallback);
+    WaringBT.setXY(436, 60);
+    WaringBT.setVisible(false);
+    WaringBT.setBitmaps(touchgfx::Bitmap(BITMAP_WARNING_S_ID), touchgfx::Bitmap(BITMAP_WARNING_S_ID));
 
-    warning.setXY(392, 7);
-    warning.setBitmaps(touchgfx::Bitmap(BITMAP_WARNING_S_ID), touchgfx::Bitmap(BITMAP_WARNING_S_ID));
+    day.setXY(396, 15);
+    day.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    day.setLinespacing(0);
+    Unicode::snprintf(dayBuffer, DAY_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID212).getText());
+    day.setWildcard(dayBuffer);
+    day.resizeToCurrentText();
+    day.setTypedText(touchgfx::TypedText(T_SINGLEUSEID211));
+
+    logo.setXY(153, 29);
+    logo.setBitmap(touchgfx::Bitmap(BITMAP_LOGO_ID));
+
+    servises.setBackground(touchgfx::BitmapId(BITMAP_FON4_ID), 28, 43);
+    servises.setShadeColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    servises.setShadeAlpha(152);
+    servises.hide();
+
+    Image1.setXY(4, 3);
+    Image1.setBitmap(touchgfx::Bitmap(BITMAP_WARNING_ID));
+    servises.add(Image1);
+
+    textArea1.setXY(169, 21);
+    textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID218));
+    servises.add(textArea1);
+
+    okbt.setXY(219, 102);
+    okbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
+    okbt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID219));
+    okbt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    okbt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    okbt.setAction(buttonCallback);
+    servises.add(okbt);
 
     add(fon);
     add(manualbutton);
     add(heatingboard);
     add(Standartboard);
     add(Dateboard);
+    add(RealClock);
+    add(SetTimeBT);
+    add(WaringBT);
+    add(day);
     add(logo);
-    add(Image2);
-    add(SetTime);
-    add(warning);
+    add(servises);
 }
 
 void mainboardViewBase::setupScreen()
 {
 
-}
-
-//Called when the screen is done with transition/load
-void mainboardViewBase::afterTransition()
-{
-    //Warning
-    //When screen is entered call virtual function
-    //Call WarningFunction
-    WarningFunction();
 }
 
 void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -111,11 +138,19 @@ void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //Go to dateboard with no screen transition
         application().gotodateboardScreenNoTransition();
     }
-    else if (&src == &SetTime)
+    else if (&src == &SetTimeBT)
     {
         //SetTime
-        //When SetTime clicked change screen to startboard
+        //When SetTimeBT clicked change screen to startboard
         //Go to startboard with no screen transition
         application().gotostartboardScreenNoTransition();
+    }
+    else if (&src == &okbt)
+    {
+        //Interaction1
+        //When okbt clicked hide servises
+        //Hide servises
+        servises.setVisible(false);
+        servises.invalidate();
     }
 }

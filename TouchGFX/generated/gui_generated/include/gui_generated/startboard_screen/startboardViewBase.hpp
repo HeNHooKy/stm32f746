@@ -67,7 +67,7 @@ protected:
     touchgfx::RepeatButton minutesDown;
     touchgfx::TextAreaWithOneWildcard timerMinutes;
     touchgfx::RepeatButton minutesUp;
-    touchgfx::ButtonWithLabel SaveTime;
+    touchgfx::ButtonWithLabel saveTime;
     touchgfx::TextArea date;
     touchgfx::TextArea textArea1;
     touchgfx::RadioButton pnbt;

@@ -131,30 +131,26 @@
             "Moveable": false
           },
           {
-            "RelativeFilename": "unikon_s.png",
-            "Alpha": 200,
-            "Name": "logo",
-            "X": 190,
-            "Y": 16,
-            "Width": 100,
-            "Height": 100,
-            "Type": "Image",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "RelativeFilename": "warning.png",
+            "TextColor": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "TextId": "SingleUseId209",
+            "DisplaySeconds": false,
+            "DisplayLeadingZeroForHourIndicator": true,
             "Alpha": 255,
-            "Name": "Image2",
-            "X": 0,
-            "Y": 0,
-            "Width": 150,
-            "Height": 150,
-            "Type": "Image",
-            "Visible": false,
+            "UseAmPm": false,
+            "InitialHour": 10,
+            "InitialMinute": 10,
+            "InitialSecond": 0,
+            "Name": "RealClock",
+            "X": 321,
+            "Y": 16,
+            "Width": 74,
+            "Height": 23,
+            "Type": "DigitalClock",
+            "Visible": true,
             "Draggable": false,
             "Clickable": false,
             "Fadeable": false,
@@ -164,11 +160,11 @@
             "Pressed": "icontime.png",
             "Released": "icontime.png",
             "Alpha": 255,
-            "Name": "SetTime",
+            "Name": "SetTimeBT",
             "X": 436,
-            "Y": 7,
-            "Width": 32,
-            "Height": 32,
+            "Y": 13,
+            "Width": 25,
+            "Height": 25,
             "Type": "Button",
             "Visible": true,
             "Draggable": false,
@@ -180,13 +176,150 @@
             "Pressed": "warning_s.png",
             "Released": "warning_s.png",
             "Alpha": 255,
-            "Name": "warning",
-            "X": 392,
-            "Y": 7,
+            "Name": "WaringBT",
+            "X": 436,
+            "Y": 60,
             "Width": 32,
             "Height": 32,
             "Type": "Button",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId211",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "TextId": "SingleUseId212",
+              "UseBuffer": true,
+              "BufferSize": 4
+            },
+            "Name": "day",
+            "X": 396,
+            "Y": 15,
+            "Width": 29,
+            "Height": 26,
+            "Type": "TextArea",
             "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "RelativeFilename": "logo.png",
+            "Alpha": 255,
+            "Name": "logo",
+            "X": 153,
+            "Y": 29,
+            "Width": 175,
+            "Height": 80,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Components": [
+              {
+                "RelativeFilename": "warning.png",
+                "Alpha": 255,
+                "Name": "Image1",
+                "X": 4,
+                "Y": 3,
+                "Width": 150,
+                "Height": 150,
+                "Type": "Image",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId218",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "textArea1",
+                "X": 169,
+                "Y": 21,
+                "Width": 231,
+                "Height": 48,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Blue_Buttons_presed.png",
+                "Released": "Blue_Buttons_Round.png",
+                "Alpha": 255,
+                "TextId": "SingleUseId219",
+                "ReleasedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "PressedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "TextRotation": "0",
+                "Name": "okbt",
+                "X": 219,
+                "Y": 102,
+                "Width": 156,
+                "Height": 35,
+                "Type": "ButtonWithLabel",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              }
+            ],
+            "FileName": "fon4.png",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "ModalX": 28,
+            "ModalY": 43,
+            "ModalWidth": 430,
+            "ModalHeight": 150,
+            "ContX": 0,
+            "ContY": 0,
+            "Alpha": 152,
+            "Name": "servises",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Type": "ModalWindow",
+            "Visible": false,
             "Draggable": false,
             "Clickable": false,
             "Fadeable": false,
@@ -247,27 +380,28 @@
             }
           },
           {
-            "InteractionName": "Warning",
-            "HasCompletedTrigger": false,
-            "Trigger": {
-              "Type": "TriggerScreenEntered"
-            },
-            "Action": {
-              "FunctionName": "WarningFunction",
-              "Type": "ActionCustom"
-            }
-          },
-          {
             "InteractionName": "SetTime",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "SetTime",
+              "TriggerComponent": "SetTimeBT",
               "Type": "TriggerClicked"
             },
             "Action": {
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "startboard",
               "Type": "ActionGotoScreen"
+            }
+          },
+          {
+            "InteractionName": "Interaction1",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "okbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "ActionComponent": "servises",
+              "Type": "ActionHide"
             }
           }
         ],
@@ -613,7 +747,7 @@
             "Released": "Blue_Togglebars_ON.png",
             "Alpha": 255,
             "Name": "StartRight",
-            "X": 320,
+            "X": 319,
             "Y": 185,
             "Width": 96,
             "Height": 38,
@@ -859,7 +993,7 @@
             "X": 0,
             "Y": 21,
             "Width": 240,
-            "Height": 205,
+            "Height": 207,
             "Type": "CustomContainerInstance",
             "Visible": false,
             "Draggable": false,
@@ -870,10 +1004,10 @@
           {
             "CustomContainerDefinitionName": "MsgBox",
             "Name": "msgBox1",
-            "X": 13,
-            "Y": 50,
-            "Width": 455,
-            "Height": 164,
+            "X": 25,
+            "Y": 57,
+            "Width": 430,
+            "Height": 150,
             "Type": "CustomContainerInstance",
             "Visible": false,
             "Draggable": false,
@@ -1068,32 +1202,6 @@
               "Green": 0,
               "Blue": 0
             },
-            "TextId": "SingleUseId32",
-            "DisplaySeconds": false,
-            "DisplayLeadingZeroForHourIndicator": true,
-            "Alpha": 255,
-            "UseAmPm": false,
-            "InitialHour": 8,
-            "InitialMinute": 0,
-            "InitialSecond": 0,
-            "Name": "digitaltimerrightbt",
-            "X": 321,
-            "Y": 137,
-            "Width": 95,
-            "Height": 40,
-            "Type": "DigitalClock",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextColor": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
             "TextId": "SingleUseId29",
             "DisplaySeconds": false,
             "DisplayLeadingZeroForHourIndicator": true,
@@ -1115,16 +1223,25 @@
             "Moveable": false
           },
           {
-            "InitialStatePressed": false,
-            "Pressed": "Blue_Togglebars_OFF.png",
-            "Released": "Blue_Togglebars_ON.png",
+            "TextColor": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "TextId": "SingleUseId32",
+            "DisplaySeconds": false,
+            "DisplayLeadingZeroForHourIndicator": true,
             "Alpha": 255,
-            "Name": "startleftbt",
-            "X": 75,
-            "Y": 185,
-            "Width": 96,
-            "Height": 38,
-            "Type": "ToggleButton",
+            "UseAmPm": false,
+            "InitialHour": 8,
+            "InitialMinute": 0,
+            "InitialSecond": 0,
+            "Name": "digitaltimerrightbt",
+            "X": 320,
+            "Y": 137,
+            "Width": 95,
+            "Height": 40,
+            "Type": "DigitalClock",
             "Visible": true,
             "Draggable": false,
             "Clickable": false,
@@ -1132,16 +1249,31 @@
             "Moveable": false
           },
           {
-            "InitialStatePressed": false,
-            "Pressed": "Blue_Togglebars_OFF.png",
+            "Pressed": "Blue_Togglebars_ON2.png",
             "Released": "Blue_Togglebars_ON.png",
             "Alpha": 255,
-            "Name": "startrightbt",
-            "X": 320,
+            "Name": "StartLeftBT",
+            "X": 75,
             "Y": 185,
             "Width": 96,
             "Height": 38,
-            "Type": "ToggleButton",
+            "Type": "Button",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Pressed": "Blue_Togglebars_ON2.png",
+            "Released": "Blue_Togglebars_ON.png",
+            "Alpha": 255,
+            "Name": "StartRightBT",
+            "X": 319,
+            "Y": 185,
+            "Width": 96,
+            "Height": 38,
+            "Type": "Button",
             "Visible": true,
             "Draggable": false,
             "Clickable": false,
@@ -1161,7 +1293,7 @@
             "LineSpacing": 0,
             "Name": "textArea1",
             "X": 31,
-            "Y": 46,
+            "Y": 41,
             "Width": 158,
             "Height": 51,
             "Type": "TextArea",
@@ -1184,25 +1316,11 @@
             "LineSpacing": 0,
             "Name": "textArea1_1",
             "X": 278,
-            "Y": 46,
+            "Y": 41,
             "Width": 158,
             "Height": 51,
             "Type": "TextArea",
             "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "CustomContainerDefinitionName": "shoesmodul",
-            "Name": "shoesmodul1",
-            "X": 245,
-            "Y": 21,
-            "Width": 235,
-            "Height": 205,
-            "Type": "CustomContainerInstance",
-            "Visible": false,
             "Draggable": false,
             "Clickable": false,
             "Fadeable": false,
@@ -1214,6 +1332,20 @@
             "X": 0,
             "Y": 21,
             "Width": 240,
+            "Height": 207,
+            "Type": "CustomContainerInstance",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "CustomContainerDefinitionName": "shoesmodul",
+            "Name": "shoesmodul1",
+            "X": 244,
+            "Y": 21,
+            "Width": 235,
             "Height": 205,
             "Type": "CustomContainerInstance",
             "Visible": false,
@@ -1225,10 +1357,10 @@
           {
             "CustomContainerDefinitionName": "MsgBox",
             "Name": "msgBox1",
-            "X": 13,
-            "Y": 50,
-            "Width": 455,
-            "Height": 164,
+            "X": 25,
+            "Y": 61,
+            "Width": 430,
+            "Height": 150,
             "Type": "CustomContainerInstance",
             "Visible": false,
             "Draggable": false,
@@ -1273,25 +1405,31 @@
             "Moveable": false
           },
           {
-            "TextColor": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "TextId": "SingleUseId36",
-            "DisplaySeconds": false,
-            "DisplayLeadingZeroForHourIndicator": true,
+            "Pressed": "Blue_Togglebars_ON2.png",
+            "Released": "Blue_Togglebars_ON.png",
             "Alpha": 255,
-            "UseAmPm": false,
-            "InitialHour": 0,
-            "InitialMinute": 15,
-            "InitialSecond": 0,
-            "Name": "digitaltimerrightbt",
-            "X": 321,
-            "Y": 137,
-            "Width": 95,
-            "Height": 40,
-            "Type": "DigitalClock",
+            "Name": "StartLeftBT",
+            "X": 75,
+            "Y": 185,
+            "Width": 96,
+            "Height": 38,
+            "Type": "Button",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Pressed": "Blue_Togglebars_ON2.png",
+            "Released": "Blue_Togglebars_ON.png",
+            "Alpha": 255,
+            "Name": "StartRightBT",
+            "X": 319,
+            "Y": 185,
+            "Width": 96,
+            "Height": 38,
+            "Type": "Button",
             "Visible": true,
             "Draggable": false,
             "Clickable": false,
@@ -1304,7 +1442,7 @@
               "Green": 0,
               "Blue": 0
             },
-            "TextId": "SingleUseId33",
+            "TextId": "SingleUseId213",
             "DisplaySeconds": false,
             "DisplayLeadingZeroForHourIndicator": true,
             "Alpha": 255,
@@ -1312,7 +1450,7 @@
             "InitialHour": 0,
             "InitialMinute": 15,
             "InitialSecond": 0,
-            "Name": "digitaltimerleft",
+            "Name": "digitaltimerleftbt",
             "X": 76,
             "Y": 137,
             "Width": 95,
@@ -1325,33 +1463,25 @@
             "Moveable": false
           },
           {
-            "InitialStatePressed": false,
-            "Pressed": "Blue_Togglebars_OFF.png",
-            "Released": "Blue_Togglebars_ON.png",
+            "TextColor": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "TextId": "SingleUseId214",
+            "DisplaySeconds": false,
+            "DisplayLeadingZeroForHourIndicator": true,
             "Alpha": 255,
-            "Name": "startleftbt",
-            "X": 75,
-            "Y": 185,
-            "Width": 96,
-            "Height": 38,
-            "Type": "ToggleButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "InitialStatePressed": false,
-            "Pressed": "Blue_Togglebars_OFF.png",
-            "Released": "Blue_Togglebars_ON.png",
-            "Alpha": 255,
-            "Name": "startrightbt",
+            "UseAmPm": false,
+            "InitialHour": 0,
+            "InitialMinute": 15,
+            "InitialSecond": 0,
+            "Name": "digitaltimerrightbt",
             "X": 320,
-            "Y": 185,
-            "Width": 96,
-            "Height": 38,
-            "Type": "ToggleButton",
+            "Y": 137,
+            "Width": 95,
+            "Height": 40,
+            "Type": "DigitalClock",
             "Visible": true,
             "Draggable": false,
             "Clickable": false,
@@ -1370,7 +1500,7 @@
             "AutoSize": true,
             "LineSpacing": 0,
             "Name": "textArea1",
-            "X": 12,
+            "X": 20,
             "Y": 46,
             "Width": 196,
             "Height": 34,
@@ -1393,7 +1523,7 @@
             "AutoSize": true,
             "LineSpacing": 0,
             "Name": "textArea1_1",
-            "X": 256,
+            "X": 264,
             "Y": 46,
             "Width": 196,
             "Height": 34,
@@ -1405,9 +1535,23 @@
             "Moveable": false
           },
           {
+            "CustomContainerDefinitionName": "dressmodul",
+            "Name": "dressmodul1",
+            "X": 0,
+            "Y": 21,
+            "Width": 240,
+            "Height": 207,
+            "Type": "CustomContainerInstance",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
             "CustomContainerDefinitionName": "shoesmodul",
             "Name": "shoesmodul1",
-            "X": 245,
+            "X": 244,
             "Y": 21,
             "Width": 235,
             "Height": 205,
@@ -1419,26 +1563,12 @@
             "Moveable": false
           },
           {
-            "CustomContainerDefinitionName": "dressmodul",
-            "Name": "dressmodul1",
-            "X": 0,
-            "Y": 21,
-            "Width": 240,
-            "Height": 205,
-            "Type": "CustomContainerInstance",
-            "Visible": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
             "CustomContainerDefinitionName": "MsgBox",
             "Name": "msgBox1",
-            "X": 13,
-            "Y": 50,
-            "Width": 455,
-            "Height": 164,
+            "X": 25,
+            "Y": 61,
+            "Width": 430,
+            "Height": 150,
             "Type": "CustomContainerInstance",
             "Visible": false,
             "Draggable": false,
@@ -1449,10 +1579,10 @@
         ],
         "Interactions": [
           {
-            "InteractionName": "StartLeftDry",
+            "InteractionName": "StartDryLeft",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "startleftbt",
+              "TriggerComponent": "StartLeftBT",
               "Type": "TriggerClicked"
             },
             "Action": {
@@ -1461,10 +1591,10 @@
             }
           },
           {
-            "InteractionName": "StartRightDry",
+            "InteractionName": "StartDryRight",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "startrightbt",
+              "TriggerComponent": "StartRightBT",
               "Type": "TriggerClicked"
             },
             "Action": {
@@ -1497,16 +1627,14 @@
           {
             "Components": [
               {
-                "FileName": "fon4.png",
-                "Alpha": 255,
-                "OffsetX": 0,
-                "OffsetY": 0,
-                "Name": "fon1",
-                "X": 0,
-                "Y": 0,
-                "Width": 442,
-                "Height": 100,
-                "Type": "TiledImage",
+                "Components": [],
+                "Direction": "East",
+                "Name": "list",
+                "X": 1,
+                "Y": -66,
+                "Width": 250,
+                "Height": 250,
+                "Type": "ListLayout",
                 "Visible": true,
                 "Draggable": false,
                 "Clickable": false,
@@ -1524,7 +1652,7 @@
               "Blue": 0
             },
             "ScrollbarsAlpha": 255,
-            "Name": "scrollableContainer",
+            "Name": "Container",
             "X": 22,
             "Y": 79,
             "Width": 442,
@@ -1680,7 +1808,7 @@
             "FileNameUnselected": "Blue_Check_buttons.png",
             "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
             "RadioButtonGroup": "day",
-            "Name": "pnbt1",
+            "Name": "pnbt",
             "X": 19,
             "Y": 32,
             "Width": 60,
@@ -1701,7 +1829,7 @@
             "FileNameUnselected": "Blue_Check_buttons.png",
             "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
             "RadioButtonGroup": "day",
-            "Name": "vtbt1",
+            "Name": "vtbt",
             "X": 82,
             "Y": 32,
             "Width": 60,
@@ -1722,7 +1850,7 @@
             "FileNameUnselected": "Blue_Check_buttons.png",
             "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
             "RadioButtonGroup": "day",
-            "Name": "srbt1",
+            "Name": "srbt",
             "X": 148,
             "Y": 32,
             "Width": 60,
@@ -1743,8 +1871,8 @@
             "FileNameUnselected": "Blue_Check_buttons.png",
             "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
             "RadioButtonGroup": "day",
-            "Name": "chtbt1",
-            "X": 211,
+            "Name": "chtbt",
+            "X": 210,
             "Y": 32,
             "Width": 60,
             "Height": 37,
@@ -1764,7 +1892,7 @@
             "FileNameUnselected": "Blue_Check_buttons.png",
             "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
             "RadioButtonGroup": "day",
-            "Name": "ptbt1",
+            "Name": "ptbt",
             "X": 276,
             "Y": 32,
             "Width": 60,
@@ -1785,7 +1913,7 @@
             "FileNameUnselected": "Blue_Check_buttons.png",
             "FileNameUnselectedPressed": "Blue_Check_buttons.png",
             "RadioButtonGroup": "day",
-            "Name": "sbbt1",
+            "Name": "sbbt",
             "X": 339,
             "Y": 32,
             "Width": 60,
@@ -1806,7 +1934,7 @@
             "FileNameUnselected": "Blue_Check_buttons.png",
             "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
             "RadioButtonGroup": "day",
-            "Name": "vsbt1",
+            "Name": "vsbt",
             "X": 404,
             "Y": 32,
             "Width": 60,
@@ -1980,106 +2108,41 @@
             "Moveable": false
           },
           {
-            "Components": [
-              {
-                "TextId": "SingleUseId154",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 0,
-                  "Green": 0,
-                  "Blue": 0
-                },
-                "Alpha": 255,
-                "AutoSize": true,
-                "LineSpacing": 0,
-                "Name": "textArea1",
-                "X": 33,
-                "Y": 18,
-                "Width": 239,
-                "Height": 34,
-                "Type": "TextArea",
-                "Visible": true,
-                "Draggable": false,
-                "Clickable": false,
-                "Fadeable": false,
-                "Moveable": false
-              },
-              {
-                "Pressed": "Blue_Buttons_presed.png",
-                "Released": "Blue_Buttons_Round.png",
-                "Alpha": 255,
-                "TextId": "SingleUseId155",
-                "ReleasedColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "PressedColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "TextRotation": "0",
-                "Name": "yesbt",
-                "X": 3,
-                "Y": 86,
-                "Width": 156,
-                "Height": 35,
-                "Type": "ButtonWithLabel",
-                "Visible": true,
-                "Draggable": false,
-                "Clickable": false,
-                "Fadeable": false,
-                "Moveable": false
-              },
-              {
-                "Pressed": "Blue_Buttons_presed.png",
-                "Released": "Blue_Buttons_Round.png",
-                "Alpha": 255,
-                "TextId": "SingleUseId156",
-                "ReleasedColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "PressedColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "TextRotation": "0",
-                "Name": "nobt",
-                "X": 165,
-                "Y": 86,
-                "Width": 156,
-                "Height": 35,
-                "Type": "ButtonWithLabel",
-                "Visible": true,
-                "Draggable": false,
-                "Clickable": false,
-                "Fadeable": false,
-                "Moveable": false
-              }
-            ],
-            "FileName": "fon4.png",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "ModalX": 78,
-            "ModalY": 71,
-            "ModalWidth": 325,
-            "ModalHeight": 130,
-            "ContX": 0,
-            "ContY": 0,
-            "Alpha": 150,
-            "Name": "clearbox",
+            "CustomContainerDefinitionName": "clearbox",
+            "Name": "clearbox1",
             "X": 0,
             "Y": 0,
             "Width": 480,
             "Height": 272,
-            "Type": "ModalWindow",
+            "Type": "CustomContainerInstance",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "CustomContainerDefinitionName": "addevent",
+            "Name": "addevent1",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Type": "CustomContainerInstance",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "CustomContainerDefinitionName": "MsgBox",
+            "Name": "msgBox1",
+            "X": 28,
+            "Y": 61,
+            "Width": 430,
+            "Height": 150,
+            "Type": "CustomContainerInstance",
             "Visible": false,
             "Draggable": false,
             "Clickable": false,
@@ -2088,6 +2151,18 @@
           }
         ],
         "Interactions": [
+          {
+            "InteractionName": "PlusWidget",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "plusbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "CallAddEvent",
+              "Type": "ActionCustom"
+            }
+          },
           {
             "InteractionName": "close",
             "HasCompletedTrigger": false,
@@ -2109,43 +2184,91 @@
               "Type": "TriggerClicked"
             },
             "Action": {
-              "ActionComponent": "clearbox",
-              "Type": "ActionShow"
+              "FunctionName": "CallClearWindow",
+              "Type": "ActionCustom"
             }
           },
           {
-            "InteractionName": "nobt",
+            "InteractionName": "SetMonday",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "nobt",
-              "Type": "TriggerClicked"
+              "TriggerComponent": "pnbt",
+              "Type": "TriggerRadioButtonSelected"
             },
             "Action": {
-              "ActionComponent": "clearbox",
-              "Type": "ActionHide"
+              "FunctionName": "SetMonD",
+              "Type": "ActionCustom"
             }
           },
           {
-            "InteractionName": "yesbtclear",
+            "InteractionName": "SetTwoD",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "yesbt",
-              "Type": "TriggerClicked"
+              "TriggerComponent": "vtbt",
+              "Type": "TriggerRadioButtonSelected"
             },
             "Action": {
-              "ActionComponent": "clearbox",
-              "Type": "ActionHide"
+              "FunctionName": "SetTwoD",
+              "Type": "ActionCustom"
             }
           },
           {
-            "InteractionName": "cleartable",
+            "InteractionName": "SetWedD",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "yesbt",
-              "Type": "TriggerClicked"
+              "TriggerComponent": "srbt",
+              "Type": "TriggerRadioButtonSelected"
             },
             "Action": {
-              "FunctionName": "ClearTable",
+              "FunctionName": "SetWedD",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "SetThuD",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "chtbt",
+              "Type": "TriggerRadioButtonSelected"
+            },
+            "Action": {
+              "FunctionName": "SetThuD",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "SetFriD",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "ptbt",
+              "Type": "TriggerRadioButtonSelected"
+            },
+            "Action": {
+              "FunctionName": "SetFriD",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "SetSatD",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "sbbt",
+              "Type": "TriggerRadioButtonSelected"
+            },
+            "Action": {
+              "FunctionName": "SetSatD",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "SetSunD",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "vsbt",
+              "Type": "TriggerRadioButtonSelected"
+            },
+            "Action": {
+              "FunctionName": "SetSunD",
               "Type": "ActionCustom"
             }
           }
@@ -2313,7 +2436,7 @@
             "AutoSize": true,
             "LineSpacing": 0,
             "Wildcard1": {
-              "TextId": "SingleUseId234",
+              "TextId": "SingleUseId43",
               "UseBuffer": true,
               "BufferSize": 10
             },
@@ -2363,7 +2486,7 @@
               "Blue": 255
             },
             "TextRotation": "0",
-            "Name": "SaveTime",
+            "Name": "saveTime",
             "X": 162,
             "Y": 229,
             "Width": 156,
@@ -2735,7 +2858,7 @@
             "InteractionName": "ok",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "SaveTime",
+              "TriggerComponent": "saveTime",
               "Type": "TriggerClicked"
             },
             "Action": {
@@ -2745,10 +2868,10 @@
             }
           },
           {
-            "InteractionName": "SaveTime",
+            "InteractionName": "SeveTime",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "SaveTime",
+              "TriggerComponent": "saveTime",
               "Type": "TriggerClicked"
             },
             "Action": {
@@ -2997,12 +3120,147 @@
             "LineSpacing": 0,
             "Wildcard1": {
               "UseBuffer": true,
-              "BufferSize": 64
+              "BufferSize": 10
             },
-            "Name": "list",
-            "X": 7,
+            "Name": "dayText",
+            "X": 15,
             "Y": 0,
-            "Width": 403,
+            "Width": 46,
+            "Height": 25,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId244",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "hourText",
+            "X": 61,
+            "Y": 0,
+            "Width": 40,
+            "Height": 25,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId245",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "minuteText",
+            "X": 101,
+            "Y": 0,
+            "Width": 40,
+            "Height": 25,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId246",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "tempText",
+            "X": 141,
+            "Y": 0,
+            "Width": 40,
+            "Height": 25,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId247",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "durationLeftText",
+            "X": 181,
+            "Y": 0,
+            "Width": 40,
+            "Height": 25,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId248",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "durationRightText",
+            "X": 221,
+            "Y": 0,
+            "Width": 40,
             "Height": 25,
             "Type": "TextArea",
             "Visible": true,
@@ -3026,104 +3284,11 @@
             }
           }
         ],
-        "Name": "ListTable",
+        "Name": "CustomListElement",
         "X": 0,
         "Y": 0,
         "Width": 440,
         "Height": 25
-      },
-      {
-        "Components": [
-          {
-            "FileName": "fon4.png",
-            "Alpha": 255,
-            "OffsetX": 0,
-            "OffsetY": 0,
-            "Name": "tiledImage1",
-            "X": 0,
-            "Y": 0,
-            "Width": 480,
-            "Height": 204,
-            "Type": "TiledImage",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "RelativeFilename": "warning.png",
-            "Alpha": 255,
-            "Name": "Image1",
-            "X": 6,
-            "Y": 17,
-            "Width": 150,
-            "Height": 150,
-            "Type": "Image",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId168",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "textArea1",
-            "X": 141,
-            "Y": 20,
-            "Width": 329,
-            "Height": 74,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Blue_Buttons_presed.png",
-            "Released": "Blue_Buttons_Round.png",
-            "Alpha": 255,
-            "TextId": "SingleUseId169",
-            "ReleasedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "PressedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "TextRotation": "0",
-            "Name": "okbt",
-            "X": 176,
-            "Y": 150,
-            "Width": 156,
-            "Height": 35,
-            "Type": "ButtonWithLabel",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          }
-        ],
-        "Interactions": [],
-        "Name": "services",
-        "X": 0,
-        "Y": 0,
-        "Width": 480,
-        "Height": 204
       },
       {
         "Components": [
@@ -3166,6 +3331,27 @@
             "Moveable": false
           },
           {
+            "FileNameFirst": "BulbgraphOn.png",
+            "FileNameLast": "BulbgraphOn.png",
+            "UpdateTicksInterval": 40,
+            "Alpha": 255,
+            "StartOnLoad": false,
+            "ReverseEnabled": false,
+            "LoopEnabled": false,
+            "AnimationEndedCallback": false,
+            "Name": "animatedImage1",
+            "X": 27,
+            "Y": 0,
+            "Width": 44,
+            "Height": 54,
+            "Type": "AnimatedImage",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
             "TextColor": {
               "Red": 0,
               "Green": 0,
@@ -3195,7 +3381,7 @@
             "Pressed": "Blue_Togglebars_OFF2.png",
             "Released": "Blue_Togglebars_OFF.png",
             "Alpha": 255,
-            "Name": "stop",
+            "Name": "stop1",
             "X": 75,
             "Y": 164,
             "Width": 96,
@@ -3295,21 +3481,6 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
-          },
-          {
-            "RelativeFilename": "BulbgraphOn.png",
-            "Alpha": 255,
-            "Name": "image4",
-            "X": 27,
-            "Y": 3,
-            "Width": 44,
-            "Height": 54,
-            "Type": "Image",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
           }
         ],
         "Interactions": [
@@ -3317,7 +3488,7 @@
             "InteractionName": "StopDry",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "stop",
+              "TriggerComponent": "stop1",
               "Type": "TriggerClicked"
             },
             "Action": {
@@ -3330,7 +3501,7 @@
         "X": 0,
         "Y": 0,
         "Width": 240,
-        "Height": 205
+        "Height": 207
       },
       {
         "Components": [
@@ -3366,6 +3537,27 @@
             "Width": 79,
             "Height": 17,
             "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "FileNameFirst": "BulbgraphOn.png",
+            "FileNameLast": "BulbgraphOn.png",
+            "UpdateTicksInterval": 10,
+            "Alpha": 255,
+            "StartOnLoad": false,
+            "ReverseEnabled": false,
+            "LoopEnabled": false,
+            "AnimationEndedCallback": false,
+            "Name": "animatedImage2",
+            "X": 27,
+            "Y": 0,
+            "Width": 44,
+            "Height": 54,
+            "Type": "AnimatedImage",
             "Visible": true,
             "Draggable": false,
             "Clickable": false,
@@ -3430,7 +3622,7 @@
             "Moveable": false
           },
           {
-            "TextId": "TextId2",
+            "TextId": "SingleUseId193",
             "TextRotation": "0",
             "Color": {
               "Red": 0,
@@ -3441,13 +3633,14 @@
             "AutoSize": true,
             "LineSpacing": 0,
             "Wildcard1": {
+              "TextId": "SingleUseId194",
               "UseBuffer": true,
               "BufferSize": 10
             },
             "Name": "temp",
-            "X": 104,
+            "X": 105,
             "Y": 57,
-            "Width": 0,
+            "Width": 38,
             "Height": 37,
             "Type": "TextArea",
             "Visible": true,
@@ -3501,21 +3694,6 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
-          },
-          {
-            "RelativeFilename": "BulbgraphOn.png",
-            "Alpha": 255,
-            "Name": "image4",
-            "X": 27,
-            "Y": 3,
-            "Width": 44,
-            "Height": 54,
-            "Type": "Image",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
           }
         ],
         "Interactions": [
@@ -3541,29 +3719,1183 @@
       {
         "Components": [
           {
+            "Components": [
+              {
+                "TextId": "SingleUseId215",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "textArea1",
+                "X": 33,
+                "Y": 18,
+                "Width": 239,
+                "Height": 34,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Blue_Buttons_presed.png",
+                "Released": "Blue_Buttons_Round.png",
+                "Alpha": 255,
+                "TextId": "SingleUseId216",
+                "ReleasedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "PressedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "TextRotation": "0",
+                "Name": "yesbt",
+                "X": 3,
+                "Y": 86,
+                "Width": 156,
+                "Height": 35,
+                "Type": "ButtonWithLabel",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Blue_Buttons_presed.png",
+                "Released": "Blue_Buttons_Round.png",
+                "Alpha": 255,
+                "TextId": "SingleUseId217",
+                "ReleasedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "PressedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "TextRotation": "0",
+                "Name": "nobt",
+                "X": 165,
+                "Y": 86,
+                "Width": 156,
+                "Height": 35,
+                "Type": "ButtonWithLabel",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              }
+            ],
             "FileName": "fon4.png",
-            "Alpha": 255,
-            "OffsetX": 0,
-            "OffsetY": 0,
-            "Name": "tiledImage1",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "ModalX": 78,
+            "ModalY": 71,
+            "ModalWidth": 325,
+            "ModalHeight": 130,
+            "ContX": 0,
+            "ContY": 0,
+            "Alpha": 150,
+            "Name": "clearbox",
             "X": 0,
             "Y": 0,
-            "Width": 455,
-            "Height": 164,
-            "Type": "TiledImage",
+            "Width": 480,
+            "Height": 272,
+            "Type": "ModalWindow",
             "Visible": true,
             "Draggable": false,
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Close",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "nobt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "Close",
+              "Type": "ActionCustom"
+            }
           },
           {
-            "RelativeFilename": "warning.png",
-            "Alpha": 255,
-            "Name": "Image1",
+            "InteractionName": "ClrearAll",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "yesbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "ClrearAll",
+              "Type": "ActionCustom"
+            }
+          }
+        ],
+        "Name": "clearbox",
+        "X": 0,
+        "Y": 0,
+        "Width": 480,
+        "Height": 272
+      },
+      {
+        "Components": [
+          {
+            "Components": [
+              {
+                "Pressed": "Blue_Buttons_presed.png",
+                "Released": "Blue_Buttons_Round.png",
+                "Alpha": 255,
+                "TextId": "SingleUseId220",
+                "ReleasedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "PressedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "TextRotation": "0",
+                "Name": "closebt2",
+                "X": 313,
+                "Y": 230,
+                "Width": 156,
+                "Height": 35,
+                "Type": "ButtonWithLabel",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Back_arrow_passed.png",
+                "Released": "Dark_Icons_Back_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "hoursDownLeftbt",
+                "X": 22,
+                "Y": 94,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Next_arrow_passed.png",
+                "Released": "Dark_Icons_Next_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "hoursUpLeftbt",
+                "X": 91,
+                "Y": 94,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "TextId2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 8,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Wildcard1": {
+                  "TextId": "SingleUseId221",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "Name": "timerHoursLeft",
+                "X": 50,
+                "Y": 96,
+                "Width": 38,
+                "Height": 37,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId222",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "hour11",
+                "X": 52,
+                "Y": 80,
+                "Width": 32,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Blue_Buttons_presed.png",
+                "Released": "Blue_Buttons_Round.png",
+                "Alpha": 255,
+                "TextId": "SingleUseId223",
+                "ReleasedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "PressedColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "TextRotation": "0",
+                "Name": "savebt",
+                "X": 16,
+                "Y": 230,
+                "Width": 156,
+                "Height": 35,
+                "Type": "ButtonWithLabel",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId224",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "minute1",
+                "X": 157,
+                "Y": 80,
+                "Width": 49,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Back_arrow_passed.png",
+                "Released": "Dark_Icons_Back_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "minutesDownLeftbt",
+                "X": 136,
+                "Y": 94,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "TextId2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 10,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Wildcard1": {
+                  "TextId": "SingleUseId225",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "Name": "timerMinutesLeft",
+                "X": 164,
+                "Y": 96,
+                "Width": 38,
+                "Height": 37,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Next_arrow_passed.png",
+                "Released": "Dark_Icons_Next_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "minutesUpLeftbt",
+                "X": 205,
+                "Y": 94,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId226",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "timestarttext",
+                "X": 41,
+                "Y": 52,
+                "Width": 142,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Back_arrow_passed.png",
+                "Released": "Dark_Icons_Back_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "downClockTopbt",
+                "X": 292,
+                "Y": 89,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Next_arrow_passed.png",
+                "Released": "Dark_Icons_Next_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "upClockTopbt",
+                "X": 361,
+                "Y": 89,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "TextId2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 8,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Wildcard1": {
+                  "TextId": "SingleUseId227",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "Name": "timerHoursTop",
+                "X": 320,
+                "Y": 92,
+                "Width": 38,
+                "Height": 37,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId228",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "hour2",
+                "X": 398,
+                "Y": 100,
+                "Width": 37,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId229",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "timeclock1",
+                "X": 278,
+                "Y": 46,
+                "Width": 142,
+                "Height": 34,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Back_arrow_passed.png",
+                "Released": "Dark_Icons_Back_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "downClockBottombt",
+                "X": 288,
+                "Y": 176,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Pressed": "Dark_Icons_Next_arrow_passed.png",
+                "Released": "Dark_Icons_Next_arrow.png",
+                "Alpha": 255,
+                "Delay": 1000,
+                "Interval": 100,
+                "Name": "upClockBottombt",
+                "X": 357,
+                "Y": 176,
+                "Width": 25,
+                "Height": 42,
+                "Type": "RepeatButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "TextId2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 8,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Wildcard1": {
+                  "TextId": "SingleUseId230",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "Name": "timerHoursBottom",
+                "X": 316,
+                "Y": 179,
+                "Width": 38,
+                "Height": 37,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId231",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "hour1",
+                "X": 393,
+                "Y": 186,
+                "Width": 37,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId232",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "timeclock2",
+                "X": 278,
+                "Y": 136,
+                "Width": 142,
+                "Height": 34,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "Selected": true,
+                "Deselectable": false,
+                "FileNameSelected": "Blue_Check_buttons_Check.png",
+                "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
+                "FileNameUnselected": "Blue_Check_buttons.png",
+                "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
+                "RadioButtonGroup": "day",
+                "Name": "pnbt",
+                "X": 9,
+                "Y": 7,
+                "Width": 60,
+                "Height": 37,
+                "Type": "RadioButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "Selected": false,
+                "Deselectable": false,
+                "FileNameSelected": "Blue_Check_buttons_Check.png",
+                "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
+                "FileNameUnselected": "Blue_Check_buttons.png",
+                "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
+                "RadioButtonGroup": "day",
+                "Name": "vtbt",
+                "X": 72,
+                "Y": 7,
+                "Width": 60,
+                "Height": 37,
+                "Type": "RadioButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "Selected": false,
+                "Deselectable": false,
+                "FileNameSelected": "Blue_Check_buttons_Check.png",
+                "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
+                "FileNameUnselected": "Blue_Check_buttons.png",
+                "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
+                "RadioButtonGroup": "day",
+                "Name": "srbt",
+                "X": 138,
+                "Y": 7,
+                "Width": 60,
+                "Height": 37,
+                "Type": "RadioButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "Selected": false,
+                "Deselectable": false,
+                "FileNameSelected": "Blue_Check_buttons_Check.png",
+                "FileNameSelectedPressed": "Blue_Check_buttons_Check_Round.png",
+                "FileNameUnselected": "Blue_Check_buttons.png",
+                "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
+                "RadioButtonGroup": "day",
+                "Name": "chtbt",
+                "X": 201,
+                "Y": 7,
+                "Width": 60,
+                "Height": 37,
+                "Type": "RadioButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "Selected": false,
+                "Deselectable": false,
+                "FileNameSelected": "Blue_Check_buttons_Check.png",
+                "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
+                "FileNameUnselected": "Blue_Check_buttons.png",
+                "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
+                "RadioButtonGroup": "day",
+                "Name": "ptbt",
+                "X": 266,
+                "Y": 7,
+                "Width": 60,
+                "Height": 37,
+                "Type": "RadioButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "Selected": false,
+                "Deselectable": false,
+                "FileNameSelected": "Blue_Check_buttons_Check.png",
+                "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
+                "FileNameUnselected": "Blue_Check_buttons.png",
+                "FileNameUnselectedPressed": "Blue_Check_buttons.png",
+                "RadioButtonGroup": "day",
+                "Name": "sbbt",
+                "X": 330,
+                "Y": 7,
+                "Width": 60,
+                "Height": 37,
+                "Type": "RadioButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Alpha": 255,
+                "Selected": false,
+                "Deselectable": false,
+                "FileNameSelected": "Blue_Check_buttons_Check.png",
+                "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
+                "FileNameUnselected": "Blue_Check_buttons.png",
+                "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
+                "RadioButtonGroup": "day",
+                "Name": "vsbt",
+                "X": 394,
+                "Y": 7,
+                "Width": 60,
+                "Height": 37,
+                "Type": "RadioButton",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId233",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "pntxt",
+                "X": 40,
+                "Y": 17,
+                "Width": 21,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId234",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "vttxt",
+                "X": 103,
+                "Y": 17,
+                "Width": 18,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId235",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "srtxt",
+                "X": 169,
+                "Y": 17,
+                "Width": 20,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId236",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "chttxt",
+                "X": 233,
+                "Y": 17,
+                "Width": 18,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId237",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "pttxt",
+                "X": 297,
+                "Y": 17,
+                "Width": 18,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId238",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "sbtxt",
+                "X": 363,
+                "Y": 17,
+                "Width": 20,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId239",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "vstxt",
+                "X": 427,
+                "Y": 17,
+                "Width": 20,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "IsHorizontalSlider": true,
+                "BackgroundUnselected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_back.png",
+                "BackgroundSelected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_fill.png",
+                "Indicator": "__designer\\Blue_Slider_Horizontal_Small_Indicators_slider_horizontal_small_round_knob.png",
+                "BackgroundX": 3,
+                "BackgroundY": 7,
+                "IndicatorPos": 0,
+                "IndicatorMax": 125,
+                "IndicatorMin": 0,
+                "ValueMax": 90,
+                "ValueMin": 13,
+                "InitValue": 90,
+                "Style": "Style13",
+                "Name": "TempSliderLeft",
+                "X": 51,
+                "Y": 172,
+                "Width": 179,
+                "Height": 34,
+                "Type": "Slider",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "TextId2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 10,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Wildcard1": {
+                  "TextId": "SingleUseId240",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "Name": "tempInd",
+                "X": 13,
+                "Y": 169,
+                "Width": 38,
+                "Height": 37,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "TextId": "SingleUseId241",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 0,
+                  "Green": 0,
+                  "Blue": 0
+                },
+                "Alpha": 255,
+                "AutoSize": true,
+                "LineSpacing": 0,
+                "Name": "temp2",
+                "X": 77,
+                "Y": 153,
+                "Width": 83,
+                "Height": 17,
+                "Type": "TextArea",
+                "Visible": true,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              }
+            ],
+            "FileName": "fon.png",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "ModalX": 0,
+            "ModalY": 0,
+            "ModalWidth": 480,
+            "ModalHeight": 272,
+            "ContX": 0,
+            "ContY": 0,
+            "Alpha": 150,
+            "Name": "addevent",
             "X": 0,
             "Y": 0,
-            "Width": 150,
+            "Width": 480,
+            "Height": 272,
+            "Type": "ModalWindow",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "HoursDownLeft",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "hoursDownLeftbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "HoursDownLeft",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "HoursUpLeft",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "hoursUpLeftbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "HoursUpLeft",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "MinutesDownLeft",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "minutesDownLeftbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "MinutesDownLeft",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "MinutesUpLeft",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "minutesUpLeftbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "MinutesUpLeft",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "HoursDownTop",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "downClockTopbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "HoursDownTop",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "HoursUpTop",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "upClockTopbt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "HoursUpTop",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "HoursDownBottom",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "downClockBottombt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "HoursDownBottom",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "HoursUpBottom",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "upClockBottombt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "HoursUpBottom",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "Close",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "closebt2",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "Close",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "ChangeTemp",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "TempSliderLeft",
+              "Type": "TriggerSliderValueChanged"
+            },
+            "Action": {
+              "FunctionName": "ChangeTemp",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "AddNewEvent",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "savebt",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "AddNewEvent",
+              "Type": "ActionCustom"
+            }
+          }
+        ],
+        "Name": "addevent",
+        "X": 0,
+        "Y": 0,
+        "Width": 480,
+        "Height": 272
+      },
+      {
+        "Components": [
+          {
+            "RelativeFilename": "fon4.png",
+            "Alpha": 255,
+            "Name": "image1",
+            "X": 0,
+            "Y": 0,
+            "Width": 430,
             "Height": 150,
             "Type": "Image",
             "Visible": true,
@@ -3576,7 +4908,7 @@
             "Pressed": "Blue_Buttons_presed.png",
             "Released": "Blue_Buttons_Round.png",
             "Alpha": 255,
-            "TextId": "SingleUseId238",
+            "TextId": "SingleUseId242",
             "ReleasedColor": {
               "Red": 255,
               "Green": 255,
@@ -3588,9 +4920,9 @@
               "Blue": 255
             },
             "TextRotation": "0",
-            "Name": "okbt",
-            "X": 162,
-            "Y": 115,
+            "Name": "closeMessage",
+            "X": 198,
+            "Y": 101,
             "Width": 156,
             "Height": 35,
             "Type": "ButtonWithLabel",
@@ -3601,7 +4933,7 @@
             "Moveable": false
           },
           {
-            "TextId": "SingleUseId233",
+            "TextId": "SingleUseId243",
             "TextRotation": "0",
             "Color": {
               "Red": 0,
@@ -3616,11 +4948,28 @@
               "BufferSize": 256
             },
             "Name": "message",
-            "X": 150,
-            "Y": 9,
-            "Width": 294,
-            "Height": 100,
+            "X": 130,
+            "Y": 10,
+            "Width": 292,
+            "Height": 91,
             "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "FileName": "warning.png",
+            "Alpha": 255,
+            "OffsetX": 0,
+            "OffsetY": 0,
+            "Name": "tiledImage1",
+            "X": -7,
+            "Y": -3,
+            "Width": 137,
+            "Height": 136,
+            "Type": "TiledImage",
             "Visible": true,
             "Draggable": false,
             "Clickable": false,
@@ -3630,10 +4979,10 @@
         ],
         "Interactions": [
           {
-            "InteractionName": "Close",
+            "InteractionName": "closeMessage",
             "HasCompletedTrigger": false,
             "Trigger": {
-              "TriggerComponent": "okbt",
+              "TriggerComponent": "closeMessage",
               "Type": "TriggerClicked"
             },
             "Action": {
@@ -3645,891 +4994,8 @@
         "Name": "MsgBox",
         "X": 0,
         "Y": 0,
-        "Width": 455,
-        "Height": 164
-      },
-      {
-        "Components": [
-          {
-            "RelativeFilename": "fon.png",
-            "Alpha": 255,
-            "Name": "fon1",
-            "X": 0,
-            "Y": 0,
-            "Width": 480,
-            "Height": 272,
-            "Type": "Image",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Blue_Buttons_presed.png",
-            "Released": "Blue_Buttons_Round.png",
-            "Alpha": 255,
-            "TextId": "SingleUseId211",
-            "ReleasedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "PressedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "TextRotation": "0",
-            "Name": "closebt2",
-            "X": 313,
-            "Y": 230,
-            "Width": 156,
-            "Height": 35,
-            "Type": "ButtonWithLabel",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Back_arrow_passed.png",
-            "Released": "Dark_Icons_Back_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "hoursDownLeftbt",
-            "X": 22,
-            "Y": 94,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Next_arrow_passed.png",
-            "Released": "Dark_Icons_Next_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "hoursUpLeftbt",
-            "X": 91,
-            "Y": 94,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "TextId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 8,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId212",
-              "UseBuffer": true,
-              "BufferSize": 10
-            },
-            "Name": "timerHours",
-            "X": 50,
-            "Y": 96,
-            "Width": 38,
-            "Height": 37,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId213",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "hour11",
-            "X": 52,
-            "Y": 80,
-            "Width": 32,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Blue_Buttons_presed.png",
-            "Released": "Blue_Buttons_Round.png",
-            "Alpha": 255,
-            "TextId": "SingleUseId214",
-            "ReleasedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "PressedColor": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "TextRotation": "0",
-            "Name": "savebt",
-            "X": 16,
-            "Y": 230,
-            "Width": 156,
-            "Height": 35,
-            "Type": "ButtonWithLabel",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId215",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "minute1",
-            "X": 157,
-            "Y": 80,
-            "Width": 49,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Back_arrow_passed.png",
-            "Released": "Dark_Icons_Back_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "minutesDownLeftbt",
-            "X": 136,
-            "Y": 94,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "TextId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 10,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId216",
-              "UseBuffer": true,
-              "BufferSize": 10
-            },
-            "Name": "timerMinutesLeft",
-            "X": 164,
-            "Y": 96,
-            "Width": 38,
-            "Height": 37,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Next_arrow_passed.png",
-            "Released": "Dark_Icons_Next_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "minutesUpLeftbt",
-            "X": 205,
-            "Y": 94,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId217",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "timestarttext",
-            "X": 41,
-            "Y": 52,
-            "Width": 142,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Back_arrow_passed.png",
-            "Released": "Dark_Icons_Back_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "DownClockLeftbt",
-            "X": 292,
-            "Y": 89,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Next_arrow_passed.png",
-            "Released": "Dark_Icons_Next_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "UpClockLeftbt",
-            "X": 361,
-            "Y": 89,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "TextId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 8,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId218",
-              "UseBuffer": true,
-              "BufferSize": 10
-            },
-            "Name": "ClockWorkLeft",
-            "X": 320,
-            "Y": 92,
-            "Width": 38,
-            "Height": 37,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId219",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "hour2",
-            "X": 398,
-            "Y": 100,
-            "Width": 37,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId220",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "timeclock1",
-            "X": 278,
-            "Y": 46,
-            "Width": 142,
-            "Height": 34,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Back_arrow_passed.png",
-            "Released": "Dark_Icons_Back_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "DownClockRightbt",
-            "X": 288,
-            "Y": 176,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Pressed": "Dark_Icons_Next_arrow_passed.png",
-            "Released": "Dark_Icons_Next_arrow.png",
-            "Alpha": 255,
-            "Delay": 1000,
-            "Interval": 100,
-            "Name": "UpClockRightbt",
-            "X": 357,
-            "Y": 176,
-            "Width": 25,
-            "Height": 42,
-            "Type": "RepeatButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "TextId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 8,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId221",
-              "UseBuffer": true,
-              "BufferSize": 10
-            },
-            "Name": "ClockWorkRight",
-            "X": 316,
-            "Y": 179,
-            "Width": 38,
-            "Height": 37,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId222",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "hour1",
-            "X": 393,
-            "Y": 186,
-            "Width": 37,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId223",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "timeclock2",
-            "X": 278,
-            "Y": 136,
-            "Width": 142,
-            "Height": 34,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Alpha": 255,
-            "Selected": true,
-            "Deselectable": false,
-            "FileNameSelected": "Blue_Check_buttons_Check.png",
-            "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
-            "FileNameUnselected": "Blue_Check_buttons.png",
-            "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
-            "RadioButtonGroup": "day",
-            "Name": "pnbt",
-            "X": 9,
-            "Y": 7,
-            "Width": 60,
-            "Height": 37,
-            "Type": "RadioButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Alpha": 255,
-            "Selected": false,
-            "Deselectable": false,
-            "FileNameSelected": "Blue_Check_buttons_Check.png",
-            "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
-            "FileNameUnselected": "Blue_Check_buttons.png",
-            "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
-            "RadioButtonGroup": "day",
-            "Name": "vtbt",
-            "X": 72,
-            "Y": 7,
-            "Width": 60,
-            "Height": 37,
-            "Type": "RadioButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Alpha": 255,
-            "Selected": false,
-            "Deselectable": false,
-            "FileNameSelected": "Blue_Check_buttons_Check.png",
-            "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
-            "FileNameUnselected": "Blue_Check_buttons.png",
-            "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
-            "RadioButtonGroup": "day",
-            "Name": "srbt",
-            "X": 138,
-            "Y": 7,
-            "Width": 60,
-            "Height": 37,
-            "Type": "RadioButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Alpha": 255,
-            "Selected": false,
-            "Deselectable": false,
-            "FileNameSelected": "Blue_Check_buttons_Check.png",
-            "FileNameSelectedPressed": "Blue_Check_buttons_Check_Round.png",
-            "FileNameUnselected": "Blue_Check_buttons.png",
-            "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
-            "RadioButtonGroup": "day",
-            "Name": "chtbt",
-            "X": 201,
-            "Y": 7,
-            "Width": 60,
-            "Height": 37,
-            "Type": "RadioButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Alpha": 255,
-            "Selected": false,
-            "Deselectable": false,
-            "FileNameSelected": "Blue_Check_buttons_Check.png",
-            "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
-            "FileNameUnselected": "Blue_Check_buttons.png",
-            "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
-            "RadioButtonGroup": "day",
-            "Name": "ptbt",
-            "X": 266,
-            "Y": 7,
-            "Width": 60,
-            "Height": 37,
-            "Type": "RadioButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Alpha": 255,
-            "Selected": false,
-            "Deselectable": false,
-            "FileNameSelected": "Blue_Check_buttons_Check.png",
-            "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
-            "FileNameUnselected": "Blue_Check_buttons.png",
-            "FileNameUnselectedPressed": "Blue_Check_buttons.png",
-            "RadioButtonGroup": "day",
-            "Name": "sbbt",
-            "X": 330,
-            "Y": 7,
-            "Width": 60,
-            "Height": 37,
-            "Type": "RadioButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Alpha": 255,
-            "Selected": false,
-            "Deselectable": false,
-            "FileNameSelected": "Blue_Check_buttons_Check.png",
-            "FileNameSelectedPressed": "Blue_Check_buttons_Check_.png",
-            "FileNameUnselected": "Blue_Check_buttons.png",
-            "FileNameUnselectedPressed": "Blue_Check_buttons_Check_Round.png",
-            "RadioButtonGroup": "day",
-            "Name": "vsbt",
-            "X": 394,
-            "Y": 7,
-            "Width": 60,
-            "Height": 37,
-            "Type": "RadioButton",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId224",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "pntxt",
-            "X": 40,
-            "Y": 17,
-            "Width": 21,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId225",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "vttxt",
-            "X": 103,
-            "Y": 17,
-            "Width": 18,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId226",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "srtxt",
-            "X": 169,
-            "Y": 17,
-            "Width": 20,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId227",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "chttxt",
-            "X": 233,
-            "Y": 17,
-            "Width": 18,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId228",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "pttxt",
-            "X": 297,
-            "Y": 17,
-            "Width": 18,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId229",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "sbtxt",
-            "X": 363,
-            "Y": 17,
-            "Width": 20,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId230",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "vstxt",
-            "X": 427,
-            "Y": 17,
-            "Width": 20,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "IsHorizontalSlider": true,
-            "BackgroundUnselected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_back.png",
-            "BackgroundSelected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_fill.png",
-            "Indicator": "__designer\\Blue_Slider_Horizontal_Small_Indicators_slider_horizontal_small_round_knob.png",
-            "BackgroundX": 3,
-            "BackgroundY": 7,
-            "IndicatorPos": 0,
-            "IndicatorMax": 125,
-            "IndicatorMin": 0,
-            "ValueMax": 90,
-            "ValueMin": 13,
-            "InitValue": 90,
-            "Style": "Style13",
-            "Name": "TempSliderLeft",
-            "X": 51,
-            "Y": 172,
-            "Width": 179,
-            "Height": 34,
-            "Type": "Slider",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "TextId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 10,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId231",
-              "UseBuffer": true,
-              "BufferSize": 10
-            },
-            "Name": "tempLeftInd",
-            "X": 13,
-            "Y": 169,
-            "Width": 38,
-            "Height": 37,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "TextId": "SingleUseId232",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "temp2",
-            "X": 77,
-            "Y": 153,
-            "Width": 83,
-            "Height": 17,
-            "Type": "TextArea",
-            "Visible": true,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          }
-        ],
-        "Interactions": [],
-        "Name": "Pluszd",
-        "X": 0,
-        "Y": 0,
-        "Width": 480,
-        "Height": 272
+        "Width": 430,
+        "Height": 150
       }
     ],
     "TextEntries": [
@@ -4626,15 +5092,7 @@
         "IsResource": false
       },
       {
-        "TextEntryId": "SingleUseId33",
-        "IsResource": false
-      },
-      {
         "TextEntryId": "SingleUseId34",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId36",
         "IsResource": false
       },
       {
@@ -4655,7 +5113,7 @@
       },
       {
         "TextEntryId": "SingleUseId43",
-        "IsResource": true
+        "IsResource": false
       },
       {
         "TextEntryId": "SingleUseId44",
@@ -4794,18 +5252,6 @@
         "IsResource": false
       },
       {
-        "TextEntryId": "SingleUseId154",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId155",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId156",
-        "IsResource": false
-      },
-      {
         "TextEntryId": "SingleUseId157",
         "IsResource": false
       },
@@ -4835,14 +5281,6 @@
       },
       {
         "TextEntryId": "SingleUseId165",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId168",
-        "IsResource": false
-      },
-      {
-        "TextEntryId": "SingleUseId169",
         "IsResource": false
       },
       {
@@ -4895,11 +5333,11 @@
       },
       {
         "TextEntryId": "SingleUseId193",
-        "IsResource": true
+        "IsResource": false
       },
       {
         "TextEntryId": "SingleUseId194",
-        "IsResource": true
+        "IsResource": false
       },
       {
         "TextEntryId": "SingleUseId195",
@@ -4907,6 +5345,10 @@
       },
       {
         "TextEntryId": "SingleUseId196",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId209",
         "IsResource": false
       },
       {
@@ -5019,6 +5461,46 @@
       },
       {
         "TextEntryId": "SingleUseId238",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId239",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId240",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId241",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId242",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId243",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId244",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId245",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId246",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId247",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId248",
         "IsResource": false
       }
     ],

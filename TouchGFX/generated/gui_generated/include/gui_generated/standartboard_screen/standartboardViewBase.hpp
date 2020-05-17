@@ -10,10 +10,10 @@
 #include <gui/containers/fon.hpp>
 #include <gui/containers/skin1.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
-#include <touchgfx/widgets/ToggleButton.hpp>
+#include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <gui/containers/shoesmodul.hpp>
 #include <gui/containers/dressmodul.hpp>
+#include <gui/containers/shoesmodul.hpp>
 #include <gui/containers/MsgBox.hpp>
 
 class standartboardViewBase : public touchgfx::View<standartboardPresenter>
@@ -33,14 +33,14 @@ protected:
      */
     fon fon1;
     skin1 skin11;
-    touchgfx::DigitalClock digitaltimerrightbt;
     touchgfx::DigitalClock digitaltimerleftbt;
-    touchgfx::ToggleButton startleftbt;
-    touchgfx::ToggleButton startrightbt;
+    touchgfx::DigitalClock digitaltimerrightbt;
+    touchgfx::Button StartLeftBT;
+    touchgfx::Button StartRightBT;
     touchgfx::TextArea textArea1;
     touchgfx::TextArea textArea1_1;
-    shoesmodul shoesmodul1;
     dressmodul dressmodul1;
+    shoesmodul shoesmodul1;
     MsgBox msgBox1;
 
 private:

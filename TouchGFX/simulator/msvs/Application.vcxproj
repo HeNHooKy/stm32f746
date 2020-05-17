@@ -39,10 +39,6 @@
     <ClCompile Include="..\..\gui\src\dateboard_screen\dateboardPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\dateboard_screen\dateboardView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\dateboard_screen\dateboardViewBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\containers\ListTable.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\containers\ListTableBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\containers\services.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\containers\servicesBase.cpp"/>
     <ClCompile Include="..\..\gui\src\startboard_screen\startboardPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\startboard_screen\startboardView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\startboard_screen\startboardViewBase.cpp"/>
@@ -52,8 +48,12 @@
     <ClCompile Include="..\..\generated\gui_generated\src\containers\shoesmodulBase.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\MsgBox.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\MsgBoxBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\containers\Pluszd.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\containers\PluszdBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\addevent.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\addeventBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\clearbox.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\clearboxBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\CustomListElement.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\CustomListElementBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xlsx"/>
@@ -220,10 +220,6 @@
     <ClInclude Include="..\..\gui\include\gui\dateboard_screen\dateboardPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\dateboard_screen\dateboardView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\dateboard_screen\dateboardViewBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\containers\ListTable.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\ListTableBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\containers\services.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\servicesBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\startboard_screen\startboardPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\startboard_screen\startboardView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startboard_screen\startboardViewBase.hpp"/>
@@ -233,8 +229,12 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\shoesmodulBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\containers\MsgBox.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\MsgBoxBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\containers\Pluszd.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\PluszdBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\addevent.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\addeventBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\clearbox.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\clearboxBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\CustomListElement.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\CustomListElementBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

@@ -7,20 +7,20 @@
 #include <texts/TextKeysAndLanguages.hpp>
 
 dateboardViewBase::dateboardViewBase() :
-    buttonCallback(this, &dateboardViewBase::buttonCallbackHandler)
+    buttonCallback(this, &dateboardViewBase::buttonCallbackHandler),
+    radioButtonSelectedCallback(this, &dateboardViewBase::radioButtonSelectedCallbackHandler)
 {
 
     fon.setXY(0, 0);
     fon.setBitmap(touchgfx::Bitmap(BITMAP_FON_ID));
 
-    scrollableContainer.setPosition(22, 79, 442, 100);
-    scrollableContainer.setScrollbarsColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    Container.setPosition(22, 79, 442, 100);
+    Container.setScrollbarsColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
 
-    fon1.setBitmap(touchgfx::Bitmap(BITMAP_FON4_ID));
-    fon1.setPosition(0, 0, 442, 100);
-    fon1.setOffset(0, 0);
-    scrollableContainer.add(fon1);
-    scrollableContainer.setScrollbarsPermanentlyVisible();
+    list.setDirection(touchgfx::EAST);
+    list.setPosition(1, -66, 250, 250);
+    Container.add(list);
+    Container.setScrollbarsPermanentlyVisible();
 
     logo.setXY(97, 4);
     logo.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
@@ -52,41 +52,42 @@ dateboardViewBase::dateboardViewBase() :
     plusbt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID59));
     plusbt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     plusbt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    plusbt.setAction(buttonCallback);
 
-    pnbt1.setXY(19, 32);
-    pnbt1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
-    pnbt1.setSelected(true);
-    pnbt1.setDeselectionEnabled(false);
+    pnbt.setXY(19, 32);
+    pnbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
+    pnbt.setSelected(true);
+    pnbt.setDeselectionEnabled(false);
 
-    vtbt1.setXY(82, 32);
-    vtbt1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
-    vtbt1.setSelected(false);
-    vtbt1.setDeselectionEnabled(false);
+    vtbt.setXY(82, 32);
+    vtbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
+    vtbt.setSelected(false);
+    vtbt.setDeselectionEnabled(false);
 
-    srbt1.setXY(148, 32);
-    srbt1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
-    srbt1.setSelected(false);
-    srbt1.setDeselectionEnabled(false);
+    srbt.setXY(148, 32);
+    srbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
+    srbt.setSelected(false);
+    srbt.setDeselectionEnabled(false);
 
-    chtbt1.setXY(211, 32);
-    chtbt1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID));
-    chtbt1.setSelected(false);
-    chtbt1.setDeselectionEnabled(false);
+    chtbt.setXY(210, 32);
+    chtbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID));
+    chtbt.setSelected(false);
+    chtbt.setDeselectionEnabled(false);
 
-    ptbt1.setXY(276, 32);
-    ptbt1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
-    ptbt1.setSelected(false);
-    ptbt1.setDeselectionEnabled(false);
+    ptbt.setXY(276, 32);
+    ptbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
+    ptbt.setSelected(false);
+    ptbt.setDeselectionEnabled(false);
 
-    sbbt1.setXY(339, 32);
-    sbbt1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
-    sbbt1.setSelected(false);
-    sbbt1.setDeselectionEnabled(false);
+    sbbt.setXY(339, 32);
+    sbbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
+    sbbt.setSelected(false);
+    sbbt.setDeselectionEnabled(false);
 
-    vsbt1.setXY(404, 32);
-    vsbt1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
-    vsbt1.setSelected(false);
-    vsbt1.setDeselectionEnabled(false);
+    vsbt.setXY(404, 32);
+    vsbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
+    vsbt.setSelected(false);
+    vsbt.setDeselectionEnabled(false);
 
     pntxt1.setXY(49, 42);
     pntxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
@@ -123,47 +124,29 @@ dateboardViewBase::dateboardViewBase() :
     vstxt1.setLinespacing(0);
     vstxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID150));
 
-    clearbox.setBackground(touchgfx::BitmapId(BITMAP_FON4_ID), 78, 71);
-    clearbox.setShadeColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    clearbox.setShadeAlpha(150);
-    clearbox.hide();
+    clearbox1.setXY(0, 0);
+    clearbox1.setVisible(false);
 
-    textArea1.setXY(33, 18);
-    textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    textArea1.setLinespacing(0);
-    textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID154));
-    clearbox.add(textArea1);
+    addevent1.setXY(0, 0);
+    addevent1.setVisible(false);
 
-    yesbt.setXY(3, 86);
-    yesbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
-    yesbt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID155));
-    yesbt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    yesbt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    yesbt.setAction(buttonCallback);
-    clearbox.add(yesbt);
-
-    nobt.setXY(165, 86);
-    nobt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
-    nobt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID156));
-    nobt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    nobt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    nobt.setAction(buttonCallback);
-    clearbox.add(nobt);
+    msgBox1.setXY(28, 61);
+    msgBox1.setVisible(false);
 
     add(fon);
-    add(scrollableContainer);
+    add(Container);
     add(logo);
     add(startbt);
     add(closebt);
     add(minusbt);
     add(plusbt);
-    add(pnbt1);
-    add(vtbt1);
-    add(srbt1);
-    add(chtbt1);
-    add(ptbt1);
-    add(sbbt1);
-    add(vsbt1);
+    add(pnbt);
+    add(vtbt);
+    add(srbt);
+    add(chtbt);
+    add(ptbt);
+    add(sbbt);
+    add(vsbt);
     add(pntxt1);
     add(vttxt1);
     add(srtxt1);
@@ -171,19 +154,24 @@ dateboardViewBase::dateboardViewBase() :
     add(pttxt1);
     add(sbtxt1);
     add(vstxt1);
-    add(clearbox);
-    day.add(pnbt1);
-    day.add(vtbt1);
-    day.add(srbt1);
-    day.add(chtbt1);
-    day.add(ptbt1);
-    day.add(sbbt1);
-    day.add(vsbt1);
+    add(clearbox1);
+    add(addevent1);
+    add(msgBox1);
+    day.add(pnbt);
+    day.add(vtbt);
+    day.add(srbt);
+    day.add(chtbt);
+    day.add(ptbt);
+    day.add(sbbt);
+    day.add(vsbt);
+    day.setRadioButtonSelectedHandler(radioButtonSelectedCallback);
 }
 
 void dateboardViewBase::setupScreen()
 {
-
+    clearbox1.initialize();
+    addevent1.initialize();
+    msgBox1.initialize();
 }
 
 void dateboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -198,30 +186,68 @@ void dateboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
     else if (&src == &minusbt)
     {
         //clear
-        //When minusbt clicked show clearbox
-        //Show clearbox
-        clearbox.setVisible(true);
-        clearbox.invalidate();
+        //When minusbt clicked call virtual function
+        //Call CallClearWindow
+        CallClearWindow();
     }
-    else if (&src == &yesbt)
+    else if (&src == &plusbt)
     {
-        //yesbtclear
-        //When yesbt clicked hide clearbox
-        //Hide clearbox
-        clearbox.setVisible(false);
-        clearbox.invalidate();
+        //PlusWidget
+        //When plusbt clicked call virtual function
+        //Call CallAddEvent
+        CallAddEvent();
+    }
+}
 
-        //cleartable
-        //When yesbt clicked call virtual function
-        //Call ClearTable
-        ClearTable();
-    }
-    else if (&src == &nobt)
+void dateboardViewBase::radioButtonSelectedCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &pnbt)
     {
-        //nobt
-        //When nobt clicked hide clearbox
-        //Hide clearbox
-        clearbox.setVisible(false);
-        clearbox.invalidate();
+        //SetMonday
+        //When pnbt selected call virtual function
+        //Call SetMonD
+        SetMonD();
+    }
+    else if (&src == &vtbt)
+    {
+        //SetTwoD
+        //When vtbt selected call virtual function
+        //Call SetTwoD
+        SetTwoD();
+    }
+    else if (&src == &srbt)
+    {
+        //SetWedD
+        //When srbt selected call virtual function
+        //Call SetWedD
+        SetWedD();
+    }
+    else if (&src == &chtbt)
+    {
+        //SetThuD
+        //When chtbt selected call virtual function
+        //Call SetThuD
+        SetThuD();
+    }
+    else if (&src == &ptbt)
+    {
+        //SetFriD
+        //When ptbt selected call virtual function
+        //Call SetFriD
+        SetFriD();
+    }
+    else if (&src == &sbbt)
+    {
+        //SetSatD
+        //When sbbt selected call virtual function
+        //Call SetSatD
+        SetSatD();
+    }
+    else if (&src == &vsbt)
+    {
+        //SetSunD
+        //When vsbt selected call virtual function
+        //Call SetSunD
+        SetSunD();
     }
 }

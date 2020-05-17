@@ -6,10 +6,10 @@
 
 #include <gui/common/FrontendApplication.hpp>
 #include <touchgfx/containers/Container.hpp>
-#include <touchgfx/widgets/TiledImage.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/TiledImage.hpp>
 
 class MsgBoxBase : public touchgfx::Container
 {
@@ -34,10 +34,10 @@ protected:
     /*
      * Member Declarations
      */
-    touchgfx::TiledImage tiledImage1;
-    touchgfx::Image Image1;
-    touchgfx::ButtonWithLabel okbt;
+    touchgfx::Image image1;
+    touchgfx::ButtonWithLabel closeMessage;
     touchgfx::TextAreaWithOneWildcard message;
+    touchgfx::TiledImage tiledImage1;
 
     /*
      * Wildcard Buffers

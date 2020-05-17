@@ -15,35 +15,40 @@ void mainboardView::tearDownScreen()
     mainboardViewBase::tearDownScreen();
 }
 
-void mainboardView::DisplayCurrentTime(int day, int hour, int minute)
+void mainboardView::DisplayCurrentTime(int d, int hour, int minute)
 {
-	//TODO: отображение актуального времени
-	char * displayDay = GetDay(day);
-	Unicode::strncpy(dayBuffer, displayDay, 4);
 	RealClock.setTime24Hour(hour, minute, 0);
+	SetDay(d);
 	RealClock.invalidate();
-	day.invalidate();
 }
 
-char * mainboardView::GetDay(int day)
+void mainboardView::SetDay(int d)
 {
-	switch(day)
+	switch(d)
 	{
 	case 0:
-		return {'в', 'с'};
+		Unicode::strncpy(dayBuffer, "вс", 4);
+		break;
 	case 1:
-		return {'п', 'н'};
+		Unicode::strncpy(dayBuffer, "пн", 4);
+		break;
 	case 2:
-		return {'в', 'т'};
+		Unicode::strncpy(dayBuffer, "вт", 4);
+		break;
 	case 3:
-		return {'c', 'р'};
+		Unicode::strncpy(dayBuffer, "ср", 4);
+		break;
 	case 4:
-		return {'ч', 'т'};
+		Unicode::strncpy(dayBuffer, "чт", 4);
+		break;
 	case 5:
-		return {'п', 'т'};
+		Unicode::strncpy(dayBuffer, "пт", 4);
+		break;
 	case 6:
-		return {'с', 'б'};
+		Unicode::strncpy(dayBuffer, "сб", 4);
+		break;
 	default:
-		return {'н', 'н'};
+		Unicode::strncpy(dayBuffer, "нн", 4);
 	}
+	day.invalidate();
 }

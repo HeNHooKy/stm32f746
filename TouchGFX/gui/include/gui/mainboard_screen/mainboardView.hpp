@@ -13,7 +13,7 @@ public:
     virtual void tearDownScreen();
     virtual void DisplayCurrentTime(int day, int hour, int minute);
 protected:
-    char * GetDay(int day);
+    void SetDay(int day);
 };
 
 #endif // MAINBOARDVIEW_HPP

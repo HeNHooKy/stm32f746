@@ -13,16 +13,20 @@ struct Typography
     static const touchgfx::FontId SMALL = 2;
     static const touchgfx::FontId TYPOGRAPHY = 3;
     static const touchgfx::FontId TYPOGRAPHY1 = 4;
+    static const touchgfx::FontId CLOCK = 5;
+    static const touchgfx::FontId TYPOGRAPHY_00 = 6;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0;     // verdana_20_4bpp
-    static const touchgfx::FontId LARGE = 1;       // verdana_30_4bpp
-    static const touchgfx::FontId SMALL = 2;       // verdana_10_4bpp
-    static const touchgfx::FontId TYPOGRAPHY = 3;  // arial_14_4bpp
-    static const touchgfx::FontId TYPOGRAPHY1 = 4; // arialbd_14_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 5;
+    static const touchgfx::FontId DEFAULT = 0;       // verdana_20_4bpp
+    static const touchgfx::FontId LARGE = 1;         // verdana_30_4bpp
+    static const touchgfx::FontId SMALL = 2;         // verdana_10_4bpp
+    static const touchgfx::FontId TYPOGRAPHY = 3;    // arial_14_4bpp
+    static const touchgfx::FontId TYPOGRAPHY1 = 4;   // arialbd_14_4bpp
+    static const touchgfx::FontId CLOCK = 5;         // mriamc_23_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_00 = 6; // arial_22_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 7;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

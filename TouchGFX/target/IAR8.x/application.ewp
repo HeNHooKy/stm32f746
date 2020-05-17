@@ -1053,7 +1053,13 @@
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_14_4bpp_0.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_22_4bpp_0.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_arialbd_14_4bpp_0.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_mriamc_23_4bpp_0.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_verdana_20_4bpp_0.cpp</name>
@@ -1071,7 +1077,13 @@
           <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arial_14_4bpp.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arial_22_4bpp.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arialbd_14_4bpp.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_mriamc_23_4bpp.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_verdana_10_4bpp.cpp</name>
@@ -1086,7 +1098,13 @@
           <name>$PROJ_DIR$/../../generated/fonts/src/Table_arial_14_4bpp.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Table_arial_22_4bpp.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Table_arialbd_14_4bpp.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Table_mriamc_23_4bpp.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Table_verdana_10_4bpp.cpp</name>
@@ -1109,22 +1127,22 @@
         <group>
           <name>containers</name>
           <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/addeventBase.cpp</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/clearboxBase.cpp</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/CustomListElementBase.cpp</name>
+          </file>
+          <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/dressmodulBase.cpp</name>
           </file>
           <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/fonBase.cpp</name>
           </file>
           <file>
-            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/ListTableBase.cpp</name>
-          </file>
-          <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/MsgBoxBase.cpp</name>
-          </file>
-          <file>
-            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/PluszdBase.cpp</name>
-          </file>
-          <file>
-            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/servicesBase.cpp</name>
           </file>
           <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/shoesmodulBase.cpp</name>
@@ -1284,6 +1302,9 @@
           <name>$PROJ_DIR$/../../generated/images/src/line.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../generated/images/src/logo.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../generated/images/src/ok_button.cpp</name>
         </file>
         <file>
@@ -1326,22 +1347,22 @@
       <group>
         <name>containers</name>
         <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/addevent.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/clearbox.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/CustomListElement.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../gui/src/containers/dressmodul.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../gui/src/containers/fon.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../gui/src/containers/ListTable.cpp</name>
-        </file>
-        <file>
           <name>$PROJ_DIR$/../../gui/src/containers/MsgBox.cpp</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$/../../gui/src/containers/Pluszd.cpp</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$/../../gui/src/containers/services.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../gui/src/containers/shoesmodul.cpp</name>

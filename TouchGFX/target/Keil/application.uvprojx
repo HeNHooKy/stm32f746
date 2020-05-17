@@ -842,6 +842,21 @@
           <GroupName>gui</GroupName>
           <Files>
             <File>
+              <FileName>addevent.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/addevent.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>clearbox.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/clearbox.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CustomListElement.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/customlistelement.cpp</FilePath>
+            </File>
+            <File>
               <FileName>dateboardPresenter.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/dateboard_screen/dateboardpresenter.cpp</FilePath>
@@ -877,11 +892,6 @@
               <FilePath>../../gui/src/heatingboard_screen/heatingboardview.cpp</FilePath>
             </File>
             <File>
-              <FileName>ListTable.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../../gui/src/containers/listtable.cpp</FilePath>
-            </File>
-            <File>
               <FileName>mainboardPresenter.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/mainboard_screen/mainboardpresenter.cpp</FilePath>
@@ -910,16 +920,6 @@
               <FileName>MsgBox.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/containers/msgbox.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Pluszd.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../../gui/src/containers/pluszd.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>services.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../../gui/src/containers/services.cpp</FilePath>
             </File>
             <File>
               <FileName>shoesmodul.cpp</FileName>
@@ -956,6 +956,11 @@
         <Group>
           <GroupName>generated</GroupName>
           <Files>
+            <File>
+              <FileName>addeventBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/addeventbase.cpp</FilePath>
+            </File>
             <File>
               <FileName>ApplicationFontProvider.cpp</FileName>
               <FileType>8</FileType>
@@ -1087,6 +1092,11 @@
               <FilePath>../../generated/images/src/clear.cpp</FilePath>
             </File>
             <File>
+              <FileName>clearboxBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/clearboxbase.cpp</FilePath>
+            </File>
+            <File>
               <FileName>clic1.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/images/src/clic1.cpp</FilePath>
@@ -1095,6 +1105,11 @@
               <FileName>clic2.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/images/src/clic2.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CustomListElementBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/customlistelementbase.cpp</FilePath>
             </File>
             <File>
               <FileName>Dark_Icons_Back_arrow.cpp</FileName>
@@ -1157,9 +1172,19 @@
               <FilePath>../../generated/fonts/src/font_arial_14_4bpp_0.cpp</FilePath>
             </File>
             <File>
+              <FileName>Font_arial_22_4bpp_0.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/font_arial_22_4bpp_0.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Font_arialbd_14_4bpp_0.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/font_arialbd_14_4bpp_0.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Font_mriamc_23_4bpp_0.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/font_mriamc_23_4bpp_0.cpp</FilePath>
             </File>
             <File>
               <FileName>Font_verdana_20_4bpp_0.cpp</FileName>
@@ -1202,9 +1227,19 @@
               <FilePath>../../generated/fonts/src/kerning_arial_14_4bpp.cpp</FilePath>
             </File>
             <File>
+              <FileName>Kerning_arial_22_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/kerning_arial_22_4bpp.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Kerning_arialbd_14_4bpp.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/kerning_arialbd_14_4bpp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Kerning_mriamc_23_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/kerning_mriamc_23_4bpp.cpp</FilePath>
             </File>
             <File>
               <FileName>Kerning_verdana_10_4bpp.cpp</FileName>
@@ -1232,9 +1267,9 @@
               <FilePath>../../generated/images/src/line.cpp</FilePath>
             </File>
             <File>
-              <FileName>ListTableBase.cpp</FileName>
+              <FileName>logo.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../../generated/gui_generated/src/containers/listtablebase.cpp</FilePath>
+              <FilePath>../../generated/images/src/logo.cpp</FilePath>
             </File>
             <File>
               <FileName>mainboardViewBase.cpp</FileName>
@@ -1262,16 +1297,6 @@
               <FilePath>../../generated/images/src/ok_button_pressed.cpp</FilePath>
             </File>
             <File>
-              <FileName>PluszdBase.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../../generated/gui_generated/src/containers/pluszdbase.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>servicesBase.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../../generated/gui_generated/src/containers/servicesbase.cpp</FilePath>
-            </File>
-            <File>
               <FileName>shoesmodulBase.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/gui_generated/src/containers/shoesmodulbase.cpp</FilePath>
@@ -1297,9 +1322,19 @@
               <FilePath>../../generated/fonts/src/table_arial_14_4bpp.cpp</FilePath>
             </File>
             <File>
+              <FileName>Table_arial_22_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/table_arial_22_4bpp.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Table_arialbd_14_4bpp.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/table_arialbd_14_4bpp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Table_mriamc_23_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/table_mriamc_23_4bpp.cpp</FilePath>
             </File>
             <File>
               <FileName>Table_verdana_10_4bpp.cpp</FileName>

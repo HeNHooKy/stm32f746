@@ -9,11 +9,11 @@
 #include <gui/heatingboard_screen/heatingboardPresenter.hpp>
 #include <gui/containers/fon.hpp>
 #include <gui/containers/skin1.hpp>
+#include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
-#include <touchgfx/widgets/ToggleButton.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <gui/containers/shoesmodul.hpp>
 #include <gui/containers/dressmodul.hpp>
+#include <gui/containers/shoesmodul.hpp>
 #include <gui/containers/MsgBox.hpp>
 
 class heatingboardViewBase : public touchgfx::View<heatingboardPresenter>
@@ -46,14 +46,14 @@ protected:
      */
     fon fon1;
     skin1 skin11;
+    touchgfx::Button StartLeftBT;
+    touchgfx::Button StartRightBT;
+    touchgfx::DigitalClock digitaltimerleftbt;
     touchgfx::DigitalClock digitaltimerrightbt;
-    touchgfx::DigitalClock digitaltimerleft;
-    touchgfx::ToggleButton startleftbt;
-    touchgfx::ToggleButton startrightbt;
     touchgfx::TextArea textArea1;
     touchgfx::TextArea textArea1_1;
-    shoesmodul shoesmodul1;
     dressmodul dressmodul1;
+    shoesmodul shoesmodul1;
     MsgBox msgBox1;
 
 private:

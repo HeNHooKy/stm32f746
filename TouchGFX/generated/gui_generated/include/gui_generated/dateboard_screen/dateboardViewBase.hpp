@@ -9,12 +9,13 @@
 #include <gui/dateboard_screen/dateboardPresenter.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/containers/ScrollableContainer.hpp>
-#include <touchgfx/widgets/TiledImage.hpp>
+#include <touchgfx/containers/ListLayout.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/RadioButton.hpp>
-#include <touchgfx/containers/ModalWindow.hpp>
-#include <touchgfx/Color.hpp>
+#include <gui/containers/clearbox.hpp>
+#include <gui/containers/addevent.hpp>
+#include <gui/containers/MsgBox.hpp>
 #include <touchgfx/widgets/RadioButtonGroup.hpp>
 
 class dateboardViewBase : public touchgfx::View<dateboardPresenter>
@@ -27,7 +28,47 @@ public:
     /*
      * Virtual Action Handlers
      */
-    virtual void ClearTable()
+    virtual void CallAddEvent()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void CallClearWindow()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void SetMonD()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void SetTwoD()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void SetWedD()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void SetThuD()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void SetFriD()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void SetSatD()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void SetSunD()
     {
         // Override and implement this function in dateboard
     }
@@ -41,20 +82,20 @@ protected:
      * Member Declarations
      */
     touchgfx::Image fon;
-    touchgfx::ScrollableContainer scrollableContainer;
-    touchgfx::TiledImage fon1;
+    touchgfx::ScrollableContainer Container;
+    touchgfx::ListLayout list;
     touchgfx::TextArea logo;
     touchgfx::ButtonWithLabel startbt;
     touchgfx::ButtonWithLabel closebt;
     touchgfx::ButtonWithLabel minusbt;
     touchgfx::ButtonWithLabel plusbt;
-    touchgfx::RadioButton pnbt1;
-    touchgfx::RadioButton vtbt1;
-    touchgfx::RadioButton srbt1;
-    touchgfx::RadioButton chtbt1;
-    touchgfx::RadioButton ptbt1;
-    touchgfx::RadioButton sbbt1;
-    touchgfx::RadioButton vsbt1;
+    touchgfx::RadioButton pnbt;
+    touchgfx::RadioButton vtbt;
+    touchgfx::RadioButton srbt;
+    touchgfx::RadioButton chtbt;
+    touchgfx::RadioButton ptbt;
+    touchgfx::RadioButton sbbt;
+    touchgfx::RadioButton vsbt;
     touchgfx::TextArea pntxt1;
     touchgfx::TextArea vttxt1;
     touchgfx::TextArea srtxt1;
@@ -62,11 +103,10 @@ protected:
     touchgfx::TextArea pttxt1;
     touchgfx::TextArea sbtxt1;
     touchgfx::TextArea vstxt1;
-    touchgfx::ModalWindow clearbox;
-    touchgfx::TextArea textArea1;
-    touchgfx::ButtonWithLabel yesbt;
-    touchgfx::ButtonWithLabel nobt;
-    touchgfx::RadioButtonGroup<7> day;
+    clearbox clearbox1;
+    addevent addevent1;
+    MsgBox msgBox1;
+    touchgfx::RadioButtonGroup<14> day;
 
 private:
 
@@ -74,11 +114,13 @@ private:
      * Callback Declarations
      */
     touchgfx::Callback<dateboardViewBase, const touchgfx::AbstractButton&> buttonCallback;
+    touchgfx::Callback<dateboardViewBase, const touchgfx::AbstractButton&> radioButtonSelectedCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+    void radioButtonSelectedCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

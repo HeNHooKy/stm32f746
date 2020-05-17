@@ -10,7 +10,7 @@ dressmodulBase::dressmodulBase() :
     buttonCallback(this, &dressmodulBase::buttonCallbackHandler)
 {
     setWidth(240);
-    setHeight(205);
+    setHeight(207);
     image2.setXY(0, 0);
     image2.setBitmap(touchgfx::Bitmap(BITMAP_FON7_ID));
 
@@ -19,6 +19,10 @@ dressmodulBase::dressmodulBase() :
     dresstext.setLinespacing(0);
     dresstext.setTypedText(touchgfx::TypedText(T_SINGLEUSEID185));
 
+    animatedImage1.setXY(27, 0);
+    animatedImage1.setBitmaps(BITMAP_BULBGRAPHON_ID, BITMAP_BULBGRAPHON_ID);
+    animatedImage1.setUpdateTicksInterval(2);
+
     time.setPosition(76, 116, 98, 36);
     time.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     time.setTypedText(touchgfx::TypedText(T_SINGLEUSEID186));
@@ -26,9 +30,9 @@ dressmodulBase::dressmodulBase() :
     time.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
     time.setTime24Hour(10, 10, 0);
 
-    stop.setXY(75, 164);
-    stop.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF2_ID));
-    stop.setAction(buttonCallback);
+    stop1.setXY(75, 164);
+    stop1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF2_ID));
+    stop1.setAction(buttonCallback);
 
     image1.setXY(46, 50);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_THERMOMETER_ICON_ICONS_COM_62485_ID));
@@ -51,18 +55,15 @@ dressmodulBase::dressmodulBase() :
     dresst.setLinespacing(0);
     dresst.setTypedText(touchgfx::TypedText(T_SINGLEUSEID190));
 
-    image4.setXY(27, 3);
-    image4.setBitmap(touchgfx::Bitmap(BITMAP_BULBGRAPHON_ID));
-
     add(image2);
     add(dresstext);
+    add(animatedImage1);
     add(time);
-    add(stop);
+    add(stop1);
     add(image1);
     add(temp);
     add(textArea2);
     add(dresst);
-    add(image4);
 }
 
 void dressmodulBase::initialize()
@@ -72,10 +73,10 @@ void dressmodulBase::initialize()
 
 void dressmodulBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
 {
-    if (&src == &stop)
+    if (&src == &stop1)
     {
         //StopDry
-        //When stop clicked call virtual function
+        //When stop1 clicked call virtual function
         //Call StopDry
         StopDry();
     }
