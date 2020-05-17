@@ -55,6 +55,9 @@ Model::Model() : modelListener(0)
 
 void Model::tick()
 {	//каждый такт
+	//обновим данные о времени
+	DisplayTime();
+	//обновление данных сушки
 	if((xSemaphoreTake(InformationUpdateSemHandle, (TickType_t) 10)) == pdTRUE)
 	{
 		if(statusTL == UC_SENDED_OK)
@@ -180,4 +183,11 @@ void Model::SetClock(int hours, int minutes, int weekDay)
 int Model::ClockChecker()
 {
 	return CheckTimeDate();
+}
+
+void Model::DisplayTime()
+{	//обновляем данные о времени
+	int day, hour, minute;
+	GetTimeDate(day, hour, minute);
+	modelListener->DisplayCurrentTime(day, hour, minute);
 }

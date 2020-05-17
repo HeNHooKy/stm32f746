@@ -190,12 +190,12 @@ protected:
         	}
         }
 private:
-    int tempLeft = 30;
-    int tempRight = 30;
+    int tempLeft = 60;
+    int tempRight = 60;
     int hoursLeftTimer = 12;
-    int minutesLeftTimer = 30;
+    int minutesLeftTimer = 0;
     int hoursRightTimer = 12;
-    int minutesRightTimer = 30;
+    int minutesRightTimer = 0;
 
     bool sL = false, sR = false;
 };

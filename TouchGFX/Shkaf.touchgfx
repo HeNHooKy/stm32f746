@@ -3576,7 +3576,7 @@
             "Pressed": "Blue_Buttons_presed.png",
             "Released": "Blue_Buttons_Round.png",
             "Alpha": 255,
-            "TextId": "SingleUseId209",
+            "TextId": "SingleUseId238",
             "ReleasedColor": {
               "Red": 255,
               "Green": 255,
@@ -5015,6 +5015,10 @@
       },
       {
         "TextEntryId": "SingleUseId237",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId238",
         "IsResource": false
       }
     ],

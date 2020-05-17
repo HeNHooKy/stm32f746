@@ -58,6 +58,7 @@ void SetTimeDate(uint8_t hours, uint8_t minutes, uint8_t weekDay);
 int AddNewEvent(int day, int hour, int minute, int duration_f, int durtation_s, int temp);
 int CheckTimeDate();
 void UC_REQUESTER();
+void GetTimeDate(int *day, int *hour, int *minute);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

@@ -16,6 +16,8 @@ public:
     virtual void DisplayTempRight(int value) {}
     virtual void DisplayStatusLeft(int status) {}
     virtual void DisplayStatusRight(int status) {}
+    //вывод времени
+    virtual void DisplayCurrentTime(int day, int hour, int minute) {}
 
     virtual void ShowMessage(char* message) {}
 

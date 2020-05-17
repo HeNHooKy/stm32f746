@@ -25,6 +25,8 @@ public:
      */
     virtual void deactivate();
 
+    virtual void DisplayCurrentTime(int day, int hour, int minute);
+
     virtual ~mainboardPresenter() {};
 
 private:

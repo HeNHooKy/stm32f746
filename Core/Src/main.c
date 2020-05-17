@@ -1091,6 +1091,20 @@ int CheckTimeDate()
 	return cDate.Year < 50;
 }
 
+//устанавливает время в заданные адреса
+void GetTimeDate(int *day, int *hour, int *minute)
+{
+	RTC_TimeTypeDef cTime = {0};
+	RTC_DateTypeDef cDate = {0};
+
+	HAL_RTC_GetTime(&hrtc, &cTime, RTC_FORMAT_BIN);
+	HAL_RTC_GetDate(&hrtc, &cDate, RTC_FORMAT_BIN);
+
+	*day = cDate.WeekDay;
+	*hour = cTime.Hours;
+	*minute = cTime.Minutes;
+}
+
 //устанавливает пользовательское время
 void SetTimeDate(uint8_t hours, uint8_t minutes, uint8_t weekDay)
 {
@@ -1208,9 +1222,6 @@ void UC_REQUESTER()
 	  UC_SEND(0, GROUP_M, statusAddressRight, UC_REQUEST, &statusRight, &statusSR);
 	}
 }
-
-
-
 
 /**
 * @brief Function implementing the TTCheckTask thread.

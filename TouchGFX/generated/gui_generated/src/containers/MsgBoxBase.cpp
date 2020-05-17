@@ -20,7 +20,7 @@ MsgBoxBase::MsgBoxBase() :
 
     okbt.setXY(162, 115);
     okbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
-    okbt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID209));
+    okbt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID238));
     okbt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     okbt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     okbt.setAction(buttonCallback);

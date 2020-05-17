@@ -33,6 +33,7 @@ public:
 
 protected:
     ModelListener* modelListener;
+    void DisplayTime();
 
     int leftTempAddress = 101;
 };
