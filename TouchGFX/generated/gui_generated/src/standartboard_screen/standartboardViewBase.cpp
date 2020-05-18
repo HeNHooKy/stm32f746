@@ -6,7 +6,8 @@
 #include "BitmapDatabase.hpp"
 #include <touchgfx/Color.hpp>
 
-standartboardViewBase::standartboardViewBase()
+standartboardViewBase::standartboardViewBase() :
+    buttonCallback(this, &standartboardViewBase::buttonCallbackHandler)
 {
 
     fon1.setXY(0, 0);
@@ -29,9 +30,11 @@ standartboardViewBase::standartboardViewBase()
 
     StartLeftBT.setXY(75, 185);
     StartLeftBT.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON2_ID));
+    StartLeftBT.setAction(buttonCallback);
 
     StartRightBT.setXY(319, 185);
     StartRightBT.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON2_ID));
+    StartRightBT.setAction(buttonCallback);
 
     textArea1.setXY(31, 41);
     textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
@@ -43,10 +46,10 @@ standartboardViewBase::standartboardViewBase()
     textArea1_1.setLinespacing(0);
     textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID31));
 
-    dressmodul1.setXY(0, 21);
+    dressmodul1.setXY(0, 26);
     dressmodul1.setVisible(false);
 
-    shoesmodul1.setXY(244, 21);
+    shoesmodul1.setXY(244, 26);
     shoesmodul1.setVisible(false);
 
     msgBox1.setXY(25, 61);
@@ -72,4 +75,22 @@ void standartboardViewBase::setupScreen()
     dressmodul1.initialize();
     shoesmodul1.initialize();
     msgBox1.initialize();
+}
+
+void standartboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &StartLeftBT)
+    {
+        //StartDryLeft
+        //When StartLeftBT clicked call virtual function
+        //Call StartDryLeft
+        StartDryLeft();
+    }
+    else if (&src == &StartRightBT)
+    {
+        //StartDryRight
+        //When StartRightBT clicked call virtual function
+        //Call StartDryRight
+        StartDryRight();
+    }
 }

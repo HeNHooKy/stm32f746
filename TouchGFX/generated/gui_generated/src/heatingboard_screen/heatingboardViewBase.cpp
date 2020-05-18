@@ -46,10 +46,10 @@ heatingboardViewBase::heatingboardViewBase() :
     textArea1_1.setLinespacing(0);
     textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID39));
 
-    dressmodul1.setXY(0, 21);
+    dressmodul1.setXY(0, 26);
     dressmodul1.setVisible(false);
 
-    shoesmodul1.setXY(244, 21);
+    shoesmodul1.setXY(244, 26);
     shoesmodul1.setVisible(false);
 
     msgBox1.setXY(25, 61);

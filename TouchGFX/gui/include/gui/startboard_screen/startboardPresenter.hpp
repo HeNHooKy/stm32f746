@@ -31,6 +31,7 @@ public:
     //методы задания и проверки пользовательского времени
 	int ClockChecker();
 	void SetClock(int hours, int minutes, int weekDay);
+	void GetCurTimeDay(int *day, int *hour, int *minute);
 
 private:
     startboardPresenter();

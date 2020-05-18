@@ -1,4 +1,7 @@
 #include <gui/manualboard_screen/manualboardView.hpp>
+#include "configuration.h"
+
+extern char message[MSG_SIZE];
 
 manualboardView::manualboardView()
 	: dressmodulCallback(this, &manualboardView::StopDryLeft),
@@ -205,9 +208,11 @@ void manualboardView::DisplayStatusRight(int status)
 	fon1.invalidate();
 }
 
-void manualboardView::ShowMessage(char* message)
+void manualboardView::ShowMessage(int num)
 {
-	msgBox1.Show(message);
+	//TODO: подготовить сообщение об ошибке к показу
+
+	msgBox1.Show(num);
 	msgBox1.setVisible(true);
 	msgBox1.invalidate();
 

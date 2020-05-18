@@ -847,11 +847,6 @@
               <FilePath>../../gui/src/containers/addevent.cpp</FilePath>
             </File>
             <File>
-              <FileName>clearbox.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../../gui/src/containers/clearbox.cpp</FilePath>
-            </File>
-            <File>
               <FileName>CustomListElement.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../gui/src/containers/customlistelement.cpp</FilePath>
@@ -951,6 +946,11 @@
               <FileType>8</FileType>
               <FilePath>../../gui/src/startboard_screen/startboardview.cpp</FilePath>
             </File>
+            <File>
+              <FileName>text.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../gui/src/containers/text.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1047,6 +1047,26 @@
               <FilePath>../../generated/images/src/blue_togglebars4.cpp</FilePath>
             </File>
             <File>
+              <FileName>Blue_Togglebars6.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars6.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars7.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars7.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars8.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars8.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Blue_Togglebars9.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/images/src/blue_togglebars9.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Blue_Togglebars_OFF.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/images/src/blue_togglebars_off.cpp</FilePath>
@@ -1090,11 +1110,6 @@
               <FileName>clear.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/images/src/clear.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>clearboxBase.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../../generated/gui_generated/src/containers/clearboxbase.cpp</FilePath>
             </File>
             <File>
               <FileName>clic1.cpp</FileName>
@@ -1167,9 +1182,19 @@
               <FilePath>../../generated/gui_generated/src/containers/fonbase.cpp</FilePath>
             </File>
             <File>
+              <FileName>Font_arial_13_4bpp_0.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/font_arial_13_4bpp_0.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Font_arial_14_4bpp_0.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/font_arial_14_4bpp_0.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Font_arial_14_4bpp_31.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/font_arial_14_4bpp_31.cpp</FilePath>
             </File>
             <File>
               <FileName>Font_arial_22_4bpp_0.cpp</FileName>
@@ -1177,9 +1202,19 @@
               <FilePath>../../generated/fonts/src/font_arial_22_4bpp_0.cpp</FilePath>
             </File>
             <File>
+              <FileName>Font_arial_22_4bpp_31.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/font_arial_22_4bpp_31.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Font_arialbd_14_4bpp_0.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/font_arialbd_14_4bpp_0.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Font_arialbd_14_4bpp_31.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/font_arialbd_14_4bpp_31.cpp</FilePath>
             </File>
             <File>
               <FileName>Font_mriamc_23_4bpp_0.cpp</FileName>
@@ -1220,6 +1255,11 @@
               <FileName>icontime.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/images/src/icontime.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Kerning_arial_13_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/kerning_arial_13_4bpp.cpp</FilePath>
             </File>
             <File>
               <FileName>Kerning_arial_14_4bpp.cpp</FileName>
@@ -1317,6 +1357,11 @@
               <FilePath>../../generated/gui_generated/src/startboard_screen/startboardviewbase.cpp</FilePath>
             </File>
             <File>
+              <FileName>Table_arial_13_4bpp.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/fonts/src/table_arial_13_4bpp.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Table_arial_14_4bpp.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/table_arial_14_4bpp.cpp</FilePath>
@@ -1350,6 +1395,11 @@
               <FileName>Table_verdana_30_4bpp.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../../generated/fonts/src/table_verdana_30_4bpp.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>textBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../../generated/gui_generated/src/containers/textbase.cpp</FilePath>
             </File>
             <File>
               <FileName>Texts.cpp</FileName>

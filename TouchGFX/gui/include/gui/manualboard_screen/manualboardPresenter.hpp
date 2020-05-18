@@ -37,7 +37,7 @@ public:
     void DisplayStatusLeft(int status);
     void DisplayStatusRight(int status);
 
-    virtual void ShowMessage(char* message);
+    virtual void ShowMessage(int num);
 
     virtual ~manualboardPresenter() {};
 

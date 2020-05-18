@@ -14,7 +14,7 @@ public:
     virtual void tearDownScreen();
 
     //user funcitons:
-    virtual void CallClearWindow();
+    virtual void ClearAll();
     virtual void CallAddEvent();
     void AddEvent(addevent& element);
     void DelEvent(CustomListElement& element);
@@ -23,6 +23,24 @@ public:
     void DisplayList(int day);
     void RemoveAll();
     int GetMaxId(int day);
+
+    //запуск-остановка работы по расписанию
+    virtual void StartDryEvents();
+    virtual void StopDryEvents();
+
+    //остановки для отсеков
+    virtual void StopDryRight(shoesmodul& element);
+    virtual void StopDryLeft(dressmodul& element);
+
+
+
+    //данные с GX:
+	virtual void DisplayTimeLeft(int minute);
+	virtual void DisplayTimeRight(int minute);
+	virtual void DisplayTempLeft(int value);
+	virtual void DisplayTempRight(int value);
+	virtual void DisplayStatusLeft(int status);
+	virtual void DisplayStatusRight(int status);
 
 
     //функции переключения дней
@@ -34,13 +52,55 @@ public:
     virtual void SetSatD();
     virtual void SetSunD();
 
+    //вывод сообщений
+    	virtual void ShowMessage(int num);
 
 protected:
+    //колбек окна создания события
     Callback<dateboardView, addevent&> addeventCallback;
+    //колбек строки события
     Callback<dateboardView, CustomListElement&> listElementClickedCallback;
+    //контроль "штор"
+	Callback<dateboardView, dressmodul&> dressmodulCallback;
+	Callback<dateboardView, shoesmodul&> shoesmodulCallback;
 
     //массивы кнопок событий
     CustomListElement customListElements[10]; //массив элементов событий
+
+
+
+
+    int getDay()
+	{
+		if(vsbt.getSelected())
+		{
+			return 0;
+		}
+		if(pnbt.getSelected())
+		{
+			return 1;
+		}
+		else if(vtbt.getSelected())
+		{
+			return 2;
+		}
+		else if(srbt.getSelected())
+		{
+			return 3;
+		}
+		else if(chtbt.getSelected())
+		{
+			return 4;
+		}
+		else if(ptbt.getSelected())
+		{
+			return 5;
+		}
+		else
+		{
+			return 6;
+		}
+	}
 
 
 };

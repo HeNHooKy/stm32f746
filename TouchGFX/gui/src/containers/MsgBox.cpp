@@ -11,9 +11,23 @@ void MsgBox::initialize()
     MsgBoxBase::initialize();
 }
 
-void MsgBox::Show(char* m)
+void MsgBox::Show(int num)
 {
-	Unicode::strncpy(messageBuffer, m, MSG_SIZE - 1);
+	switch(num)
+	{
+	case 1:
+		Unicode::strncpy(messageBuffer, text1.getError1Buf(), MSG_SIZE - 1);
+		break;
+	case 2:
+		Unicode::strncpy(messageBuffer, text1.getError2Buf(), MSG_SIZE - 1);
+		break;
+	case 3:
+		Unicode::strncpy(messageBuffer, text1.getError3Buf(), MSG_SIZE - 1);
+		break;
+	case 4:
+		Unicode::strncpy(messageBuffer, text1.getError4Buf(), MSG_SIZE - 1);
+		break;
+	}
 	message.invalidate();
 }
 

@@ -19,7 +19,7 @@ public:
     //вывод времени
     virtual void DisplayCurrentTime(int day, int hour, int minute) {}
 
-    virtual void ShowMessage(char* message) {}
+    virtual void ShowMessage(int num) {}
 
     void bind(Model* m)
     {

@@ -10,34 +10,34 @@ dressmodulBase::dressmodulBase() :
     buttonCallback(this, &dressmodulBase::buttonCallbackHandler)
 {
     setWidth(240);
-    setHeight(207);
+    setHeight(202);
     image2.setXY(0, 0);
     image2.setBitmap(touchgfx::Bitmap(BITMAP_FON7_ID));
 
-    dresstext.setXY(84, 19);
+    dresstext.setXY(84, 10);
     dresstext.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     dresstext.setLinespacing(0);
     dresstext.setTypedText(touchgfx::TypedText(T_SINGLEUSEID185));
 
-    animatedImage1.setXY(27, 0);
+    animatedImage1.setXY(6, 4);
     animatedImage1.setBitmaps(BITMAP_BULBGRAPHON_ID, BITMAP_BULBGRAPHON_ID);
     animatedImage1.setUpdateTicksInterval(2);
 
-    time.setPosition(76, 116, 98, 36);
+    time.setPosition(76, 111, 98, 36);
     time.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     time.setTypedText(touchgfx::TypedText(T_SINGLEUSEID186));
     time.displayLeadingZeroForHourIndicator(true);
     time.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
     time.setTime24Hour(10, 10, 0);
 
-    stop1.setXY(75, 164);
+    stop1.setXY(75, 159);
     stop1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_OFF2_ID));
     stop1.setAction(buttonCallback);
 
-    image1.setXY(46, 50);
+    image1.setXY(46, 43);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_THERMOMETER_ICON_ICONS_COM_62485_ID));
 
-    temp.setXY(105, 57);
+    temp.setXY(101, 50);
     temp.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     temp.setLinespacing(0);
     Unicode::snprintf(tempBuffer, TEMP_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID188).getText());
@@ -45,12 +45,12 @@ dressmodulBase::dressmodulBase() :
     temp.resizeToCurrentText();
     temp.setTypedText(touchgfx::TypedText(T_SINGLEUSEID187));
 
-    textArea2.setXY(146, 57);
+    textArea2.setXY(146, 50);
     textArea2.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea2.setLinespacing(0);
     textArea2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID189));
 
-    dresst.setXY(76, 103);
+    dresst.setXY(76, 98);
     dresst.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     dresst.setLinespacing(0);
     dresst.setTypedText(touchgfx::TypedText(T_SINGLEUSEID190));

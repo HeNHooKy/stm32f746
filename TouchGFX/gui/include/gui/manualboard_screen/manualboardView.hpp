@@ -43,7 +43,7 @@ public:
 	virtual void DisplayStatusRight(int status);
 
 	//вывод уведомлений
-	virtual void ShowMessage(char* message);
+	virtual void ShowMessage(int num);
 
 protected:
 	//контроль "штор"

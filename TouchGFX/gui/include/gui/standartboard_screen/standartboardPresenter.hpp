@@ -25,6 +25,23 @@ public:
      */
     virtual void deactivate();
 
+    //контроль сушки
+	virtual void StartDryLeft();
+	virtual void StopDryLeft();
+	virtual void StartDryRight();
+	virtual void StopDryRight();
+
+	//отображения данных GX
+	virtual void DisplayTimeLeft(int minute);
+	virtual void DisplayTimeRight(int minute);
+	virtual void DisplayTempLeft(int value);
+	virtual void DisplayTempRight(int value);
+	virtual void DisplayStatusLeft(int status);
+	virtual void DisplayStatusRight(int status);
+
+	//вывод сообщений
+	virtual void ShowMessage(int num);
+
     virtual ~standartboardPresenter() {};
 
 private:

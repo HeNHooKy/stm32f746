@@ -3,8 +3,8 @@
 /*********************************************************************************/
 #include <gui_generated/dateboard_screen/dateboardViewBase.hpp>
 #include "BitmapDatabase.hpp"
-#include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <touchgfx/Color.hpp>
 
 dateboardViewBase::dateboardViewBase() :
     buttonCallback(this, &dateboardViewBase::buttonCallbackHandler),
@@ -14,24 +14,17 @@ dateboardViewBase::dateboardViewBase() :
     fon.setXY(0, 0);
     fon.setBitmap(touchgfx::Bitmap(BITMAP_FON_ID));
 
-    Container.setPosition(22, 79, 442, 100);
-    Container.setScrollbarsColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-
-    list.setDirection(touchgfx::EAST);
-    list.setPosition(1, -66, 250, 250);
-    Container.add(list);
-    Container.setScrollbarsPermanentlyVisible();
-
     logo.setXY(97, 4);
     logo.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     logo.setLinespacing(0);
     logo.setTypedText(touchgfx::TypedText(T_SINGLEUSEID49));
 
     startbt.setXY(28, 225);
-    startbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS2_ID));
+    startbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS9_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS8_ID));
     startbt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID50));
     startbt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     startbt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    startbt.setAction(buttonCallback);
 
     closebt.setXY(305, 228);
     closebt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID));
@@ -124,17 +117,90 @@ dateboardViewBase::dateboardViewBase() :
     vstxt1.setLinespacing(0);
     vstxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID150));
 
-    clearbox1.setXY(0, 0);
-    clearbox1.setVisible(false);
+    tiledImage1.setBitmap(touchgfx::Bitmap(BITMAP_FON4_ID));
+    tiledImage1.setPosition(23, 80, 442, 100);
+    tiledImage1.setAlpha(187);
+    tiledImage1.setOffset(0, 0);
+
+    Container.setPosition(23, 80, 442, 100);
+    Container.setScrollbarsColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+
+    list.setDirection(touchgfx::SOUTH);
+    list.setPosition(0, 0, 442, 100);
+    Container.add(list);
+    Container.setScrollbarsPermanentlyVisible();
+    Container.setScrollbarsVisible(false);
 
     addevent1.setXY(0, 0);
     addevent1.setVisible(false);
 
+    startModul.setBackground(touchgfx::BitmapId(BITMAP_FON_ID), 0, 0);
+    startModul.setShadeColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    startModul.setShadeAlpha(150);
+    startModul.hide();
+
+    skin11.setXY(0, 0);
+    startModul.add(skin11);
+
+    stopdryevent.setXY(140, 225);
+    stopdryevent.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS7_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS6_ID));
+    stopdryevent.setLabelText(touchgfx::TypedText(T_SINGLEUSEID252));
+    stopdryevent.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    stopdryevent.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    stopdryevent.setAction(buttonCallback);
+    startModul.add(stopdryevent);
+
+    textArea1.setPosition(8, 87, 226, 74);
+    textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID253));
+    startModul.add(textArea1);
+
+    textArea1_1.setPosition(251, 87, 226, 74);
+    textArea1_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    textArea1_1.setLinespacing(0);
+    textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID254));
+    startModul.add(textArea1_1);
+
+    dressmodul1.setXY(0, 26);
+    dressmodul1.setVisible(false);
+    startModul.add(dressmodul1);
+
+    shoesmodul1.setXY(245, 26);
+    shoesmodul1.setVisible(false);
+    startModul.add(shoesmodul1);
+
     msgBox1.setXY(28, 61);
     msgBox1.setVisible(false);
 
+    clearbox.setBackground(touchgfx::BitmapId(BITMAP_FON4_ID), 25, 61);
+    clearbox.setShadeColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    clearbox.setShadeAlpha(150);
+    clearbox.hide();
+
+    text.setXY(96, 34);
+    text.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    text.setLinespacing(0);
+    text.setTypedText(touchgfx::TypedText(T_SINGLEUSEID249));
+    clearbox.add(text);
+
+    yesbt_1.setXY(12, 108);
+    yesbt_1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
+    yesbt_1.setLabelText(touchgfx::TypedText(T_SINGLEUSEID250));
+    yesbt_1.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    yesbt_1.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    yesbt_1.setAction(buttonCallback);
+    clearbox.add(yesbt_1);
+
+    nobt_1.setXY(265, 108);
+    nobt_1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
+    nobt_1.setLabelText(touchgfx::TypedText(T_SINGLEUSEID251));
+    nobt_1.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    nobt_1.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    nobt_1.setAction(buttonCallback);
+    clearbox.add(nobt_1);
+
     add(fon);
-    add(Container);
     add(logo);
     add(startbt);
     add(closebt);
@@ -154,9 +220,12 @@ dateboardViewBase::dateboardViewBase() :
     add(pttxt1);
     add(sbtxt1);
     add(vstxt1);
-    add(clearbox1);
+    add(tiledImage1);
+    add(Container);
     add(addevent1);
+    add(startModul);
     add(msgBox1);
+    add(clearbox);
     day.add(pnbt);
     day.add(vtbt);
     day.add(srbt);
@@ -169,14 +238,23 @@ dateboardViewBase::dateboardViewBase() :
 
 void dateboardViewBase::setupScreen()
 {
-    clearbox1.initialize();
     addevent1.initialize();
+    skin11.initialize();
+    dressmodul1.initialize();
+    shoesmodul1.initialize();
     msgBox1.initialize();
 }
 
 void dateboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
 {
-    if (&src == &closebt)
+    if (&src == &startbt)
+    {
+        //StartDryEvents
+        //When startbt clicked call virtual function
+        //Call StartDryEvents
+        StartDryEvents();
+    }
+    else if (&src == &closebt)
     {
         //close
         //When closebt clicked change screen to mainboard
@@ -186,9 +264,10 @@ void dateboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
     else if (&src == &minusbt)
     {
         //clear
-        //When minusbt clicked call virtual function
-        //Call CallClearWindow
-        CallClearWindow();
+        //When minusbt clicked show clearbox
+        //Show clearbox
+        clearbox.setVisible(true);
+        clearbox.invalidate();
     }
     else if (&src == &plusbt)
     {
@@ -196,6 +275,28 @@ void dateboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //When plusbt clicked call virtual function
         //Call CallAddEvent
         CallAddEvent();
+    }
+    else if (&src == &stopdryevent)
+    {
+        //StopDryEvents
+        //When stopdryevent clicked call virtual function
+        //Call StopDryEvents
+        StopDryEvents();
+    }
+    else if (&src == &yesbt_1)
+    {
+        //ClearAll
+        //When yesbt_1 clicked call virtual function
+        //Call ClearAll
+        ClearAll();
+    }
+    else if (&src == &nobt_1)
+    {
+        //HideClearBox
+        //When nobt_1 clicked hide clearbox
+        //Hide clearbox
+        clearbox.setVisible(false);
+        clearbox.invalidate();
     }
 }
 

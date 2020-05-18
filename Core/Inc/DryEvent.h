@@ -10,6 +10,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 #define MAX_EVENTS 10
 
 #define DIFFERENCE 5 //минимальная разница между событиями
@@ -62,9 +63,12 @@ int ExecuteChecker(struct dryEvent* dayArray, int dayID, int day, int hour, int 
 void SetUpEvent(struct dryEvent* dayArray, int id, int day, int hour, int minut, int duration_F, int temp_F, int duration_S, int temp_S);
 void SetDownEvent(struct dryEvent* dayArray, int dayID, int id);
 int GetMax(int a, int b);
+int AbsoluteDayHourMinute(int day, int hour, int minute);
 int AbsoluteTime(int time);
 int ProcesCycle(struct dryEvent* dayArray, int dayID, int timeStart, int timeEnd);
 struct dryEvent* GetPointerArray(int day);
+
+
 
 
 

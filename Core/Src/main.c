@@ -29,6 +29,7 @@
 #include "configuration.h"
 #include "DryEvent.h"
 #include <stm32746g_discovery_qspi.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -1100,7 +1101,7 @@ void GetTimeDate(int *day, int *hour, int *minute)
 	HAL_RTC_GetTime(&hrtc, &cTime, RTC_FORMAT_BIN);
 	HAL_RTC_GetDate(&hrtc, &cDate, RTC_FORMAT_BIN);
 
-	*day = cDate.WeekDay;
+	*day = cDate.WeekDay % 7; //сбрасываем вс на 0
 	*hour = cTime.Hours;
 	*minute = cTime.Minutes;
 }
@@ -1123,7 +1124,7 @@ void SetTimeDate(uint8_t hours, uint8_t minutes, uint8_t weekDay)
 		Error_Handler();
 	}
 
-	sDate.WeekDay = weekDay;
+	sDate.WeekDay = !weekDay ? 7 : weekDay;
 	sDate.Month = RTC_MONTH_JANUARY;
 	sDate.Date = 1;
 	sDate.Year = 50;
@@ -1250,11 +1251,6 @@ void TTChecker(void const * argument)
 
 /* USER CODE BEGIN Header_EventsStart */
 int isBeingWorking = 0;
-
-int AddNewEvent(int day, int hour, int minute, int duration_f, int duration_s, int temp)
-{
-	return AddDryEvent(day, hour, minute, duration_f, temp, duration_s, temp);
-}
 
 /**
 * @brief Function implementing the EventsTask thread.

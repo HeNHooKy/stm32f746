@@ -12,7 +12,7 @@ public:
     /**
      * Initialize this containers widgets
      */
-    void setupListElement();//int day, int hour, int minute, int temp, int durationLeft, int durationRight, int id);
+    void setupListElement(int dayA, int hourA, int minuteA, int tempA, int durationLeftA, int durationRightA, int idA);
 
     /**
      * Setup the view callback

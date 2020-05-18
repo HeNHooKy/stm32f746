@@ -23,6 +23,19 @@ public:
     virtual ~standartboardViewBase() {}
     virtual void setupScreen();
 
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void StartDryRight()
+    {
+        // Override and implement this function in standartboard
+    }
+
+    virtual void StartDryLeft()
+    {
+        // Override and implement this function in standartboard
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -44,6 +57,16 @@ protected:
     MsgBox msgBox1;
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<standartboardViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

@@ -8,13 +8,18 @@
 #include <mvp/View.hpp>
 #include <gui/dateboard_screen/dateboardPresenter.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/containers/ScrollableContainer.hpp>
-#include <touchgfx/containers/ListLayout.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/RadioButton.hpp>
-#include <gui/containers/clearbox.hpp>
+#include <touchgfx/widgets/TiledImage.hpp>
+#include <touchgfx/containers/ScrollableContainer.hpp>
+#include <touchgfx/containers/ListLayout.hpp>
 #include <gui/containers/addevent.hpp>
+#include <touchgfx/containers/ModalWindow.hpp>
+#include <touchgfx/Color.hpp>
+#include <gui/containers/skin1.hpp>
+#include <gui/containers/dressmodul.hpp>
+#include <gui/containers/shoesmodul.hpp>
 #include <gui/containers/MsgBox.hpp>
 #include <touchgfx/widgets/RadioButtonGroup.hpp>
 
@@ -29,11 +34,6 @@ public:
      * Virtual Action Handlers
      */
     virtual void CallAddEvent()
-    {
-        // Override and implement this function in dateboard
-    }
-
-    virtual void CallClearWindow()
     {
         // Override and implement this function in dateboard
     }
@@ -73,6 +73,21 @@ public:
         // Override and implement this function in dateboard
     }
 
+    virtual void ClearAll()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void StartDryEvents()
+    {
+        // Override and implement this function in dateboard
+    }
+
+    virtual void StopDryEvents()
+    {
+        // Override and implement this function in dateboard
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -82,8 +97,6 @@ protected:
      * Member Declarations
      */
     touchgfx::Image fon;
-    touchgfx::ScrollableContainer Container;
-    touchgfx::ListLayout list;
     touchgfx::TextArea logo;
     touchgfx::ButtonWithLabel startbt;
     touchgfx::ButtonWithLabel closebt;
@@ -103,9 +116,22 @@ protected:
     touchgfx::TextArea pttxt1;
     touchgfx::TextArea sbtxt1;
     touchgfx::TextArea vstxt1;
-    clearbox clearbox1;
+    touchgfx::TiledImage tiledImage1;
+    touchgfx::ScrollableContainer Container;
+    touchgfx::ListLayout list;
     addevent addevent1;
+    touchgfx::ModalWindow startModul;
+    skin1 skin11;
+    touchgfx::ButtonWithLabel stopdryevent;
+    touchgfx::TextArea textArea1;
+    touchgfx::TextArea textArea1_1;
+    dressmodul dressmodul1;
+    shoesmodul shoesmodul1;
     MsgBox msgBox1;
+    touchgfx::ModalWindow clearbox;
+    touchgfx::TextArea text;
+    touchgfx::ButtonWithLabel yesbt_1;
+    touchgfx::ButtonWithLabel nobt_1;
     touchgfx::RadioButtonGroup<14> day;
 
 private:

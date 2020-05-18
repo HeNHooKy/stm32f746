@@ -32,15 +32,19 @@ MsgBoxBase::MsgBoxBase() :
     tiledImage1.setPosition(-7, -3, 137, 136);
     tiledImage1.setOffset(0, 0);
 
+    text1.setXY(0, 0);
+    text1.setVisible(false);
+
     add(image1);
     add(closeMessage);
     add(message);
     add(tiledImage1);
+    add(text1);
 }
 
 void MsgBoxBase::initialize()
 {
-
+    text1.initialize();
 }
 
 void MsgBoxBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)

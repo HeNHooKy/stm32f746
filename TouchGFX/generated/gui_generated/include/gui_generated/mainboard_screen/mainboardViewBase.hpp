@@ -15,6 +15,7 @@
 #include <touchgfx/containers/ModalWindow.hpp>
 #include <touchgfx/Color.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <gui/containers/text.hpp>
 
 class mainboardViewBase : public touchgfx::View<mainboardPresenter>
 {
@@ -45,11 +46,12 @@ protected:
     touchgfx::Image Image1;
     touchgfx::TextArea textArea1;
     touchgfx::ButtonWithLabel okbt;
+    text text1;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t DAY_SIZE = 4;
+    static const uint16_t DAY_SIZE = 10;
     touchgfx::Unicode::UnicodeChar dayBuffer[DAY_SIZE];
 
 private:

@@ -38,7 +38,8 @@ void addevent::ResetData()
 	setHoursTop(8);
 	setHoursLeft(12);
 	setMinutesLeft(0);
-	setTemp(60);
+	UpdateLeft();
+	UpdateRight();
 }
 
 void addevent::Close()

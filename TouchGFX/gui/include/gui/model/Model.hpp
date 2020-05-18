@@ -25,11 +25,14 @@ public:
 	void SendRightOn(int address);
 	void SendRightOff(int address);
 
-	int AddNewEvent(int day, int hour, int minute, int duration_f, int duration_s, int temp);
+	//включение-выключение сушки по расписанию
+	void SetDryEventsFlag(bool flag);
 
     //методы задания и проверки пользовательского времени
     int ClockChecker();
     void SetClock(int hours, int minutes, int weekDay);
+    void GetCurTimeDay(int *day, int *hour, int *minute);
+
 
 protected:
     ModelListener* modelListener;

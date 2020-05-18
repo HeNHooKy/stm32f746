@@ -26,3 +26,8 @@ void startboardPresenter::SetClock(int hours, int minutes, int weekDay)
 {
 	model->SetClock(hours, minutes, weekDay);
 }
+
+void startboardPresenter::GetCurTimeDay(int *day, int *hour, int *minute)
+{
+	model->GetCurTimeDay(day, hour, minute);
+}

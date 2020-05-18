@@ -10,7 +10,7 @@ public:
     virtual ~MsgBox() {}
 
     virtual void initialize();
-    virtual void Show(char* m);
+    virtual void Show(int num);
     virtual void CloseMessage();
 protected:
 };

@@ -25,7 +25,9 @@ extern char message[MSG_SIZE];
 
 dateboardView::dateboardView()
 	: addeventCallback(this, &dateboardView::AddEvent),
-	  listElementClickedCallback(this, &dateboardView::DelEvent)
+	  listElementClickedCallback(this, &dateboardView::DelEvent),
+	  dressmodulCallback(this, &dateboardView::StopDryLeft),
+	  shoesmodulCallback(this, &dateboardView::StopDryRight)
 {
 
 }
@@ -34,8 +36,17 @@ dateboardView::dateboardView()
 
 void dateboardView::setupScreen()
 {
+
     dateboardViewBase::setupScreen();
     addevent1.setAction(addeventCallback);
+    dressmodul1.setAction(dressmodulCallback);
+    shoesmodul1.setAction(shoesmodulCallback);
+
+    //обновляем данные списка
+    list.removeAll();
+    DisplayList(1);
+    SetDay(1);
+    list.invalidate();
 }
 
 void dateboardView::tearDownScreen()
@@ -43,27 +54,29 @@ void dateboardView::tearDownScreen()
     dateboardViewBase::tearDownScreen();
 }
 
-
-void dateboardView::CallClearWindow()
-{
-
-}
-
+//показать окно добавления события
 void dateboardView::CallAddEvent()
 {
+
+	addevent1.SetInDay(getDay());
 	addevent1.setVisible(true);
 	addevent1.invalidate();
 }
 
+//удаление события, вызвавшего этот метод
 void dateboardView::DelEvent(CustomListElement& element)
 {
 	int day = element.day;
 	int id = element.id;
-	DelDryEvent(day, id);
-	list.remove(element);
-	list.invalidate();
+	if(DelDryEvent(day, id) == EVENT_OK)
+	{
+		list.remove(element);
+		list.invalidate();
+		container.invalidate();
+	}
 }
 
+//извлечение из окна addevent всех данных и передача их в метод CreateEvent
 void dateboardView::AddEvent(addevent& element)
 {
 	//получаем данные о новой сушке
@@ -71,11 +84,33 @@ void dateboardView::AddEvent(addevent& element)
 	int hour = element.getHoursLeft();
 	int minute = element.getMinutesLeft();
 	int temp = element.getTemp();
-	int durationLeft = element.getHoursTop();
-	int durationRight = element.getHoursBottom();
+	int durationLeft = element.getHoursTop() * 60;
+	int durationRight = element.getHoursBottom() * 60;
 	element.ResetData(); //сброс данных по умолчанию
 	//добавляем новое событие в список событий
 	CreateEvent(day, hour, minute, temp, durationLeft, durationRight);
+}
+
+//очищает всё расписание
+void dateboardView::ClearAll()
+{
+	clearbox.setVisible(false);
+	clearbox.invalidate();
+	//очистка всех массивов
+	for(int i = 0; i < 7; i++)
+	{
+		int maxId = GetMaxId(i);
+		for(int j = 0; j <= maxId; j++)
+		{
+			DelDryEvent(i, j);
+
+		}
+
+	}
+	SetDay(1);
+	DisplayList(1);
+	list.invalidate();
+	Container.invalidate();
 }
 
 //добавление нового события в массив событий
@@ -88,8 +123,7 @@ void dateboardView::CreateEvent(int day, int hour, int minute, int temp, int dur
 	}
 	else
 	{
-		snprintf(message, MSG_SIZE, "Нельзя добавить новое событие!");
-		msgBox1.Show(message);
+		msgBox1.Show(1);
 		msgBox1.setVisible(true);
 		msgBox1.invalidate();
 	}
@@ -98,19 +132,23 @@ void dateboardView::CreateEvent(int day, int hour, int minute, int temp, int dur
 //обновление списка событий
 void dateboardView::DisplayList(int day)
 {
+	list.removeAll();
 	int dayId = GetMaxId(day);
 
 	dryEvent *pointer = GetPointerArray(day);
 
-	for(int i = 0; i < dayId; i++)
+	for(int i = 0; i <= dayId; i++)
 	{
-		customListElements[i].setupListElement();//pointer->startDay, pointer->startHour, pointer->temp_F, pointer->startMinut,
-					//pointer->duration_F, pointer->duration_S, pointer->id);
+		customListElements[i].setupListElement(pointer[i].startDay, pointer[i].startHour, pointer[i].startMinut, pointer[i].temp_F,
+					pointer[i].duration_F/60, pointer[i].duration_S/60, pointer[i].id);
 		customListElements[i].setAction(listElementClickedCallback);
-		//list.add(customListElements[i]);
+		list.add(customListElements[i]);
 	}
+	list.invalidate();
+	container.invalidate();
 }
 
+//получить максимальный id, который есть в массиве заданного дня
 int dateboardView::GetMaxId(int day)
 {
 	switch(day)
@@ -138,57 +176,133 @@ int dateboardView::GetMaxId(int day)
 //функции переключения дней
 void dateboardView::SetMonD()
 {
-	list.removeAll();
 	DisplayList(1);
 }
-
 void dateboardView::SetTwoD()
 {
-	list.removeAll();
 	DisplayList(2);
 }
-
 void dateboardView::SetWedD()
 {
-	list.removeAll();
 	DisplayList(3);
 }
-
 void dateboardView::SetThuD()
 {
-	list.removeAll();
 	DisplayList(4);
 }
-
 void dateboardView::SetFriD()
 {
-	list.removeAll();
 	DisplayList(5);
 }
-
 void dateboardView::SetSatD()
 {
-	list.removeAll();
 	DisplayList(6);
 }
-
 void dateboardView::SetSunD()
 {
-	list.removeAll();
 	DisplayList(0);
 }
 
+//Запуск работы по расписанию
+void dateboardView::StartDryEvents()
+{
+	if(sundayID == -1 && mondayID == -1 && tuesdayID == -1 && wednesdayID == -1 &&
+			thursdayID == -1 && fridayID == -1 && saturdayID == -1)
+	{
+		msgBox1.Show(4);
+		msgBox1.setVisible(true);
+		msgBox1.invalidate();
+		return;
+	}
+
+
+	presenter->SetDryEventsFlag(true);
+	//Показать штору
+	startModul.setVisible(true);
+	startModul.invalidate();
+}
+
+//остановка работы по расписанию
+void dateboardView::StopDryEvents()
+{
+	presenter->SetDryEventsFlag(false);
+	//останавливаем сушки
+	StopDryLeft(dressmodul1);
+	StopDryRight(shoesmodul1);
+	//закрываем штору
+	startModul.setVisible(false);
+	startModul.invalidate();
+}
 
 
 
+//остановка сушки в левом отсеке
+void dateboardView::StopDryLeft(dressmodul& element)
+{
+	presenter->StopDryLeft();
+
+	//скрываем "штору"
+	element.setVisible(false);
+	element.invalidate();
+}
+
+//остановка сушки в правом отсеке
+void dateboardView::StopDryRight(shoesmodul& element)
+{
+	presenter->StopDryRight(); //отправляем команду об остановке выполнения сушки
+
+	//скрываем "штору"
+	element.setVisible(false);
+	element.invalidate();
+}
 
 
+//ОТОБРАЖЕНИЕ ДАННЫХ С GX:
+void dateboardView::DisplayTimeLeft(int minute)
+{
+	dressmodul1.ChangeTime(minute);
+}
 
+void dateboardView::DisplayTimeRight(int minute)
+{
+	shoesmodul1.ChangeTime(minute);
+}
 
+void dateboardView::DisplayTempLeft(int value)
+{
+	dressmodul1.ChangeTemp(value);
+}
 
+void dateboardView::DisplayTempRight(int value)
+{
+	shoesmodul1.ChangeTemp(value);
+}
 
+//отображение данных о сушке
+void dateboardView::DisplayStatusLeft(int status)
+{
+	dressmodul1.setVisible(status); //скрываем или отображаем dressmodul1
+	dressmodul1.invalidate();
+}
 
+void dateboardView::DisplayStatusRight(int status)
+{
+	shoesmodul1.setVisible(status);
+	shoesmodul1.invalidate();
+}
+//показать сообщение об ошибке
+void dateboardView::ShowMessage(int num)
+{
+	msgBox1.Show(num);
+	msgBox1.setVisible(true);
+	msgBox1.invalidate();
 
+	//скрываем все шторы
+	StopDryLeft(dressmodul1);
+	StopDryRight(shoesmodul1);
+	startModul.setVisible(false);
+	startModul.invalidate();
+}
 
 
 
@@ -222,67 +336,25 @@ void dateboardView::SetDay(int day)
 	switch(day)
 	{
 	case Sunday:
-		pnbt.setSelected(true);
-		vtbt.setSelected(false);
-		srbt.setSelected(false);
-		chtbt.setSelected(false);
-		ptbt.setSelected(false);
-		sbbt.setSelected(false);
 		vsbt.setSelected(true);
 		break;
 	case Monday:
 		pnbt.setSelected(true);
-		vtbt.setSelected(false);
-		srbt.setSelected(false);
-		chtbt.setSelected(false);
-		ptbt.setSelected(false);
-		sbbt.setSelected(false);
-		vsbt.setSelected(false);
 		break;
 	case Tuesday:
-		pnbt.setSelected(false);
 		vtbt.setSelected(true);
-		srbt.setSelected(false);
-		chtbt.setSelected(false);
-		ptbt.setSelected(false);
-		sbbt.setSelected(false);
-		vsbt.setSelected(false);
 		break;
 	case Wednesday:
-		pnbt.setSelected(false);
-		vtbt.setSelected(false);
 		srbt.setSelected(true);
-		chtbt.setSelected(false);
-		ptbt.setSelected(false);
-		sbbt.setSelected(false);
-		vsbt.setSelected(false);
 		break;
 	case Thursday:
-		pnbt.setSelected(false);
-		vtbt.setSelected(false);
-		srbt.setSelected(false);
 		chtbt.setSelected(true);
-		ptbt.setSelected(false);
-		sbbt.setSelected(false);
-		vsbt.setSelected(false);
 		break;
 	case Friday:
-		pnbt.setSelected(false);
-		vtbt.setSelected(false);
-		srbt.setSelected(false);
-		chtbt.setSelected(false);
 		ptbt.setSelected(true);
-		sbbt.setSelected(false);
-		vsbt.setSelected(false);
 		break;
 	case Saturday:
-		pnbt.setSelected(false);
-		vtbt.setSelected(false);
-		srbt.setSelected(false);
-		chtbt.setSelected(false);
-		ptbt.setSelected(false);
 		sbbt.setSelected(true);
-		vsbt.setSelected(false);
 		break;
 	}
 }

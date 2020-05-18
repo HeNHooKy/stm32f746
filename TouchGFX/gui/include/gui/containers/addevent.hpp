@@ -1,5 +1,6 @@
 #ifndef ADDEVENT_HPP
 #define ADDEVENT_HPP
+#include "DryEvent.h"
 
 #include <gui_generated/containers/addeventBase.hpp>
 
@@ -37,9 +38,36 @@ public:
 
 	void setAction(GenericCallback< addevent& >& callback);
 
-    GenericCallback< addevent& >* viewCallback;
-
     //day
+	//отображает на экране выбранный день
+	void SetInDay(int day)
+	{
+		switch(day)
+		{
+		case Sunday:
+			vsbt.setSelected(true);
+			break;
+		case Monday:
+			pnbt.setSelected(true);
+			break;
+		case Tuesday:
+			vtbt.setSelected(true);
+			break;
+		case Wednesday:
+			srbt.setSelected(true);
+			break;
+		case Thursday:
+			chtbt.setSelected(true);
+			break;
+		case Friday:
+			ptbt.setSelected(true);
+			break;
+		case Saturday:
+			sbbt.setSelected(true);
+			break;
+		}
+	}
+
     int getDay()
     {
     	return day;
@@ -48,34 +76,35 @@ public:
     {
     	int weekDay = 0;
 
-		if(pnbt.getSelected())
+    	if(vsbt.getSelected())
 		{
 			weekDay = 0;
 		}
-		else if(vtbt.getSelected())
+		if(pnbt.getSelected())
 		{
 			weekDay = 1;
 		}
-		else if(srbt.getSelected())
+		else if(vtbt.getSelected())
 		{
 			weekDay = 2;
 		}
-		else if(chtbt.getSelected())
+		else if(srbt.getSelected())
 		{
 			weekDay = 3;
 		}
-		else if(ptbt.getSelected())
+		else if(chtbt.getSelected())
 		{
 			weekDay = 4;
 		}
-		else if(sbbt.getSelected())
+		else if(ptbt.getSelected())
 		{
 			weekDay = 5;
 		}
-		else
+		else if(sbbt.getSelected())
 		{
 			weekDay = 6;
 		}
+
 
 		day = weekDay;
     }
@@ -151,7 +180,7 @@ public:
 	}
 	void setHoursTop(int value)
 	{
-		if(value >= 0 && value <= 24)
+		if(value >= 1 && value <= 24)
 		{
 			HoursTopTimer = value;
 		}
@@ -162,17 +191,19 @@ public:
 	}
 	void setHoursBottom(int value)
 	{
-		if(value >= 0 && value <= 24)
+		if(value >= 1 && value <= 24)
 		{
 			HoursBottomTimer = value;
 		}
 	}
+protected:
+	GenericCallback< addevent& >* viewCallback;
 private:
 	int HoursBottomTimer = 8;
 	int HoursTopTimer = 8;
 	int hoursLeftTimer = 12;
 	int minutesLeftTimer = 0;
-	int temp = 60;
+	int temp = 40;
 	int day = 0;
 
 };

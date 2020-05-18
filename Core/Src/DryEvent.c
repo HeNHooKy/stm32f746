@@ -215,7 +215,7 @@ int IsNeedExecuteEventID(int day, int hour, int minut)
 //и единицу в противном случае
 int IsMayAdded(int day, int hour, int minut, int duration_F, int duration_S)
 {
-	int thisTimeStart = AbsoluteTime((day*24*6) + (hour * 60) + minut);
+	int thisTimeStart = AbsoluteDayHourMinute(day, hour, minut);
 	int thisTimeEnd = AbsoluteTime(thisTimeStart + GetMax(duration_F, duration_S));
 
 	//ДА ПРОСТИТ МЕНЯ ГОСПОДЬ БОХ
@@ -264,7 +264,7 @@ int ProcesCycle(struct dryEvent* dayArray, int dayID, int timeStart, int timeEnd
 	int anyTimeEnd;
 	for (int i = 0; i <= dayID; i = i + 1)
 	{
-		anyTimeStart = AbsoluteTime((dayArray[i].startDay*24*60) + (dayArray[i].startHour * 60) + dayArray[i].startMinut);
+		anyTimeStart = AbsoluteDayHourMinute(dayArray[i].startDay, dayArray[i].startHour, dayArray[i].startMinut);
 		anyTimeEnd = AbsoluteTime(anyTimeStart + GetMax(dayArray[i].duration_F, dayArray[i].duration_S));
 
 		if ((anyTimeStart >= timeStart && anyTimeStart <= timeEnd) ||
@@ -413,6 +413,12 @@ int GetTempEvent_S(int day, int id)
 	{
 		return EVENT_ERR_DAY_NOT_EXISTS;
 	}
+}
+
+//делает время абсолютным
+int AbsoluteDayHourMinute(int day, int hour, int minute)
+{
+	return (minute + (hour * 60) + (day * 24 * 60) + TIME_ABSOLUTE) % TIME_ABSOLUTE;
 }
 
 //делате время абсолютным

@@ -48,7 +48,7 @@ mainboardViewBase::mainboardViewBase() :
     RealClock.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
     RealClock.setTime24Hour(10, 10, 0);
 
-    SetTimeBT.setXY(436, 13);
+    SetTimeBT.setXY(358, 12);
     SetTimeBT.setBitmaps(touchgfx::Bitmap(BITMAP_ICONTIME_ID), touchgfx::Bitmap(BITMAP_ICONTIME_ID));
     SetTimeBT.setAction(buttonCallback);
 
@@ -56,7 +56,7 @@ mainboardViewBase::mainboardViewBase() :
     WaringBT.setVisible(false);
     WaringBT.setBitmaps(touchgfx::Bitmap(BITMAP_WARNING_S_ID), touchgfx::Bitmap(BITMAP_WARNING_S_ID));
 
-    day.setXY(396, 15);
+    day.setXY(396, 16);
     day.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     day.setLinespacing(0);
     Unicode::snprintf(dayBuffer, DAY_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID212).getText());
@@ -90,6 +90,9 @@ mainboardViewBase::mainboardViewBase() :
     okbt.setAction(buttonCallback);
     servises.add(okbt);
 
+    text1.setXY(0, 0);
+    text1.setVisible(false);
+
     add(fon);
     add(manualbutton);
     add(heatingboard);
@@ -101,11 +104,12 @@ mainboardViewBase::mainboardViewBase() :
     add(day);
     add(logo);
     add(servises);
+    add(text1);
 }
 
 void mainboardViewBase::setupScreen()
 {
-
+    text1.initialize();
 }
 
 void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)

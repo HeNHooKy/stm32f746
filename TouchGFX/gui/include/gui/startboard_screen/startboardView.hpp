@@ -18,6 +18,7 @@ public:
     void MinutesUp();
 
     void SetTimeDate();
+    void SetDay(int day);
 protected:
     void Update();
     int getHours()

@@ -1,4 +1,7 @@
 #include <gui/heatingboard_screen/heatingboardView.hpp>
+#include "configuration.h"
+
+extern char message[MSG_SIZE];
 
 heatingboardView::heatingboardView()
 	: dressmodulCallback(this, &heatingboardView::StopDryLeft),
@@ -120,9 +123,11 @@ void heatingboardView::DisplayStatusRight(int status)
 	fon1.invalidate();
 }
 
-void heatingboardView::ShowMessage(char* message)
+void heatingboardView::ShowMessage(int num)
 {
-	msgBox1.Show(message);
+	//TODO: подготовить сообщение об ошибке к показу
+
+	msgBox1.Show(num);
 	msgBox1.setVisible(true);
 	msgBox1.invalidate();
 

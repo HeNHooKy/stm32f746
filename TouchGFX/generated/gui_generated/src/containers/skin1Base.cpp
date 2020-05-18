@@ -10,12 +10,12 @@ skin1Base::skin1Base()
 {
     setWidth(480);
     setHeight(272);
-    textArea1.setXY(26, 4);
+    textArea1.setXY(37, 10);
     textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID18));
 
-    textArea2.setXY(274, 4);
+    textArea2.setXY(287, 10);
     textArea2.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea2.setLinespacing(0);
     textArea2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID19));

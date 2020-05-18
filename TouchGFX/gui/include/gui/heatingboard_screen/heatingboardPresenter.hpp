@@ -41,7 +41,7 @@ public:
 	virtual void DisplayStatusRight(int status);
 
 	//вывод сообщений
-	virtual void ShowMessage(char* message);
+	virtual void ShowMessage(int num);
 
     virtual ~heatingboardPresenter() {};
 

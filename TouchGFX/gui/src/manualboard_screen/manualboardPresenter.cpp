@@ -74,7 +74,7 @@ void manualboardPresenter::StopDryRight()
 }
 
 
-void manualboardPresenter::ShowMessage(char* message)
+void manualboardPresenter::ShowMessage(int num)
 {
-	view.ShowMessage(message);
+	view.ShowMessage(num);
 }

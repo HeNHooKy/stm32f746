@@ -18,42 +18,42 @@ CustomListElementBase::CustomListElementBase() :
     deletebt.setBitmaps(touchgfx::Bitmap(BITMAP_CLEAR_ID), touchgfx::Bitmap(BITMAP_CLEAR_ID));
     deletebt.setAction(buttonCallback);
 
-    dayText.setPosition(15, 0, 46, 25);
+    dayText.setPosition(3, 4, 44, 16);
     dayText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     dayText.setLinespacing(0);
     dayTextBuffer[0] = 0;
     dayText.setWildcard(dayTextBuffer);
     dayText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID165));
 
-    hourText.setPosition(61, 0, 40, 25);
+    hourText.setPosition(50, 4, 35, 16);
     hourText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     hourText.setLinespacing(0);
     hourTextBuffer[0] = 0;
     hourText.setWildcard(hourTextBuffer);
     hourText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID244));
 
-    minuteText.setPosition(101, 0, 40, 25);
+    minuteText.setPosition(85, 4, 35, 16);
     minuteText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     minuteText.setLinespacing(0);
     minuteTextBuffer[0] = 0;
     minuteText.setWildcard(minuteTextBuffer);
     minuteText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID245));
 
-    tempText.setPosition(141, 0, 40, 25);
+    tempText.setPosition(127, 4, 60, 16);
     tempText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     tempText.setLinespacing(0);
     tempTextBuffer[0] = 0;
     tempText.setWildcard(tempTextBuffer);
     tempText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID246));
 
-    durationLeftText.setPosition(181, 0, 40, 25);
+    durationLeftText.setPosition(194, 4, 105, 16);
     durationLeftText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     durationLeftText.setLinespacing(0);
     durationLeftTextBuffer[0] = 0;
     durationLeftText.setWildcard(durationLeftTextBuffer);
     durationLeftText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID247));
 
-    durationRightText.setPosition(221, 0, 40, 25);
+    durationRightText.setPosition(303, 4, 105, 16);
     durationRightText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     durationRightText.setLinespacing(0);
     durationRightTextBuffer[0] = 0;

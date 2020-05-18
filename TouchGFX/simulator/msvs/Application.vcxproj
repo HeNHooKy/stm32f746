@@ -50,10 +50,10 @@
     <ClCompile Include="..\..\generated\gui_generated\src\containers\MsgBoxBase.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\addevent.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\addeventBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\containers\clearbox.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\containers\clearboxBase.cpp"/>
     <ClCompile Include="..\..\gui\src\containers\CustomListElement.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\CustomListElementBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\text.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\textBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xlsx"/>
@@ -231,10 +231,10 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\MsgBoxBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\containers\addevent.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\addeventBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\containers\clearbox.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\clearboxBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\containers\CustomListElement.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\CustomListElementBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\text.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\textBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

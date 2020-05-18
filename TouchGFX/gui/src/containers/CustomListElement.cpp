@@ -5,25 +5,31 @@ CustomListElement::CustomListElement() :
 {
 }
 
-void CustomListElement::setupListElement()//int day, int hour, int minute, int temp, int durationLeft, int durationRight, int id)
+void CustomListElement::setupListElement(int day, int hour, int minute, int temp, int durationLeft, int durationRight, int id)
 {
-	return;
 	//создание нового элемента видимого списка
-	//this->id = id;
-	//this->day = day;
-	//this->hour = hour;
-	//this->minute = minute;
-	//this->temp = temp;
-	//this->durationLeft = durationLeft;
-	//this->durationRight = durationRight;
+	this->id = id;
+	this->day = day;
+	this->hour = hour;
+	this->minute = minute;
+	this->temp = temp;
+	this->durationLeft = durationLeft;
+	this->durationRight = durationRight;
 	//отображение новых данных
-	//SetDay(day);
-	//Unicode::snprintf(hourTextBuffer, 10, "%02d", hour);
-	//Unicode::snprintf(minuteTextBuffer, 10, "%02d", minute);
-	//Unicode::snprintf(tempTextBuffer, 10, "%02d", temp);
-	//Unicode::snprintf(durationLeftTextBuffer, 10, "%02d", durationLeft);
-	//Unicode::snprintf(durationRightTextBuffer, 10, "%02d", durationRight);
+	SetDay(day);
+	Unicode::snprintf(hourTextBuffer, 10, "%02d", hour);
+	Unicode::snprintf(minuteTextBuffer, 10, "%02d", minute);
+	Unicode::snprintf(tempTextBuffer, 10, "%02d", temp);
+	Unicode::snprintf(durationLeftTextBuffer, 10, "%02d", durationLeft);
+	Unicode::snprintf(durationRightTextBuffer, 10, "%02d", durationRight);
 	invalidate();
+	/*
+	hourText.invalidate();
+	minuteText.invalidate();
+	tempText.invalidate();
+	durationLeftText.invalidate();
+	durationRightText.invalidate();
+	*/
 }
 
 void CustomListElement::setAction(GenericCallback< CustomListElement& >& callback)

@@ -25,7 +25,7 @@ void heatingboardPresenter::DisplayTimeLeft(int minute)
 
 void heatingboardPresenter::DisplayTimeRight(int minute)
 {
-	view.DisplayTempRight(minute);
+	view.DisplayTimeRight(minute);
 }
 
 void heatingboardPresenter::DisplayTempLeft(int value)
@@ -68,7 +68,7 @@ void heatingboardPresenter::StopDryRight()
 	model->SendRightOff(ADDRESS_FAST_MODE_RIGHT);
 }
 
-void heatingboardPresenter::ShowMessage(char* message)
+void heatingboardPresenter::ShowMessage(int num)
 {
-	view.ShowMessage(message);
+	view.ShowMessage(num);
 }

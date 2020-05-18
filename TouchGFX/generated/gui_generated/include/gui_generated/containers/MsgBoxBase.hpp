@@ -10,6 +10,7 @@
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TiledImage.hpp>
+#include <gui/containers/text.hpp>
 
 class MsgBoxBase : public touchgfx::Container
 {
@@ -38,6 +39,7 @@ protected:
     touchgfx::ButtonWithLabel closeMessage;
     touchgfx::TextAreaWithOneWildcard message;
     touchgfx::TiledImage tiledImage1;
+    text text1;
 
     /*
      * Wildcard Buffers

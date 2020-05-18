@@ -30,8 +30,8 @@ manualboardViewBase::manualboardViewBase() :
     TempSliderLeft.setXY(47, 143);
     TempSliderLeft.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_INDICATORS_SLIDER_HORIZONTAL_SMALL_ROUND_KNOB_ID));
     TempSliderLeft.setupHorizontalSlider(3, 7, 0, 0, 125);
-    TempSliderLeft.setValueRange(13, 90);
-    TempSliderLeft.setValue(90);
+    TempSliderLeft.setValueRange(20, 40);
+    TempSliderLeft.setValue(40);
     TempSliderLeft.setNewValueCallback(sliderValueChangedCallback);
 
     timerHoursLeft.setXY(45, 67);
@@ -108,8 +108,8 @@ manualboardViewBase::manualboardViewBase() :
     TempSliderRight.setXY(291, 143);
     TempSliderRight.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_INDICATORS_SLIDER_HORIZONTAL_SMALL_ROUND_KNOB_ID));
     TempSliderRight.setupHorizontalSlider(3, 7, 0, 0, 125);
-    TempSliderRight.setValueRange(13, 90);
-    TempSliderRight.setValue(90);
+    TempSliderRight.setValueRange(20, 40);
+    TempSliderRight.setValue(40);
     TempSliderRight.setNewValueCallback(sliderValueChangedCallback);
 
     timerHoursRight.setXY(284, 67);
@@ -163,10 +163,10 @@ manualboardViewBase::manualboardViewBase() :
     minutesUpRight.setInterval(6);
     minutesUpRight.setAction(buttonCallback);
 
-    shoesmodul1.setXY(244, 21);
+    shoesmodul1.setXY(244, 26);
     shoesmodul1.setVisible(false);
 
-    dressmodul1.setXY(0, 21);
+    dressmodul1.setXY(0, 26);
     dressmodul1.setVisible(false);
 
     msgBox1.setXY(25, 57);

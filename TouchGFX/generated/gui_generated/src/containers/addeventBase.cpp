@@ -253,8 +253,8 @@ addeventBase::addeventBase() :
     TempSliderLeft.setXY(51, 172);
     TempSliderLeft.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_INDICATORS_SLIDER_HORIZONTAL_SMALL_ROUND_KNOB_ID));
     TempSliderLeft.setupHorizontalSlider(3, 7, 0, 0, 125);
-    TempSliderLeft.setValueRange(13, 90);
-    TempSliderLeft.setValue(90);
+    TempSliderLeft.setValueRange(20, 40);
+    TempSliderLeft.setValue(40);
     TempSliderLeft.setNewValueCallback(sliderValueChangedCallback);
     addevent.add(TempSliderLeft);
 

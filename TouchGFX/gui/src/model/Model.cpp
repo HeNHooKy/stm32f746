@@ -11,6 +11,8 @@ unsigned int trash = 0; //"мусорная" переменная. В эту п�
 //семафор контроля обновления данных
 extern osSemaphoreId InformationUpdateSemHandle;
 
+//флаг управления сушки по расписанию
+extern int isBeingWorking;
 
 //адреса для отображения данных на экране и проверки статуса
 extern int statusAddressLeft; //адрес работающего режима левого отсека
@@ -45,8 +47,6 @@ int setRightTempStatus = 0;
 int setRightTimeStatus = 0;
 int setRightOnStatus = 0;
 int setRightOffStatus = 0;
-
-char message[MSG_SIZE] = {' '};
 
 Model::Model() : modelListener(0)
 {
@@ -97,23 +97,16 @@ void Model::tick()
 		{	//нет ответа от GX
 			statusSR = UC_NO_MESSAGE;
 			statusAddressRight = NULL_ADDRESS;	//отправляем сообщение на экран
-			snprintf(message, MSG_SIZE, "Error: The system has\nno connection to main\ncontroller!");
-			modelListener->ShowMessage(message);
+			modelListener->ShowMessage(2);
 		}
 
 		if(statusSL == UC_SENDING_ERR)
 		{	//нет ответа от GX
 			statusSL = UC_NO_MESSAGE;
 			statusAddressLeft = NULL_ADDRESS;	//отправляем сообщение на экран
-			snprintf(message, MSG_SIZE, "Error: The system has\nno connection to main\ncontroller!");
-			modelListener->ShowMessage(message);
+			modelListener->ShowMessage(2);
 		}
 	}
-}
-
-int Model::AddNewEvent(int day, int hour, int minute, int duration_f, int duration_s, int temp)
-{
-	return AddNewEvent(day, hour, minute, duration_f, duration_s, temp);
 }
 
 void Model::SendLeftTemp(int value)
@@ -180,6 +173,12 @@ void Model::SetClock(int hours, int minutes, int weekDay)
 	SetTimeDate((uint8_t) hours, (uint8_t) minutes, (uint8_t) weekDay);
 }
 
+void Model::SetDryEventsFlag(bool flag)
+{
+	isBeingWorking = flag ? 1 : 0;
+}
+
+
 int Model::ClockChecker()
 {
 	return CheckTimeDate();
@@ -190,4 +189,9 @@ void Model::DisplayTime()
 	int day, hour, minute;
 	GetTimeDate(&day, &hour, &minute);
 	modelListener->DisplayCurrentTime(day, hour, minute);
+}
+
+void Model::GetCurTimeDay(int *day, int *hour, int *minute)
+{
+	GetTimeDate(day, hour, minute);
 }

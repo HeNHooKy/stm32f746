@@ -991,13 +991,25 @@
           <name>$PROJ_DIR$/../../generated/fonts/src/CachedFont.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_13_4bpp_0.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_14_4bpp_0.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_14_4bpp_31.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_22_4bpp_0.cpp</name>
         </file>
         <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arial_22_4bpp_31.cpp</name>
+        </file>
+        <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_arialbd_14_4bpp_0.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Font_arialbd_14_4bpp_31.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Font_mriamc_23_4bpp_0.cpp</name>
@@ -1013,6 +1025,9 @@
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/GeneratedFont.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arial_13_4bpp.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_arial_14_4bpp.cpp</name>
@@ -1034,6 +1049,9 @@
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Kerning_verdana_30_4bpp.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/fonts/src/Table_arial_13_4bpp.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/fonts/src/Table_arial_14_4bpp.cpp</name>
@@ -1071,9 +1089,6 @@
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/addeventBase.cpp</name>
           </file>
           <file>
-            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/clearboxBase.cpp</name>
-          </file>
-          <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/CustomListElementBase.cpp</name>
           </file>
           <file>
@@ -1090,6 +1105,9 @@
           </file>
           <file>
             <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/skin1Base.cpp</name>
+          </file>
+          <file>
+            <name>$PROJ_DIR$/../../generated/gui_generated/src/containers/textBase.cpp</name>
           </file>
         </group>
         <group>
@@ -1181,6 +1199,18 @@
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars4.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars6.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars7.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars8.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars9.cpp</name>
         </file>
         <file>
           <name>$PROJ_DIR$/../../generated/images/src/Blue_Togglebars_OFF.cpp</name>
@@ -1291,9 +1321,6 @@
           <name>$PROJ_DIR$/../../gui/src/containers/addevent.cpp</name>
         </file>
         <file>
-          <name>$PROJ_DIR$/../../gui/src/containers/clearbox.cpp</name>
-        </file>
-        <file>
           <name>$PROJ_DIR$/../../gui/src/containers/CustomListElement.cpp</name>
         </file>
         <file>
@@ -1310,6 +1337,9 @@
         </file>
         <file>
           <name>$PROJ_DIR$/../../gui/src/containers/skin1.cpp</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$/../../gui/src/containers/text.cpp</name>
         </file>
       </group>
       <group>
