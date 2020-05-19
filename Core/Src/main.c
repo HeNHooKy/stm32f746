@@ -21,6 +21,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "fatfs.h"
 #include "app_touchgfx.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -77,6 +78,10 @@ QSPI_HandleTypeDef hqspi;
 
 RTC_HandleTypeDef hrtc;
 
+SD_HandleTypeDef hsd1;
+DMA_HandleTypeDef hdma_sdmmc1_rx;
+DMA_HandleTypeDef hdma_sdmmc1_tx;
+
 UART_HandleTypeDef huart6;
 
 SDRAM_HandleTypeDef hsdram1;
@@ -94,6 +99,7 @@ static FMC_SDRAM_CommandTypeDef Command;
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_CRC_Init(void);
 static void MX_QUADSPI_Init(void);
 static void MX_DMA2D_Init(void);
@@ -102,6 +108,7 @@ static void MX_LTDC_Init(void);
 static void MX_I2C3_Init(void);
 static void MX_RTC_Init(void);
 static void MX_USART6_UART_Init(void);
+static void MX_SDMMC1_SD_Init(void);
 void StartDefaultTask(void const * argument);
 void StartUCTask(void const * argument);
 void TTChecker(void const * argument);
@@ -153,6 +160,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_CRC_Init();
   MX_QUADSPI_Init();
   MX_DMA2D_Init();
@@ -161,6 +169,8 @@ int main(void)
   MX_I2C3_Init();
   MX_RTC_Init();
   MX_USART6_UART_Init();
+  MX_SDMMC1_SD_Init();
+  MX_FATFS_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
@@ -236,15 +246,14 @@ void SystemClock_Config(void)
   /** Configure LSE Drive Capability 
   */
   HAL_PWR_EnableBkUpAccess();
-  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
   /** Configure the main internal regulator output voltage 
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE;
-  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -277,16 +286,19 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC|RCC_PERIPHCLK_RTC
-                              |RCC_PERIPHCLK_USART6|RCC_PERIPHCLK_I2C3;
+                              |RCC_PERIPHCLK_USART6|RCC_PERIPHCLK_I2C3
+                              |RCC_PERIPHCLK_SDMMC1|RCC_PERIPHCLK_CLK48;
   PeriphClkInitStruct.PLLSAI.PLLSAIN = 50;
   PeriphClkInitStruct.PLLSAI.PLLSAIR = 2;
   PeriphClkInitStruct.PLLSAI.PLLSAIQ = 2;
   PeriphClkInitStruct.PLLSAI.PLLSAIP = RCC_PLLSAIP_DIV8;
   PeriphClkInitStruct.PLLSAIDivQ = 1;
   PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_2;
-  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_HSE_DIV25;
   PeriphClkInitStruct.Usart6ClockSelection = RCC_USART6CLKSOURCE_PCLK2;
   PeriphClkInitStruct.I2c3ClockSelection = RCC_I2C3CLKSOURCE_PCLK1;
+  PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLLSAIP;
+  PeriphClkInitStruct.Sdmmc1ClockSelection = RCC_SDMMC1CLKSOURCE_CLK48;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -571,6 +583,34 @@ static void MX_RTC_Init(void)
 }
 
 /**
+  * @brief SDMMC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SDMMC1_SD_Init(void)
+{
+
+  /* USER CODE BEGIN SDMMC1_Init 0 */
+
+  /* USER CODE END SDMMC1_Init 0 */
+
+  /* USER CODE BEGIN SDMMC1_Init 1 */
+
+  /* USER CODE END SDMMC1_Init 1 */
+  hsd1.Instance = SDMMC1;
+  hsd1.Init.ClockEdge = SDMMC_CLOCK_EDGE_RISING;
+  hsd1.Init.ClockBypass = SDMMC_CLOCK_BYPASS_DISABLE;
+  hsd1.Init.ClockPowerSave = SDMMC_CLOCK_POWER_SAVE_DISABLE;
+  hsd1.Init.BusWide = SDMMC_BUS_WIDE_1B;
+  hsd1.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
+  hsd1.Init.ClockDiv = 0;
+  /* USER CODE BEGIN SDMMC1_Init 2 */
+
+  /* USER CODE END SDMMC1_Init 2 */
+
+}
+
+/**
   * @brief USART6 Initialization Function
   * @param None
   * @retval None
@@ -602,6 +642,25 @@ static void MX_USART6_UART_Init(void)
   /* USER CODE BEGIN USART6_Init 2 */
 
   /* USER CODE END USART6_Init 2 */
+
+}
+
+/** 
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA2_Stream3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
+  /* DMA2_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
 
 }
 
@@ -796,16 +855,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF8_SPDIFRX;
   HAL_GPIO_Init(SPDIF_RX0_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SDMMC_CK_Pin SDMMC_D3_Pin SDMMC_D2_Pin PC9 
-                           PC8 */
-  GPIO_InitStruct.Pin = SDMMC_CK_Pin|SDMMC_D3_Pin|SDMMC_D2_Pin|GPIO_PIN_9 
-                          |GPIO_PIN_8;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF12_SDMMC1;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
   /*Configure GPIO pin : ARDUINO_PWM_D9_Pin */
   GPIO_InitStruct.Pin = ARDUINO_PWM_D9_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -914,14 +963,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(OTG_FS_OverCurrent_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PD2 */
-  GPIO_InitStruct.Pin = GPIO_PIN_2;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF12_SDMMC1;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : TP3_Pin NC2_Pin */
   GPIO_InitStruct.Pin = TP3_Pin|NC2_Pin;
@@ -1169,6 +1210,7 @@ void StartUCTask(void const * argument)
 
 	for(;;)
 	{
+		//выполнение запросов
 		UC_Routine();
 		osDelay(10);
 	}
@@ -1177,6 +1219,15 @@ void StartUCTask(void const * argument)
 }
 
 /* USER CODE BEGIN Header_TTChecker */
+//проеврека необходимости отображанеия требования пройти сервисное обслуживание
+unsigned int answerServices = NULL_ADDRESS;
+int statusServices = NULL_ADDRESS;
+
+//проверка на перегрев
+unsigned int Hot = NULL_ADDRESS;
+int HotStatus = NULL_ADDRESS;
+
+
 
 //адреса для отображения данных на экране и проверки статуса
 int statusAddressLeft = NULL_ADDRESS; //адрес работающего режима левого отсека
@@ -1237,14 +1288,31 @@ void TTChecker(void const * argument)
   for(;;)
   {
 	  if(statusTiL == UC_SENDED_OK)
-	  {
+	  {		//передача прошла успешно - зеленый светодиод меняет состояние
 		  HAL_GPIO_TogglePin(GPIOI, GPIO_PIN_1);
 	  }
 
-	  UC_REQUESTER(); //выполняем все запросы к GX
+	  //запрос на перегрев
+	  UC_SEND(0, GROUP_M, ADDRESS_TOO_HOT, UC_REQUEST, &Hot, &HotStatus);
+
+	  //запрос на сервисное обслуживание
+	  UC_SEND(0, GROUP_M, ADDRESS_SERVICE_MAINTENANCE, UC_REQUEST, &answerServices, &statusServices);
+
+	  //выполняем все запросы к GX
+	  UC_REQUESTER();
+
 	  //задержка
 	  osDelay(REQUEST_FREQ);
 
+	  //проверка не перегрев
+	  if(Hot == 1)
+	  {		//перегрев
+		  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_6, GPIO_PIN_SET);
+	  }
+	  else
+	  {		//Все впорядке
+		  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_6, GPIO_PIN_RESET);
+	  }
   }
   /* USER CODE END TTChecker */
 }
@@ -1260,7 +1328,7 @@ int isBeingWorking = 0;
 /* USER CODE END Header_EventsStart */
 void EventsStart(void const * argument)
 {
-	/* USER CODE BEGIN EventsStart */
+  /* USER CODE BEGIN EventsStart */
 	/* Infinite loop */
 	unsigned int trash = 0; //"мусорная" переменная. В эту переменную можно записывать любые данные.
 
@@ -1282,13 +1350,13 @@ void EventsStart(void const * argument)
 			HAL_RTC_GetTime(&hrtc, &cTime, RTC_FORMAT_BIN);
 			HAL_RTC_GetDate(&hrtc, &cDate, RTC_FORMAT_BIN);
 
-			int weekDay = cDate.WeekDay;
+			int weekDay = cDate.WeekDay % 7;
 			int hour = cTime.Hours;
 			int minute = cTime.Minutes;
 
 			int eventId = IsNeedExecuteEventID(weekDay, hour, minute);
 			if(eventId != EVENT_AWAY)
-			{	//НАЧИНАЕМ СУШКУ:
+			{	//НАЧ�?НАЕМ СУШКУ:
 
 				//получаем данные о сушке:
 				int temp = GetTempEvent_F(weekDay, eventId); //температура

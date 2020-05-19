@@ -26,6 +26,7 @@ public:
     virtual void deactivate();
 
     virtual void DisplayCurrentTime(int day, int hour, int minute);
+    virtual void DisplayServiceMaintenance(bool flag);
 
     virtual ~mainboardPresenter() {};
 

@@ -16,6 +16,7 @@
 #include <touchgfx/Color.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <gui/containers/text.hpp>
+#include <gui/containers/MsgBox.hpp>
 
 class mainboardViewBase : public touchgfx::View<mainboardPresenter>
 {
@@ -23,6 +24,14 @@ public:
     mainboardViewBase();
     virtual ~mainboardViewBase() {}
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void MsgServiceMaintenance()
+    {
+        // Override and implement this function in mainboard
+    }
 
 protected:
     FrontendApplication& application() {
@@ -47,6 +56,7 @@ protected:
     touchgfx::TextArea textArea1;
     touchgfx::ButtonWithLabel okbt;
     text text1;
+    MsgBox msgBox1;
 
     /*
      * Wildcard Buffers

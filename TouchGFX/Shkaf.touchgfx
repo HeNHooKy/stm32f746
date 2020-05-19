@@ -338,6 +338,20 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
+          },
+          {
+            "CustomContainerDefinitionName": "MsgBox",
+            "Name": "msgBox1",
+            "X": 23,
+            "Y": 61,
+            "Width": 430,
+            "Height": 150,
+            "Type": "CustomContainerInstance",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
           }
         ],
         "Interactions": [
@@ -416,6 +430,18 @@
             "Action": {
               "ActionComponent": "servises",
               "Type": "ActionHide"
+            }
+          },
+          {
+            "InteractionName": "MsgServiceMaintenance",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "WaringBT",
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "FunctionName": "MsgServiceMaintenance",
+              "Type": "ActionCustom"
             }
           }
         ],

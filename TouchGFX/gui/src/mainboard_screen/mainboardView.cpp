@@ -22,6 +22,19 @@ void mainboardView::DisplayCurrentTime(int d, int hour, int minute)
 	RealClock.invalidate();
 }
 
+void mainboardView::DisplayServiceMaintenance(bool flag)
+{
+	WaringBT.setVisible(flag);
+	WaringBT.invalidate();
+}
+
+void mainboardView::MsgServiceMaintenance()
+{
+	msgBox1.Show(3);
+	msgBox1.setVisible(true);
+	msgBox1.invalidate();
+}
+
 void mainboardView::SetDay(int d)
 {
 	switch(d)

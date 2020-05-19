@@ -12,6 +12,8 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void DisplayCurrentTime(int day, int hour, int minute);
+    virtual void DisplayServiceMaintenance(bool flag);
+    virtual void MsgServiceMaintenance();
 protected:
     void SetDay(int day);
 };

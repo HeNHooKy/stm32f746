@@ -14,6 +14,9 @@ extern osSemaphoreId InformationUpdateSemHandle;
 //флаг управления сушки по расписанию
 extern int isBeingWorking;
 
+//проверка на отображение требования пройти сервисное обслуживание
+extern int answerServices;
+
 //адреса для отображения данных на экране и проверки статуса
 extern int statusAddressLeft; //адрес работающего режима левого отсека
 
@@ -57,6 +60,8 @@ void Model::tick()
 {	//каждый такт
 	//обновим данные о времени
 	DisplayTime();
+	//отображение восклицательного знака
+	modelListener->DisplayServiceMaintenance(answerServices);
 	//обновление данных сушки
 	if((xSemaphoreTake(InformationUpdateSemHandle, (TickType_t) 10)) == pdTRUE)
 	{

@@ -55,6 +55,7 @@ mainboardViewBase::mainboardViewBase() :
     WaringBT.setXY(436, 60);
     WaringBT.setVisible(false);
     WaringBT.setBitmaps(touchgfx::Bitmap(BITMAP_WARNING_S_ID), touchgfx::Bitmap(BITMAP_WARNING_S_ID));
+    WaringBT.setAction(buttonCallback);
 
     day.setXY(396, 16);
     day.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
@@ -93,6 +94,9 @@ mainboardViewBase::mainboardViewBase() :
     text1.setXY(0, 0);
     text1.setVisible(false);
 
+    msgBox1.setXY(23, 61);
+    msgBox1.setVisible(false);
+
     add(fon);
     add(manualbutton);
     add(heatingboard);
@@ -105,11 +109,13 @@ mainboardViewBase::mainboardViewBase() :
     add(logo);
     add(servises);
     add(text1);
+    add(msgBox1);
 }
 
 void mainboardViewBase::setupScreen()
 {
     text1.initialize();
+    msgBox1.initialize();
 }
 
 void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -148,6 +154,13 @@ void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //When SetTimeBT clicked change screen to startboard
         //Go to startboard with no screen transition
         application().gotostartboardScreenNoTransition();
+    }
+    else if (&src == &WaringBT)
+    {
+        //MsgServiceMaintenance
+        //When WaringBT clicked call virtual function
+        //Call MsgServiceMaintenance
+        MsgServiceMaintenance();
     }
     else if (&src == &okbt)
     {

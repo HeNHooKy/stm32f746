@@ -18,6 +18,7 @@ public:
     virtual void DisplayStatusRight(int status) {}
     //вывод времени
     virtual void DisplayCurrentTime(int day, int hour, int minute) {}
+    virtual void DisplayServiceMaintenance(bool flag) {}
 
     virtual void ShowMessage(int num) {}
 

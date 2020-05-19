@@ -13,11 +13,14 @@ extern "C" {
 
 #define NULL_ADDRESS -1 //Нулевой адрес - заглушка
 
-#define REQUEST_FREQ 20000 //частота обращений к GX в потоке индикации
-#define EVENT_EXECUTE_FREQ 30000 //частота попыток вызвать событие
+#define REQUEST_FREQ 1000 //частота обращений к GX в потоке индикации
+#define EVENT_EXECUTE_FREQ 1000 //частота попыток вызвать событие
 
 #define GROUP_M 1 //группа адресов GX M
 #define GROUP_D 2 //группа адресов GX D
+
+#define ADDRESS_SERVICE_MAINTENANCE 600 //адрес проверки необходимости сервисного обслуживания
+#define ADDRESS_TOO_HOT 400 //адрес проверки перегрева оборудования
 
 #define ADDRESS_TEMP_LEFT_OUT 114 //адрес принимающий температуру в левом отсеке
 #define ADDRESS_TEMP_RIGHT_OUT 112 //адрес принимающий температуру в правом отсеке

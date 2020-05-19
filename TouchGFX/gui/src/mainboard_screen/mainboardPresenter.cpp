@@ -21,3 +21,8 @@ void mainboardPresenter::DisplayCurrentTime(int day, int hour, int minute)
 {
 	view.DisplayCurrentTime(day, hour, minute);
 }
+
+void mainboardPresenter::DisplayServiceMaintenance(bool flag)
+{
+	view.DisplayServiceMaintenance(flag);
+}
