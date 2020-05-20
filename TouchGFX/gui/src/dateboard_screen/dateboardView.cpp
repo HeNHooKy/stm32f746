@@ -89,6 +89,7 @@ void dateboardView::AddEvent(addevent& element)
 	element.ResetData(); //сброс данных по умолчанию
 	//добавляем новое событие в список событий
 	CreateEvent(day, hour, minute, temp, durationLeft, durationRight);
+
 }
 
 //очищает всё расписание

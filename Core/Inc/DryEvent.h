@@ -11,7 +11,9 @@
 extern "C" {
 #endif
 
-#define MAX_EVENTS 10
+#define MAX_EVENTS 3
+
+#define START_ADDRESS 200
 
 #define DIFFERENCE 5 //минимальная разница между событиями
 
@@ -50,12 +52,14 @@ int AddDryEvent(int day, int hour, int minut, int duration_F, int temp_F, int du
 int DelDryEvent(int day, int id);
 int IsNeedExecuteEventID(int day, int hour, int minut);
 
+
+
+
 //функции-свойства
 int GetDurationEvent_F(int day, int id);
 int GetTempEvent_F(int day, int id);
 int GetDurationEvent_S(int day, int id);
 int GetTempEvent_S(int day, int id);
-
 
 //внутренние вспомогательные процедуры
 int IsMayAdded(int day, int hour, int minut, int duration_F, int duration_S);

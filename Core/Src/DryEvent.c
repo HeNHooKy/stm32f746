@@ -8,6 +8,8 @@
 
 #include "main.h"
 #include "DryEvent.h"
+#include "UartController.h"
+#include "configuration.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,6 +32,7 @@ struct dryEvent wednesdayEvents[MAX_EVENTS];
 struct dryEvent thursdayEvents[MAX_EVENTS];
 struct dryEvent fridayEvents[MAX_EVENTS];
 struct dryEvent saturdayEvents[MAX_EVENTS];
+
 
 
 //добавляет событие сушки на указанный день, в указанное время, с указанной длительностью и температурой
