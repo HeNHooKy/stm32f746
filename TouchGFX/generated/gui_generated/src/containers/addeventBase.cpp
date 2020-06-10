@@ -16,7 +16,7 @@ addeventBase::addeventBase() :
     addevent.setShadeColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     addevent.setShadeAlpha(150);
 
-    closebt2.setXY(313, 230);
+    closebt2.setXY(313, 225);
     closebt2.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
     closebt2.setLabelText(touchgfx::TypedText(T_SINGLEUSEID220));
     closebt2.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
@@ -24,14 +24,14 @@ addeventBase::addeventBase() :
     closebt2.setAction(buttonCallback);
     addevent.add(closebt2);
 
-    hoursDownLeftbt.setXY(22, 94);
+    hoursDownLeftbt.setXY(19, 94);
     hoursDownLeftbt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     hoursDownLeftbt.setDelay(60);
     hoursDownLeftbt.setInterval(6);
     hoursDownLeftbt.setAction(buttonCallback);
     addevent.add(hoursDownLeftbt);
 
-    hoursUpLeftbt.setXY(91, 94);
+    hoursUpLeftbt.setXY(74, 94);
     hoursUpLeftbt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     hoursUpLeftbt.setDelay(60);
     hoursUpLeftbt.setInterval(6);
@@ -53,7 +53,7 @@ addeventBase::addeventBase() :
     hour11.setTypedText(touchgfx::TypedText(T_SINGLEUSEID222));
     addevent.add(hour11);
 
-    savebt.setXY(16, 230);
+    savebt.setXY(16, 225);
     savebt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
     savebt.setLabelText(touchgfx::TypedText(T_SINGLEUSEID223));
     savebt.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
@@ -67,7 +67,7 @@ addeventBase::addeventBase() :
     minute1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID224));
     addevent.add(minute1);
 
-    minutesDownLeftbt.setXY(136, 94);
+    minutesDownLeftbt.setXY(133, 94);
     minutesDownLeftbt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     minutesDownLeftbt.setDelay(60);
     minutesDownLeftbt.setInterval(6);
@@ -83,7 +83,7 @@ addeventBase::addeventBase() :
     timerMinutesLeft.setTypedText(touchgfx::TypedText(T_TEXTID2));
     addevent.add(timerMinutesLeft);
 
-    minutesUpLeftbt.setXY(205, 94);
+    minutesUpLeftbt.setXY(188, 94);
     minutesUpLeftbt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     minutesUpLeftbt.setDelay(60);
     minutesUpLeftbt.setInterval(6);
@@ -96,14 +96,14 @@ addeventBase::addeventBase() :
     timestarttext.setTypedText(touchgfx::TypedText(T_SINGLEUSEID226));
     addevent.add(timestarttext);
 
-    downClockTopbt.setXY(292, 89);
+    downClockTopbt.setXY(289, 89);
     downClockTopbt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     downClockTopbt.setDelay(60);
     downClockTopbt.setInterval(6);
     downClockTopbt.setAction(buttonCallback);
     addevent.add(downClockTopbt);
 
-    upClockTopbt.setXY(361, 89);
+    upClockTopbt.setXY(344, 89);
     upClockTopbt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     upClockTopbt.setDelay(60);
     upClockTopbt.setInterval(6);
@@ -131,21 +131,21 @@ addeventBase::addeventBase() :
     timeclock1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID229));
     addevent.add(timeclock1);
 
-    downClockBottombt.setXY(288, 176);
+    downClockBottombt.setXY(285, 173);
     downClockBottombt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     downClockBottombt.setDelay(60);
     downClockBottombt.setInterval(6);
     downClockBottombt.setAction(buttonCallback);
     addevent.add(downClockBottombt);
 
-    upClockBottombt.setXY(357, 176);
+    upClockBottombt.setXY(340, 173);
     upClockBottombt.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     upClockBottombt.setDelay(60);
     upClockBottombt.setInterval(6);
     upClockBottombt.setAction(buttonCallback);
     addevent.add(upClockBottombt);
 
-    timerHoursBottom.setXY(316, 179);
+    timerHoursBottom.setXY(316, 176);
     timerHoursBottom.setColor(touchgfx::Color::getColorFrom24BitRGB(8, 0, 0));
     timerHoursBottom.setLinespacing(0);
     Unicode::snprintf(timerHoursBottomBuffer, TIMERHOURSBOTTOM_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID230).getText());
@@ -154,97 +154,97 @@ addeventBase::addeventBase() :
     timerHoursBottom.setTypedText(touchgfx::TypedText(T_TEXTID2));
     addevent.add(timerHoursBottom);
 
-    hour1.setXY(393, 186);
+    hour1.setXY(393, 184);
     hour1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     hour1.setLinespacing(0);
     hour1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID231));
     addevent.add(hour1);
 
-    timeclock2.setXY(278, 136);
+    timeclock2.setXY(278, 134);
     timeclock2.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     timeclock2.setLinespacing(0);
     timeclock2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID232));
     addevent.add(timeclock2);
 
-    pnbt.setXY(9, 7);
+    pnbt.setXY(12, 7);
     pnbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     pnbt.setSelected(true);
     pnbt.setDeselectionEnabled(false);
     addevent.add(pnbt);
 
-    vtbt.setXY(72, 7);
+    vtbt.setXY(78, 7);
     vtbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     vtbt.setSelected(false);
     vtbt.setDeselectionEnabled(false);
     addevent.add(vtbt);
 
-    srbt.setXY(138, 7);
+    srbt.setXY(145, 7);
     srbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     srbt.setSelected(false);
     srbt.setDeselectionEnabled(false);
     addevent.add(srbt);
 
-    chtbt.setXY(201, 7);
+    chtbt.setXY(211, 7);
     chtbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID));
     chtbt.setSelected(false);
     chtbt.setDeselectionEnabled(false);
     addevent.add(chtbt);
 
-    ptbt.setXY(266, 7);
+    ptbt.setXY(278, 7);
     ptbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     ptbt.setSelected(false);
     ptbt.setDeselectionEnabled(false);
     addevent.add(ptbt);
 
-    sbbt.setXY(330, 7);
+    sbbt.setXY(343, 7);
     sbbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     sbbt.setSelected(false);
     sbbt.setDeselectionEnabled(false);
     addevent.add(sbbt);
 
-    vsbt.setXY(394, 7);
+    vsbt.setXY(408, 7);
     vsbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     vsbt.setSelected(false);
     vsbt.setDeselectionEnabled(false);
     addevent.add(vsbt);
 
-    pntxt.setXY(40, 17);
+    pntxt.setXY(43, 17);
     pntxt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pntxt.setLinespacing(0);
     pntxt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID233));
     addevent.add(pntxt);
 
-    vttxt.setXY(103, 17);
+    vttxt.setXY(109, 17);
     vttxt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     vttxt.setLinespacing(0);
     vttxt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID234));
     addevent.add(vttxt);
 
-    srtxt.setXY(169, 17);
+    srtxt.setXY(176, 17);
     srtxt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     srtxt.setLinespacing(0);
     srtxt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID235));
     addevent.add(srtxt);
 
-    chttxt.setXY(233, 17);
+    chttxt.setXY(243, 17);
     chttxt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     chttxt.setLinespacing(0);
     chttxt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID236));
     addevent.add(chttxt);
 
-    pttxt.setXY(297, 17);
+    pttxt.setXY(309, 17);
     pttxt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pttxt.setLinespacing(0);
     pttxt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID237));
     addevent.add(pttxt);
 
-    sbtxt.setXY(363, 17);
+    sbtxt.setXY(376, 17);
     sbtxt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     sbtxt.setLinespacing(0);
     sbtxt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID238));
     addevent.add(sbtxt);
 
-    vstxt.setXY(427, 17);
+    vstxt.setXY(441, 17);
     vstxt.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     vstxt.setLinespacing(0);
     vstxt.setTypedText(touchgfx::TypedText(T_SINGLEUSEID239));

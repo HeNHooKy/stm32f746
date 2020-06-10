@@ -22,6 +22,8 @@ public:
 
     virtual void ShowMessage(int num) {}
 
+    virtual void GoToMain() {}
+
     void bind(Model* m)
     {
         model = m;

@@ -19,10 +19,6 @@ dressmodulBase::dressmodulBase() :
     dresstext.setLinespacing(0);
     dresstext.setTypedText(touchgfx::TypedText(T_SINGLEUSEID185));
 
-    animatedImage1.setXY(6, 4);
-    animatedImage1.setBitmaps(BITMAP_BULBGRAPHON_ID, BITMAP_BULBGRAPHON_ID);
-    animatedImage1.setUpdateTicksInterval(2);
-
     time.setPosition(76, 111, 98, 36);
     time.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     time.setTypedText(touchgfx::TypedText(T_SINGLEUSEID186));
@@ -55,15 +51,18 @@ dressmodulBase::dressmodulBase() :
     dresst.setLinespacing(0);
     dresst.setTypedText(touchgfx::TypedText(T_SINGLEUSEID190));
 
+    image3.setXY(15, 5);
+    image3.setBitmap(touchgfx::Bitmap(BITMAP_BULBGRAPHON_ID));
+
     add(image2);
     add(dresstext);
-    add(animatedImage1);
     add(time);
     add(stop1);
     add(image1);
     add(temp);
     add(textArea2);
     add(dresst);
+    add(image3);
 }
 
 void dressmodulBase::initialize()

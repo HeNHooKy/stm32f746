@@ -36,12 +36,12 @@ standartboardViewBase::standartboardViewBase() :
     StartRightBT.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON_ID), touchgfx::Bitmap(BITMAP_BLUE_TOGGLEBARS_ON2_ID));
     StartRightBT.setAction(buttonCallback);
 
-    textArea1.setXY(31, 41);
+    textArea1.setXY(31, 59);
     textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID30));
 
-    textArea1_1.setXY(278, 41);
+    textArea1_1.setXY(278, 59);
     textArea1_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1_1.setLinespacing(0);
     textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID31));
@@ -52,7 +52,7 @@ standartboardViewBase::standartboardViewBase() :
     shoesmodul1.setXY(244, 26);
     shoesmodul1.setVisible(false);
 
-    msgBox1.setXY(25, 61);
+    msgBox1.setXY(0, 0);
     msgBox1.setVisible(false);
 
     add(fon1);

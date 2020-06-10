@@ -19,10 +19,6 @@ shoesmodulBase::shoesmodulBase() :
     shoestext.setLinespacing(0);
     shoestext.setTypedText(touchgfx::TypedText(T_SINGLEUSEID191));
 
-    animatedImage2.setXY(6, 4);
-    animatedImage2.setBitmaps(BITMAP_BULBGRAPHON_ID, BITMAP_BULBGRAPHON_ID);
-    animatedImage2.setUpdateTicksInterval(1);
-
     time.setPosition(76, 111, 98, 36);
     time.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     time.setTypedText(touchgfx::TypedText(T_SINGLEUSEID192));
@@ -55,15 +51,18 @@ shoesmodulBase::shoesmodulBase() :
     shoes.setLinespacing(0);
     shoes.setTypedText(touchgfx::TypedText(T_SINGLEUSEID196));
 
+    image3_1.setXY(15, 5);
+    image3_1.setBitmap(touchgfx::Bitmap(BITMAP_BULBGRAPHON_ID));
+
     add(image3);
     add(shoestext);
-    add(animatedImage2);
     add(time);
     add(stop2);
     add(image1);
     add(temp);
     add(textArea3);
     add(shoes);
+    add(image3_1);
 }
 
 void shoesmodulBase::initialize()

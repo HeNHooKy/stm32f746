@@ -33,6 +33,9 @@ public:
 	void SetClock(int hours, int minutes, int weekDay);
 	void GetCurTimeDay(int *day, int *hour, int *minute);
 
+	//экстренный возврат на главный экран
+	virtual void GoToMain();
+
 private:
     startboardPresenter();
 

@@ -20,6 +20,8 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
+#include <gui/startboard_screen/startboardView.hpp>
+#include <gui/startboard_screen/startboardPresenter.hpp>
 #include <gui/mainboard_screen/mainboardView.hpp>
 #include <gui/mainboard_screen/mainboardPresenter.hpp>
 #include <gui/manualboard_screen/manualboardView.hpp>
@@ -30,8 +32,6 @@
 #include <gui/heatingboard_screen/heatingboardPresenter.hpp>
 #include <gui/dateboard_screen/dateboardView.hpp>
 #include <gui/dateboard_screen/dateboardPresenter.hpp>
-#include <gui/startboard_screen/startboardView.hpp>
-#include <gui/startboard_screen/startboardPresenter.hpp>
 
 
 /**
@@ -54,12 +54,12 @@ public:
      * A list of all view types. Must end with meta::Nil.
      * @note All view types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< mainboardView,
+    typedef touchgfx::meta::TypeList< startboardView,
+            touchgfx::meta::TypeList< mainboardView,
             touchgfx::meta::TypeList< manualboardView,
             touchgfx::meta::TypeList< standartboardView,
             touchgfx::meta::TypeList< heatingboardView,
             touchgfx::meta::TypeList< dateboardView,
-            touchgfx::meta::TypeList< startboardView,
             touchgfx::meta::Nil > > > > >
             > GeneratedViewTypes;
 
@@ -72,12 +72,12 @@ public:
      * A list of all presenter types. Must end with meta::Nil.
      * @note All presenter types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< mainboardPresenter,
+    typedef touchgfx::meta::TypeList< startboardPresenter,
+            touchgfx::meta::TypeList< mainboardPresenter,
             touchgfx::meta::TypeList< manualboardPresenter,
             touchgfx::meta::TypeList< standartboardPresenter,
             touchgfx::meta::TypeList< heatingboardPresenter,
             touchgfx::meta::TypeList< dateboardPresenter,
-            touchgfx::meta::TypeList< startboardPresenter,
             touchgfx::meta::Nil > > > > >
             > GeneratedPresenterTypes;
 
@@ -101,7 +101,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotomainboardScreenNoTransition();
+        app.gotostartboardScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

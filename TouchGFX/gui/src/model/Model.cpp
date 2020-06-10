@@ -40,6 +40,8 @@ extern int statusSL; //состояние ответа о работе лево�
 extern unsigned int statusRight; //состояние работы правого отсека
 extern int statusSR; //состояние ответа о работе правого отсека
 
+extern int GoToMain; //необходимость перейти на main screen
+
 
 int setLeftTempStatus = 0;
 int setLeftTimeStatus = 0;
@@ -58,6 +60,13 @@ Model::Model() : modelListener(0)
 
 void Model::tick()
 {	//каждый такт
+
+	if(GoToMain && !CheckTimeDate())
+	{
+		GoToMain = false;
+		modelListener->GoToMain();
+	}
+
 	//обновим данные о времени
 	DisplayTime();
 	//отображение восклицательного знака

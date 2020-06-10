@@ -36,12 +36,12 @@ heatingboardViewBase::heatingboardViewBase() :
     digitaltimerrightbt.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
     digitaltimerrightbt.setTime24Hour(0, 15, 0);
 
-    textArea1.setXY(20, 46);
+    textArea1.setXY(20, 59);
     textArea1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID34));
 
-    textArea1_1.setXY(264, 46);
+    textArea1_1.setXY(264, 59);
     textArea1_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     textArea1_1.setLinespacing(0);
     textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID39));
@@ -52,7 +52,7 @@ heatingboardViewBase::heatingboardViewBase() :
     shoesmodul1.setXY(244, 26);
     shoesmodul1.setVisible(false);
 
-    msgBox1.setXY(25, 61);
+    msgBox1.setXY(0, 0);
     msgBox1.setVisible(false);
 
     add(fon1);

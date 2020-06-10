@@ -43,6 +43,9 @@ public:
 	//вывод сообщений
 	virtual void ShowMessage(int num);
 
+	//экстренный возврат на главный экран
+	virtual void GoToMain();
+
     virtual ~heatingboardPresenter() {};
 
 private:

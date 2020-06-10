@@ -72,3 +72,9 @@ void standartboardPresenter::ShowMessage(int num)
 {
 	view.ShowMessage(num);
 }
+
+//экстренный возврат на главный экран
+void standartboardPresenter::GoToMain()
+{
+	view.GoToMain();
+}

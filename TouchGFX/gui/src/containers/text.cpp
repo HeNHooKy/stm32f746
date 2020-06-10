@@ -67,3 +67,7 @@ touchgfx::Unicode::UnicodeChar *text::getError4Buf()
 	return errorevent4Buffer;
 }
 
+touchgfx::Unicode::UnicodeChar *text::getError5Buf()
+{
+	return errorevent5Buffer;
+}

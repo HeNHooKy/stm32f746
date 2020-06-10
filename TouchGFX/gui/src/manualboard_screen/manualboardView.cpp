@@ -227,3 +227,12 @@ void manualboardView::ShowMessage(int num)
 	fon1.invalidate();
 }
 
+//экстренный возврат на главный экран
+void manualboardView::GoToMain()
+{
+	StopDryLeft(dressmodul1);
+	StopDryRight(shoesmodul1);
+	application().gotomainboardScreenNoTransition();
+}
+
+

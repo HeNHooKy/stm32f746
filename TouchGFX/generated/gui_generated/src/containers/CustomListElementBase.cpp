@@ -14,7 +14,7 @@ CustomListElementBase::CustomListElementBase() :
     fon.setXY(0, 0);
     fon.setBitmap(touchgfx::Bitmap(BITMAP_CALENDAR_ID));
 
-    deletebt.setXY(418, 4);
+    deletebt.setXY(388, 3);
     deletebt.setBitmaps(touchgfx::Bitmap(BITMAP_CLEAR_ID), touchgfx::Bitmap(BITMAP_CLEAR_ID));
     deletebt.setAction(buttonCallback);
 

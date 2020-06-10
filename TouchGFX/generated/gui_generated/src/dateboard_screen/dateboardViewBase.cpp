@@ -47,72 +47,72 @@ dateboardViewBase::dateboardViewBase() :
     plusbt.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     plusbt.setAction(buttonCallback);
 
-    pnbt.setXY(19, 32);
+    pnbt.setXY(11, 32);
     pnbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     pnbt.setSelected(true);
     pnbt.setDeselectionEnabled(false);
 
-    vtbt.setXY(82, 32);
+    vtbt.setXY(78, 32);
     vtbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     vtbt.setSelected(false);
     vtbt.setDeselectionEnabled(false);
 
-    srbt.setXY(148, 32);
+    srbt.setXY(145, 32);
     srbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     srbt.setSelected(false);
     srbt.setDeselectionEnabled(false);
 
-    chtbt.setXY(210, 32);
+    chtbt.setXY(211, 32);
     chtbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID));
     chtbt.setSelected(false);
     chtbt.setDeselectionEnabled(false);
 
-    ptbt.setXY(276, 32);
+    ptbt.setXY(277, 32);
     ptbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     ptbt.setSelected(false);
     ptbt.setDeselectionEnabled(false);
 
-    sbbt.setXY(339, 32);
+    sbbt.setXY(343, 32);
     sbbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     sbbt.setSelected(false);
     sbbt.setDeselectionEnabled(false);
 
-    vsbt.setXY(404, 32);
+    vsbt.setXY(408, 32);
     vsbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     vsbt.setSelected(false);
     vsbt.setDeselectionEnabled(false);
 
-    pntxt1.setXY(49, 42);
+    pntxt1.setXY(42, 42);
     pntxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pntxt1.setLinespacing(0);
     pntxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID144));
 
-    vttxt1.setXY(112, 42);
+    vttxt1.setXY(108, 42);
     vttxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     vttxt1.setLinespacing(0);
     vttxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID145));
 
-    srtxt1.setXY(178, 42);
+    srtxt1.setXY(175, 42);
     srtxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     srtxt1.setLinespacing(0);
     srtxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID146));
 
-    chttxt1.setXY(242, 42);
+    chttxt1.setXY(243, 42);
     chttxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     chttxt1.setLinespacing(0);
     chttxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID147));
 
-    pttxt1.setXY(306, 42);
+    pttxt1.setXY(307, 42);
     pttxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pttxt1.setLinespacing(0);
     pttxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID148));
 
-    sbtxt1.setXY(372, 42);
+    sbtxt1.setXY(376, 42);
     sbtxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     sbtxt1.setLinespacing(0);
     sbtxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID149));
 
-    vstxt1.setXY(436, 42);
+    vstxt1.setXY(440, 42);
     vstxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     vstxt1.setLinespacing(0);
     vstxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID150));
@@ -170,12 +170,12 @@ dateboardViewBase::dateboardViewBase() :
     shoesmodul1.setVisible(false);
     startModul.add(shoesmodul1);
 
-    msgBox1.setXY(28, 61);
+    msgBox1.setXY(0, 0);
     msgBox1.setVisible(false);
 
     clearbox.setBackground(touchgfx::BitmapId(BITMAP_FON4_ID), 25, 61);
     clearbox.setShadeColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    clearbox.setShadeAlpha(150);
+    clearbox.setShadeAlpha(0);
     clearbox.hide();
 
     text.setXY(96, 34);

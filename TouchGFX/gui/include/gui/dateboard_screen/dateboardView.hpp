@@ -53,7 +53,10 @@ public:
     virtual void SetSunD();
 
     //вывод сообщений
-    	virtual void ShowMessage(int num);
+	virtual void ShowMessage(int num);
+
+	//экстренный возврат на главный экран
+	virtual void GoToMain();
 
 protected:
     //колбек окна создания события

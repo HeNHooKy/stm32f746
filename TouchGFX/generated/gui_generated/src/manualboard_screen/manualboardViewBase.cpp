@@ -15,13 +15,13 @@ manualboardViewBase::manualboardViewBase() :
 
     skin11.setXY(0, 0);
 
-    hoursDownLeft.setXY(17, 65);
+    hoursDownLeft.setXY(14, 65);
     hoursDownLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     hoursDownLeft.setDelay(60);
     hoursDownLeft.setInterval(6);
     hoursDownLeft.setAction(buttonCallback);
 
-    hoursUpLeft.setXY(86, 65);
+    hoursUpLeft.setXY(69, 65);
     hoursUpLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     hoursUpLeft.setDelay(60);
     hoursUpLeft.setInterval(6);
@@ -65,7 +65,7 @@ manualboardViewBase::manualboardViewBase() :
     minute1.setLinespacing(0);
     minute1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID16));
 
-    minutesDownLeft.setXY(132, 65);
+    minutesDownLeft.setXY(129, 65);
     minutesDownLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     minutesDownLeft.setDelay(60);
     minutesDownLeft.setInterval(6);
@@ -79,19 +79,19 @@ manualboardViewBase::manualboardViewBase() :
     timerMinutesLeft.resizeToCurrentText();
     timerMinutesLeft.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    minutesUpLeft.setXY(201, 65);
+    minutesUpLeft.setXY(184, 65);
     minutesUpLeft.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     minutesUpLeft.setDelay(60);
     minutesUpLeft.setInterval(6);
     minutesUpLeft.setAction(buttonCallback);
 
-    hoursDownRight.setXY(256, 65);
+    hoursDownRight.setXY(253, 65);
     hoursDownRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     hoursDownRight.setDelay(60);
     hoursDownRight.setInterval(6);
     hoursDownRight.setAction(buttonCallback);
 
-    hoursUpRight.setXY(325, 65);
+    hoursUpRight.setXY(308, 65);
     hoursUpRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     hoursUpRight.setDelay(60);
     hoursUpRight.setInterval(6);
@@ -143,7 +143,7 @@ manualboardViewBase::manualboardViewBase() :
     minute.setLinespacing(0);
     minute.setTypedText(touchgfx::TypedText(T_SINGLEUSEID24));
 
-    minutesDownRight.setXY(371, 65);
+    minutesDownRight.setXY(368, 65);
     minutesDownRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
     minutesDownRight.setDelay(60);
     minutesDownRight.setInterval(6);
@@ -157,7 +157,7 @@ manualboardViewBase::manualboardViewBase() :
     timerMinutesRight.resizeToCurrentText();
     timerMinutesRight.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    minutesUpRight.setXY(440, 65);
+    minutesUpRight.setXY(423, 65);
     minutesUpRight.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
     minutesUpRight.setDelay(60);
     minutesUpRight.setInterval(6);
@@ -169,7 +169,7 @@ manualboardViewBase::manualboardViewBase() :
     dressmodul1.setXY(0, 26);
     dressmodul1.setVisible(false);
 
-    msgBox1.setXY(25, 57);
+    msgBox1.setXY(0, 0);
     msgBox1.setVisible(false);
 
     add(fon1);

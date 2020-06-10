@@ -27,6 +27,9 @@ void MsgBox::Show(int num)
 	case 4:
 		Unicode::strncpy(messageBuffer, text1.getError4Buf(), MSG_SIZE - 1);
 		break;
+	case 5:
+		Unicode::strncpy(messageBuffer, text1.getError5Buf(), MSG_SIZE - 1);
+		break;
 	}
 	message.invalidate();
 }

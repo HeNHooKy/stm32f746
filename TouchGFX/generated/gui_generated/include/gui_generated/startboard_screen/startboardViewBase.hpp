@@ -8,9 +8,9 @@
 #include <mvp/View.hpp>
 #include <gui/startboard_screen/startboardPresenter.hpp>
 #include <touchgfx/widgets/TiledImage.hpp>
-#include <touchgfx/widgets/RepeatButton.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/RepeatButton.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/RadioButton.hpp>
 #include <touchgfx/widgets/RadioButtonGroup.hpp>
@@ -59,18 +59,18 @@ protected:
      * Member Declarations
      */
     touchgfx::TiledImage tiledImage1;
-    touchgfx::RepeatButton hoursDown;
-    touchgfx::RepeatButton hoursUp;
     touchgfx::TextAreaWithOneWildcard timerHours;
     touchgfx::TextArea hour1;
     touchgfx::TextArea minute1;
-    touchgfx::RepeatButton minutesDown;
     touchgfx::TextAreaWithOneWildcard timerMinutes;
-    touchgfx::RepeatButton minutesUp;
+    touchgfx::RepeatButton hoursDown;
+    touchgfx::RepeatButton hoursUp;
     touchgfx::ButtonWithLabel saveTime;
     touchgfx::TextArea date;
     touchgfx::TextArea textArea1;
+    touchgfx::RepeatButton minutesDown;
     touchgfx::RadioButton pnbt;
+    touchgfx::RepeatButton minutesUp;
     touchgfx::RadioButton vtbt;
     touchgfx::RadioButton srbt;
     touchgfx::RadioButton chtbt;

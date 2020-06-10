@@ -9,37 +9,38 @@
 MsgBoxBase::MsgBoxBase() :
     buttonCallback(this, &MsgBoxBase::buttonCallbackHandler)
 {
-    setWidth(430);
-    setHeight(150);
-    image1.setXY(0, 0);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_FON4_ID));
+    setWidth(480);
+    setHeight(272);
+    modal.setBackground(touchgfx::BitmapId(BITMAP_FON4_ID), 25, 57);
+    modal.setShadeColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    modal.setShadeAlpha(0);
 
-    closeMessage.setXY(198, 101);
+    closeMessage.setXY(202, 104);
     closeMessage.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_PRESED_ID));
     closeMessage.setLabelText(touchgfx::TypedText(T_SINGLEUSEID242));
     closeMessage.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     closeMessage.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
     closeMessage.setAction(buttonCallback);
+    modal.add(closeMessage);
 
-    message.setPosition(130, 10, 292, 91);
+    message.setPosition(134, 13, 292, 91);
     message.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     message.setLinespacing(0);
     messageBuffer[0] = 0;
     message.setWildcard(messageBuffer);
     message.setTypedText(touchgfx::TypedText(T_SINGLEUSEID243));
+    modal.add(message);
 
     tiledImage1.setBitmap(touchgfx::Bitmap(BITMAP_WARNING_ID));
-    tiledImage1.setPosition(-7, -3, 137, 136);
+    tiledImage1.setPosition(-3, 0, 137, 136);
     tiledImage1.setOffset(0, 0);
+    modal.add(tiledImage1);
 
-    text1.setXY(0, 0);
+    text1.setXY(4, 3);
     text1.setVisible(false);
+    modal.add(text1);
 
-    add(image1);
-    add(closeMessage);
-    add(message);
-    add(tiledImage1);
-    add(text1);
+    add(modal);
 }
 
 void MsgBoxBase::initialize()

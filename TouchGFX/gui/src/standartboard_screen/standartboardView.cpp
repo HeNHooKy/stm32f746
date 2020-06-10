@@ -141,3 +141,13 @@ void standartboardView::ShowMessage(int num)
 	fon1.invalidate();
 
 }
+
+//экстренный возврат на главный экран
+void standartboardView::GoToMain()
+{
+	StopDryLeft(dressmodul1);
+	StopDryRight(shoesmodul1);
+	application().gotomainboardScreenNoTransition();
+}
+
+

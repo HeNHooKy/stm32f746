@@ -31,8 +31,8 @@ extern "C" {
 #define ADDRESS_TIME_LEFT_OUT 111 //адрес принимающий время в левом отсеке
 #define ADDRESS_TIME_RIGHT_OUT 110 //адрес принимающий время в правом отсеке
 
-#define ADDRESS_TIME_LEFT_IN 335  //адрес таймера левой стороны
-#define ADDRESS_TIME_RIGHT_IN 332  //адрес таймера правой стороны
+#define ADDRESS_TIME_LEFT_IN 194  //адрес таймера левой стороны
+#define ADDRESS_TIME_RIGHT_IN 196  //адрес таймера правой стороны
 
 #define ADDRESS_MANUAL_MODE_RIGHT 100 //адрес состояния ручного режима работы в правом отсеке
 #define ADDRESS_MANUAL_MODE_LEFT 150 //адрес состояния ручного режима работы в левом отсеке

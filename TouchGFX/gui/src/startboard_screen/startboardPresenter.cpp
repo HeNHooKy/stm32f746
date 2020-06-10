@@ -31,3 +31,9 @@ void startboardPresenter::GetCurTimeDay(int *day, int *hour, int *minute)
 {
 	model->GetCurTimeDay(day, hour, minute);
 }
+
+//экстренный возврат на главный экран
+void startboardPresenter::GoToMain()
+{
+	view.GoToMain();
+}

@@ -14,18 +14,6 @@ startboardViewBase::startboardViewBase() :
     tiledImage1.setPosition(0, 0, 480, 272);
     tiledImage1.setOffset(0, 0);
 
-    hoursDown.setXY(107, 156);
-    hoursDown.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
-    hoursDown.setDelay(60);
-    hoursDown.setInterval(6);
-    hoursDown.setAction(buttonCallback);
-
-    hoursUp.setXY(178, 156);
-    hoursUp.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
-    hoursUp.setDelay(60);
-    hoursUp.setInterval(6);
-    hoursUp.setAction(buttonCallback);
-
     timerHours.setXY(136, 158);
     timerHours.setColor(touchgfx::Color::getColorFrom24BitRGB(8, 0, 0));
     timerHours.setLinespacing(0);
@@ -44,12 +32,6 @@ startboardViewBase::startboardViewBase() :
     minute1.setLinespacing(0);
     minute1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID42));
 
-    minutesDown.setXY(274, 156);
-    minutesDown.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
-    minutesDown.setDelay(60);
-    minutesDown.setInterval(6);
-    minutesDown.setAction(buttonCallback);
-
     timerMinutes.setXY(302, 158);
     timerMinutes.setColor(touchgfx::Color::getColorFrom24BitRGB(10, 0, 0));
     timerMinutes.setLinespacing(0);
@@ -58,11 +40,17 @@ startboardViewBase::startboardViewBase() :
     timerMinutes.resizeToCurrentText();
     timerMinutes.setTypedText(touchgfx::TypedText(T_TEXTID2));
 
-    minutesUp.setXY(343, 156);
-    minutesUp.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
-    minutesUp.setDelay(60);
-    minutesUp.setInterval(6);
-    minutesUp.setAction(buttonCallback);
+    hoursDown.setXY(97, 156);
+    hoursDown.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
+    hoursDown.setDelay(60);
+    hoursDown.setInterval(6);
+    hoursDown.setAction(buttonCallback);
+
+    hoursUp.setXY(167, 156);
+    hoursUp.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
+    hoursUp.setDelay(60);
+    hoursUp.setInterval(6);
+    hoursUp.setAction(buttonCallback);
 
     saveTime.setXY(162, 229);
     saveTime.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_ID));
@@ -81,17 +69,29 @@ startboardViewBase::startboardViewBase() :
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID47));
 
-    pnbt.setXY(19, 76);
+    minutesDown.setXY(264, 156);
+    minutesDown.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_BACK_ARROW_PASSED_ID));
+    minutesDown.setDelay(60);
+    minutesDown.setInterval(6);
+    minutesDown.setAction(buttonCallback);
+
+    pnbt.setXY(12, 76);
     pnbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     pnbt.setSelected(true);
     pnbt.setDeselectionEnabled(false);
 
-    vtbt.setXY(82, 76);
+    minutesUp.setXY(333, 156);
+    minutesUp.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_ID), touchgfx::Bitmap(BITMAP_DARK_ICONS_NEXT_ARROW_PASSED_ID));
+    minutesUp.setDelay(60);
+    minutesUp.setInterval(6);
+    minutesUp.setAction(buttonCallback);
+
+    vtbt.setXY(78, 76);
     vtbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     vtbt.setSelected(false);
     vtbt.setDeselectionEnabled(false);
 
-    srbt.setXY(148, 76);
+    srbt.setXY(145, 76);
     srbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     srbt.setSelected(false);
     srbt.setDeselectionEnabled(false);
@@ -101,32 +101,32 @@ startboardViewBase::startboardViewBase() :
     chtbt.setSelected(false);
     chtbt.setDeselectionEnabled(false);
 
-    ptbt.setXY(276, 76);
+    ptbt.setXY(278, 76);
     ptbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     ptbt.setSelected(false);
     ptbt.setDeselectionEnabled(false);
 
-    sbbt.setXY(341, 76);
+    sbbt.setXY(343, 76);
     sbbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     sbbt.setSelected(false);
     sbbt.setDeselectionEnabled(false);
 
-    vsbt.setXY(404, 76);
+    vsbt.setXY(410, 76);
     vsbt.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ROUND_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK_ID), touchgfx::Bitmap(BITMAP_BLUE_CHECK_BUTTONS_CHECK__ID));
     vsbt.setSelected(false);
     vsbt.setDeselectionEnabled(false);
 
-    pntxt1.setXY(49, 86);
+    pntxt1.setXY(44, 86);
     pntxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pntxt1.setLinespacing(0);
     pntxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID157));
 
-    vttxt1.setXY(112, 86);
+    vttxt1.setXY(109, 86);
     vttxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     vttxt1.setLinespacing(0);
     vttxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID158));
 
-    srtxt1.setXY(178, 86);
+    srtxt1.setXY(175, 86);
     srtxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     srtxt1.setLinespacing(0);
     srtxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID159));
@@ -136,34 +136,34 @@ startboardViewBase::startboardViewBase() :
     chttxt1.setLinespacing(0);
     chttxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID160));
 
-    pttxt1.setXY(306, 86);
+    pttxt1.setXY(310, 86);
     pttxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pttxt1.setLinespacing(0);
     pttxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID161));
 
-    sbtxt1.setXY(372, 86);
+    sbtxt1.setXY(374, 86);
     sbtxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     sbtxt1.setLinespacing(0);
     sbtxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID162));
 
-    vstxt1.setXY(436, 86);
+    vstxt1.setXY(442, 86);
     vstxt1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     vstxt1.setLinespacing(0);
     vstxt1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID163));
 
     add(tiledImage1);
-    add(hoursDown);
-    add(hoursUp);
     add(timerHours);
     add(hour1);
     add(minute1);
-    add(minutesDown);
     add(timerMinutes);
-    add(minutesUp);
+    add(hoursDown);
+    add(hoursUp);
     add(saveTime);
     add(date);
     add(textArea1);
+    add(minutesDown);
     add(pnbt);
+    add(minutesUp);
     add(vtbt);
     add(srbt);
     add(chtbt);
@@ -207,6 +207,18 @@ void startboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
         //Call HoursUp
         HoursUp();
     }
+    else if (&src == &saveTime)
+    {
+        //ok
+        //When saveTime clicked change screen to mainboard
+        //Go to mainboard with no screen transition
+        application().gotomainboardScreenNoTransition();
+
+        //SeveTime
+        //When saveTime clicked call virtual function
+        //Call SetTimeDate
+        SetTimeDate();
+    }
     else if (&src == &minutesDown)
     {
         //MinutesDown
@@ -220,17 +232,5 @@ void startboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
         //When minutesUp clicked call virtual function
         //Call MinutesUp
         MinutesUp();
-    }
-    else if (&src == &saveTime)
-    {
-        //ok
-        //When saveTime clicked change screen to mainboard
-        //Go to mainboard with no screen transition
-        application().gotomainboardScreenNoTransition();
-
-        //SeveTime
-        //When saveTime clicked call virtual function
-        //Call SetTimeDate
-        SetTimeDate();
     }
 }

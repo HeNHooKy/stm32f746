@@ -19,6 +19,9 @@ public:
 
     void SetTimeDate();
     void SetDay(int day);
+
+    //экстренный возврат на главный экран
+    virtual void GoToMain();
 protected:
     void Update();
     int getHours()

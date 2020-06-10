@@ -175,3 +175,11 @@ void startboardView::SetDay(int day)
 
 	}
 }
+
+//экстренный возврат на главный экран
+void startboardView::GoToMain()
+{
+	application().gotomainboardScreenNoTransition();
+}
+
+

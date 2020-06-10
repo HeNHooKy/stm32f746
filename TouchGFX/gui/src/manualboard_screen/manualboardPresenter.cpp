@@ -78,3 +78,9 @@ void manualboardPresenter::ShowMessage(int num)
 {
 	view.ShowMessage(num);
 }
+
+//экстренный возврат на главный экран
+void manualboardPresenter::GoToMain()
+{
+	view.GoToMain();
+}

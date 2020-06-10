@@ -9,6 +9,8 @@
 #include <touchgfx/Texts.hpp>
 #include <touchgfx/hal/HAL.hpp>
 #include<platform/driver/lcd/LCD24bpp.hpp>
+#include <gui/startboard_screen/startboardView.hpp>
+#include <gui/startboard_screen/startboardPresenter.hpp>
 #include <gui/mainboard_screen/mainboardView.hpp>
 #include <gui/mainboard_screen/mainboardPresenter.hpp>
 #include <gui/manualboard_screen/manualboardView.hpp>
@@ -19,8 +21,6 @@
 #include <gui/heatingboard_screen/heatingboardPresenter.hpp>
 #include <gui/dateboard_screen/dateboardView.hpp>
 #include <gui/dateboard_screen/dateboardPresenter.hpp>
-#include <gui/startboard_screen/startboardView.hpp>
-#include <gui/startboard_screen/startboardPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -38,6 +38,19 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
 /*
  * Screen Transition Declarations
  */
+
+// startboard
+
+void FrontendApplicationBase::gotostartboardScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotostartboardScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotostartboardScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<startboardView, startboardPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
 
 // mainboard
 
@@ -102,17 +115,4 @@ void FrontendApplicationBase::gotodateboardScreenNoTransition()
 void FrontendApplicationBase::gotodateboardScreenNoTransitionImpl()
 {
     touchgfx::makeTransition<dateboardView, dateboardPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
-}
-
-// startboard
-
-void FrontendApplicationBase::gotostartboardScreenNoTransition()
-{
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotostartboardScreenNoTransitionImpl);
-    pendingScreenTransitionCallback = &transitionCallback;
-}
-
-void FrontendApplicationBase::gotostartboardScreenNoTransitionImpl()
-{
-    touchgfx::makeTransition<startboardView, startboardPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

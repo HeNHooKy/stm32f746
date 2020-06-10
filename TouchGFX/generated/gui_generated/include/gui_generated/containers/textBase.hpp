@@ -34,6 +34,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard errorevent2;
     touchgfx::TextAreaWithOneWildcard errorevent3;
     touchgfx::TextAreaWithOneWildcard errorevent4;
+    touchgfx::TextAreaWithOneWildcard errorevent5;
 
     /*
      * Wildcard Buffers
@@ -60,6 +61,8 @@ protected:
     touchgfx::Unicode::UnicodeChar errorevent3Buffer[ERROREVENT3_SIZE];
     static const uint16_t ERROREVENT4_SIZE = 256;
     touchgfx::Unicode::UnicodeChar errorevent4Buffer[ERROREVENT4_SIZE];
+    static const uint16_t ERROREVENT5_SIZE = 256;
+    touchgfx::Unicode::UnicodeChar errorevent5Buffer[ERROREVENT5_SIZE];
 
 private:
 

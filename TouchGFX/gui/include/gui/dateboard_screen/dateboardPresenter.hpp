@@ -40,7 +40,10 @@ public:
 	void DisplayStatusRight(int status);
 
 	//вывод сообщений
-		virtual void ShowMessage(int num);
+	virtual void ShowMessage(int num);
+
+	//экстренный возврат на главный экран
+	virtual void GoToMain();
 private:
     dateboardPresenter();
 

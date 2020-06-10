@@ -142,3 +142,13 @@ void heatingboardView::ShowMessage(int num)
 	fon1.invalidate();
 
 }
+
+//экстренный возврат на главный экран
+void heatingboardView::GoToMain()
+{
+	StopDryLeft(dressmodul1);
+	StopDryRight(shoesmodul1);
+	application().gotomainboardScreenNoTransition();
+}
+
+

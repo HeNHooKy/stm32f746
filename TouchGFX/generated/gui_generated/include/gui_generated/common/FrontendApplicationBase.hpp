@@ -15,6 +15,9 @@ public:
     FrontendApplicationBase(Model& m, FrontendHeap& heap);
     virtual ~FrontendApplicationBase() { }
 
+    // startboard
+    void gotostartboardScreenNoTransition();
+
     // mainboard
     void gotomainboardScreenNoTransition();
 
@@ -30,13 +33,13 @@ public:
     // dateboard
     void gotodateboardScreenNoTransition();
 
-    // startboard
-    void gotostartboardScreenNoTransition();
-
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
     Model& model;
+
+    // startboard
+    void gotostartboardScreenNoTransitionImpl();
 
     // mainboard
     void gotomainboardScreenNoTransitionImpl();
@@ -52,9 +55,6 @@ protected:
 
     // dateboard
     void gotodateboardScreenNoTransitionImpl();
-
-    // startboard
-    void gotostartboardScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

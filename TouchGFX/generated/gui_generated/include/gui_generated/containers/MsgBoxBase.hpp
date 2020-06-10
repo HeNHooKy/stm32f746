@@ -6,7 +6,8 @@
 
 #include <gui/common/FrontendApplication.hpp>
 #include <touchgfx/containers/Container.hpp>
-#include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/containers/ModalWindow.hpp>
+#include <touchgfx/Color.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TiledImage.hpp>
@@ -35,7 +36,7 @@ protected:
     /*
      * Member Declarations
      */
-    touchgfx::Image image1;
+    touchgfx::ModalWindow modal;
     touchgfx::ButtonWithLabel closeMessage;
     touchgfx::TextAreaWithOneWildcard message;
     touchgfx::TiledImage tiledImage1;

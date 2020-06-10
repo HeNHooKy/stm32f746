@@ -54,6 +54,7 @@ void dateboardView::tearDownScreen()
     dateboardViewBase::tearDownScreen();
 }
 
+
 //показать окно добавления события
 void dateboardView::CallAddEvent()
 {
@@ -305,8 +306,13 @@ void dateboardView::ShowMessage(int num)
 	startModul.invalidate();
 }
 
-
-
+//экстренный возврат на главный экран
+void dateboardView::GoToMain()
+{
+	StopDryLeft(dressmodul1);
+	StopDryRight(shoesmodul1);
+	application().gotomainboardScreenNoTransition();
+}
 
 
 

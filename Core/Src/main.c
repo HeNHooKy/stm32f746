@@ -86,6 +86,7 @@ osThreadId defaultTaskHandHandle;
 osThreadId UartControllerTHandle;
 osThreadId TTCheckTaskHandle;
 osThreadId EventsTaskHandle;
+osThreadId SleepModeHandle;
 osSemaphoreId InformationUpdateSemHandle;
 /* USER CODE BEGIN PV */
 static FMC_SDRAM_CommandTypeDef Command;
@@ -107,6 +108,7 @@ void StartDefaultTask(void const * argument);
 void StartUCTask(void const * argument);
 void TTChecker(void const * argument);
 void EventsStart(void const * argument);
+void SleepModeTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -204,6 +206,10 @@ int main(void)
   /* definition and creation of EventsTask */
   osThreadDef(EventsTask, EventsStart, osPriorityIdle, 0, 128);
   EventsTaskHandle = osThreadCreate(osThread(EventsTask), NULL);
+
+  /* definition and creation of SleepMode */
+  osThreadDef(SleepMode, SleepModeTask, osPriorityIdle, 0, 128);
+  SleepModeHandle = osThreadCreate(osThread(SleepMode), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -521,8 +527,8 @@ static void MX_RTC_Init(void)
 
   /* USER CODE END RTC_Init 0 */
 
-  RTC_TimeTypeDef sTime = {0};
-  RTC_DateTypeDef sDate = {0};
+  //RTC_TimeTypeDef sTime = {0};
+  //RTC_DateTypeDef sDate = {0};
 
   /* USER CODE BEGIN RTC_Init 1 */
 
@@ -545,29 +551,10 @@ static void MX_RTC_Init(void)
     
   /* USER CODE END Check_RTC_BKUP */
 
-
+  /** Initialize RTC and set the Time and Date 
+   */
   /* USER CODE BEGIN RTC_Init 2 */
-  if(CheckTimeDate())
-  	{
-  		sTime.Hours = 0;
-  		sTime.Minutes = 0;
-  		sTime.Seconds = 0;
-  		sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-  		sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  		if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK)
-  		{
-  			Error_Handler();
-  		}
-  		sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-  		sDate.Month = RTC_MONTH_JANUARY;
-  		sDate.Date = 1;
-  		sDate.Year = 50;
 
-  		if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
-  		{
-  			Error_Handler();
-  		}
-  	}
   /* USER CODE END RTC_Init 2 */
 
 }
@@ -745,7 +732,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(DCMI_PWR_EN_GPIO_Port, DCMI_PWR_EN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, ARDUINO_D4_Pin|ARDUINO_D2_Pin|EXT_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(EXT_RST_GPIO_Port, EXT_RST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
@@ -999,11 +986,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_HS;
   HAL_GPIO_Init(ULPI_NXT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ARDUINO_D4_Pin ARDUINO_D2_Pin EXT_RST_Pin */
-  GPIO_InitStruct.Pin = ARDUINO_D4_Pin|ARDUINO_D2_Pin|EXT_RST_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  /*Configure GPIO pins : PG7 PG6 RMII_RXER_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_6|RMII_RXER_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ARDUINO_A4_Pin ARDUINO_A5_Pin ARDUINO_A1_Pin ARDUINO_A2_Pin 
@@ -1030,11 +1016,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : RMII_RXER_Pin */
-  GPIO_InitStruct.Pin = RMII_RXER_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pin : EXT_RST_Pin */
+  GPIO_InitStruct.Pin = EXT_RST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(RMII_RXER_GPIO_Port, &GPIO_InitStruct);
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(EXT_RST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RMII_REF_CLK_Pin RMII_MDIO_Pin RMII_CRS_DV_Pin */
   GPIO_InitStruct.Pin = RMII_REF_CLK_Pin|RMII_MDIO_Pin|RMII_CRS_DV_Pin;
@@ -1165,6 +1152,8 @@ void StartDefaultTask(void const * argument)
 }
 
 /* USER CODE BEGIN Header_StartUCTask */
+
+
 /**
 * @brief Function implementing the UartControllerT thread.
 * @param argument: Not used
@@ -1176,6 +1165,7 @@ void StartUCTask(void const * argument)
   /* USER CODE BEGIN StartUCTask */
 	for(;;)
 	{
+
 		//выполнение запросов
 		UC_Routine();
 		osDelay(10);
@@ -1185,13 +1175,11 @@ void StartUCTask(void const * argument)
 }
 
 /* USER CODE BEGIN Header_TTChecker */
+
+
 //проеврека необходимости отображанеия требования пройти сервисное обслуживание
 unsigned int answerServices = NULL_ADDRESS;
 int statusServices = NULL_ADDRESS;
-
-//проверка на перегрев
-unsigned int Hot = NULL_ADDRESS;
-int HotStatus = NULL_ADDRESS;
 
 
 
@@ -1241,6 +1229,8 @@ void UC_REQUESTER()
 	}
 }
 
+
+
 /**
 * @brief Function implementing the TTCheckTask thread.
 * @param argument: Not used
@@ -1259,8 +1249,6 @@ void TTChecker(void const * argument)
 		  HAL_GPIO_TogglePin(GPIOI, GPIO_PIN_1);
 	  }
 
-	  //запрос на перегрев
-	  UC_SEND(0, GROUP_M, ADDRESS_TOO_HOT, UC_REQUEST, &Hot, &HotStatus);
 
 	  //запрос на сервисное обслуживание
 	  UC_SEND(0, GROUP_M, ADDRESS_SERVICE_MAINTENANCE, UC_REQUEST, &answerServices, &statusServices);
@@ -1271,21 +1259,13 @@ void TTChecker(void const * argument)
 	  //задержка
 	  osDelay(REQUEST_FREQ);
 
-	  //проверка не перегрев
-	  if(Hot == 1)
-	  {		//перегрев
-		  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_6, GPIO_PIN_SET);
-	  }
-	  else
-	  {		//Все впорядке
-		  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_6, GPIO_PIN_RESET);
-	  }
   }
   /* USER CODE END TTChecker */
 }
 
 /* USER CODE BEGIN Header_EventsStart */
-int isBeingWorking = 0;
+
+int isBeingWorking = 0;	//РАЗРЕШЕН�?Е РАБОТЫ РАСП�?САН�?Я
 
 /**
 * @brief Function implementing the EventsTask thread.
@@ -1358,6 +1338,63 @@ void EventsStart(void const * argument)
 		osDelay(EVENT_EXECUTE_FREQ);
 	}
   /* USER CODE END EventsStart */
+}
+
+/* USER CODE BEGIN Header_SleepModeTask */
+int GoToMain = 0;	//ПР�?НУД�?ТЕЛЬНЫЙ ПЕРЕХОД НА ГЛАВНЫЙ ЭКРАН
+/**
+* @brief Function implementing the SleepMode thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_SleepModeTask */
+void SleepModeTask(void const * argument)
+{
+  /* USER CODE BEGIN SleepModeTask */
+  /* Infinite loop */
+	int isSet = 1;
+	int isChange = 0;
+  for(;;)
+  {
+	if(HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_7) == GPIO_PIN_SET && !isSet)
+	{
+		isSet = 1;
+		isChange = 1;
+	}
+
+	if(HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_7) == GPIO_PIN_RESET && isSet)
+	{
+		isSet = 0;
+		isChange = 1;
+	}
+
+	if(HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_7) == GPIO_PIN_SET && isChange)
+	{
+		//включаем подсветку
+		HAL_GPIO_WritePin(GPIOK, GPIO_PIN_3, GPIO_PIN_SET);
+		//включаем main mode
+		HAL_GPIO_WritePin(GPIOI, GPIO_PIN_12, GPIO_PIN_SET);
+		//возвращаем к жизни hi2c3 - тачпад
+		MX_I2C3_Init();
+		isChange = 0;
+	}
+	else if(isChange)
+	{
+		//выключаем подсветку
+		HAL_GPIO_WritePin(GPIOK, GPIO_PIN_3, GPIO_PIN_RESET);
+		//включаем дежурный режим
+		HAL_GPIO_WritePin(GPIOI, GPIO_PIN_12, GPIO_PIN_RESET);
+		//блокируем тачпад
+		hi2c3.Lock = HAL_LOCKED;
+		//ставим флажок возврата - в model сработает сброс на основной экран
+		GoToMain = 1;
+		//ставим флажок вызова событий в false, чтобы остановить выполнения сушек по расписанию
+		isBeingWorking = 0;
+		isChange = 0;
+	}
+    osDelay(10);
+  }
+  /* USER CODE END SleepModeTask */
 }
 
 /* MPU Configuration */

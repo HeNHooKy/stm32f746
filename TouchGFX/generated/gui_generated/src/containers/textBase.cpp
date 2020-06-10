@@ -108,6 +108,15 @@ textBase::textBase()
     errorevent4.resizeToCurrentText();
     errorevent4.setTypedText(touchgfx::TypedText(T_SINGLEUSEID278));
 
+    errorevent5.setXY(0, 0);
+    errorevent5.setVisible(false);
+    errorevent5.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    errorevent5.setLinespacing(0);
+    Unicode::snprintf(errorevent5Buffer, ERROREVENT5_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID281).getText());
+    errorevent5.setWildcard(errorevent5Buffer);
+    errorevent5.resizeToCurrentText();
+    errorevent5.setTypedText(touchgfx::TypedText(T_SINGLEUSEID280));
+
     add(pn);
     add(vt);
     add(sr);
@@ -119,6 +128,7 @@ textBase::textBase()
     add(errorevent2);
     add(errorevent3);
     add(errorevent4);
+    add(errorevent5);
 }
 
 void textBase::initialize()

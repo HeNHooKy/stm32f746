@@ -47,7 +47,6 @@ protected:
     touchgfx::ButtonWithLabel Standartboard;
     touchgfx::ButtonWithLabel Dateboard;
     touchgfx::DigitalClock RealClock;
-    touchgfx::Button SetTimeBT;
     touchgfx::Button WaringBT;
     touchgfx::TextAreaWithOneWildcard day;
     touchgfx::Image logo;
@@ -56,6 +55,7 @@ protected:
     touchgfx::TextArea textArea1;
     touchgfx::ButtonWithLabel okbt;
     text text1;
+    touchgfx::Button SetTimeBT;
     MsgBox msgBox1;
 
     /*

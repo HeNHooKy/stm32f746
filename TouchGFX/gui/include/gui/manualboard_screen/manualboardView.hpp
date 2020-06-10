@@ -44,6 +44,8 @@ public:
 
 	//вывод уведомлений
 	virtual void ShowMessage(int num);
+	//экстренный возврат на главный экран
+	virtual void GoToMain();
 
 protected:
 	//контроль "штор"
@@ -190,8 +192,8 @@ protected:
         	}
         }
 private:
-    int tempLeft = 60;
-    int tempRight = 60;
+    int tempLeft = 40;
+    int tempRight = 40;
     int hoursLeftTimer = 12;
     int minutesLeftTimer = 0;
     int hoursRightTimer = 12;

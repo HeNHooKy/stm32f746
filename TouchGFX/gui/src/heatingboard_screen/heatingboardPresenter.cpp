@@ -72,3 +72,9 @@ void heatingboardPresenter::ShowMessage(int num)
 {
 	view.ShowMessage(num);
 }
+
+//экстренный возврат на главный экран
+void heatingboardPresenter::GoToMain()
+{
+	view.GoToMain();
+}

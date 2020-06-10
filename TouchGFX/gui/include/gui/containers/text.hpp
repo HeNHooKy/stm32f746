@@ -25,6 +25,7 @@ public:
     touchgfx::Unicode::UnicodeChar *getError2Buf();
     touchgfx::Unicode::UnicodeChar *getError3Buf();
     touchgfx::Unicode::UnicodeChar *getError4Buf();
+    touchgfx::Unicode::UnicodeChar *getError5Buf();
 protected:
 };
 

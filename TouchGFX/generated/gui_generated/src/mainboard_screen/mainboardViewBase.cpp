@@ -48,16 +48,12 @@ mainboardViewBase::mainboardViewBase() :
     RealClock.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
     RealClock.setTime24Hour(10, 10, 0);
 
-    SetTimeBT.setXY(358, 12);
-    SetTimeBT.setBitmaps(touchgfx::Bitmap(BITMAP_ICONTIME_ID), touchgfx::Bitmap(BITMAP_ICONTIME_ID));
-    SetTimeBT.setAction(buttonCallback);
-
     WaringBT.setXY(436, 60);
     WaringBT.setVisible(false);
     WaringBT.setBitmaps(touchgfx::Bitmap(BITMAP_WARNING_S_ID), touchgfx::Bitmap(BITMAP_WARNING_S_ID));
     WaringBT.setAction(buttonCallback);
 
-    day.setXY(396, 16);
+    day.setXY(396, 15);
     day.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     day.setLinespacing(0);
     Unicode::snprintf(dayBuffer, DAY_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID212).getText());
@@ -94,7 +90,11 @@ mainboardViewBase::mainboardViewBase() :
     text1.setXY(0, 0);
     text1.setVisible(false);
 
-    msgBox1.setXY(23, 61);
+    SetTimeBT.setXY(335, 10);
+    SetTimeBT.setBitmaps(touchgfx::Bitmap(BITMAP_ICONTIME_ID), touchgfx::Bitmap(BITMAP_ICONTIME_ID));
+    SetTimeBT.setAction(buttonCallback);
+
+    msgBox1.setXY(0, 0);
     msgBox1.setVisible(false);
 
     add(fon);
@@ -103,12 +103,12 @@ mainboardViewBase::mainboardViewBase() :
     add(Standartboard);
     add(Dateboard);
     add(RealClock);
-    add(SetTimeBT);
     add(WaringBT);
     add(day);
     add(logo);
     add(servises);
     add(text1);
+    add(SetTimeBT);
     add(msgBox1);
 }
 
@@ -148,13 +148,6 @@ void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //Go to dateboard with no screen transition
         application().gotodateboardScreenNoTransition();
     }
-    else if (&src == &SetTimeBT)
-    {
-        //SetTime
-        //When SetTimeBT clicked change screen to startboard
-        //Go to startboard with no screen transition
-        application().gotostartboardScreenNoTransition();
-    }
     else if (&src == &WaringBT)
     {
         //MsgServiceMaintenance
@@ -169,5 +162,12 @@ void mainboardViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //Hide servises
         servises.setVisible(false);
         servises.invalidate();
+    }
+    else if (&src == &SetTimeBT)
+    {
+        //SetTime
+        //When SetTimeBT clicked change screen to startboard
+        //Go to startboard with no screen transition
+        application().gotostartboardScreenNoTransition();
     }
 }

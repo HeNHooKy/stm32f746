@@ -8,7 +8,6 @@
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/widgets/AnimatedImage.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
@@ -38,13 +37,13 @@ protected:
      */
     touchgfx::Image image3;
     touchgfx::TextArea shoestext;
-    touchgfx::AnimatedImage animatedImage2;
     touchgfx::DigitalClock time;
     touchgfx::Button stop2;
     touchgfx::Image image1;
     touchgfx::TextAreaWithOneWildcard temp;
     touchgfx::TextArea textArea3;
     touchgfx::TextArea shoes;
+    touchgfx::Image image3_1;
 
     /*
      * Wildcard Buffers
